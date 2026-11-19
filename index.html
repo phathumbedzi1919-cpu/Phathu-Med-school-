@@ -3,1580 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PHATHU ACADEMY - The Medical Academy | MBChB 1st to 6th Year + Doctors</title>
+<title>Phathu Academy - Medical Students Only</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
-body{background:#060f0c;color:#fff;min-height:100vh}
-.container{max-width:580px;margin:0 auto;padding:16px 16px 80px}
-.logo{font-size:32px;font-weight:900;text-align:center;line-height:1;margin:18px 0 4px;letter-spacing:1px}
-.logo span{color:#00e5a0}
-.tag{text-align:center;color:#9db8ad;font-size:13px;line-height:1.6;margin-bottom:14px}
-.card{background:#12211b;border:1px solid #234034;border-radius:18px;padding:20px;margin-bottom:12px}
-.card h2{margin-bottom:8px;font-size:19px}.card h3{color:#00e5a0;margin:14px 0 6px}
-.card p{color:#c8dcd2;line-height:1.7;font-size:14px}
-button{width:100%;padding:15px;background:#00e5a0;color:#00281c;font-weight:900;border:none;border-radius:12px;font-size:16px;cursor:pointer;margin-bottom:10px}
-button.sec{background:#1c332a;color:#fff;border:1px solid #33544a}
-button.gold{background:#ffaa00;color:#000}
-button.small{width:auto;padding:8px 14px;font-size:13px;margin:0 6px 8px 0}
-input,select{width:100%;padding:14px;margin-bottom:10px;background:#0f1f18;border:1px solid #2a4a3c;border-radius:10px;color:#fff;font-size:15px}
-.hidden{display:none}
-.badge{display:inline-block;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:800}
-.green{background:#00e5a0;color:#00281c}.yellow{background:#ffaa00;color:#000}.red{background:#ff4444;color:#fff}.grey{background:#333;color:#fff}
-.top{display:flex;gap:8px;margin-bottom:14px}.top button{flex:1;padding:12px;font-size:14px;margin:0}
-.hero{background:linear-gradient(135deg,#00e5a0,#00b8ff);color:#00281c;border-radius:20px;padding:24px;text-align:center;margin-bottom:12px}
-.hero h1{font-size:26px;line-height:1.2}.hero p{color:#00281c;font-weight:600;margin:10px 0;line-height:1.6}
-.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.price{border:2px solid #2a4a3c;border-radius:14px;padding:14px;text-align:center;cursor:pointer}
-.price.active{border-color:#00e5a0;background:#00e5a0;color:#00281c}.price.active small{color:#00281c}.price small{color:#9db8ad;display:block;line-height:1.5;font-size:12px}
-.mod{ background:#0f1f18;border:1px solid #234034;padding:15px;border-radius:13px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-.mod b{font-size:15px}.mod small{color:#9db8ad;display:block;margin-top:3px}
-.lesson-box{background:#0f1f18;border:1px solid #234034;padding:16px;border-radius:13px;margin-bottom:10px;line-height:1.8;color:#d6e8de;white-space:pre-wrap;font-size:14px}
-.quiz-q{background:#0f1f18;border:1px solid #2a4a3c;padding:14px;border-radius:12px;margin-bottom:10px}
-.quiz-q label{display:block;padding:10px;background:#12211b;border:1px solid #2a4a3c;border-radius:9px;margin:6px 0;cursor:pointer;font-size:14px}
-.draw{ background:#fff;border-radius:14px;padding:12px;margin:10px 0;text-align:center;color:#000}
-.draw svg{max-width:100%;height:auto}
-.year-tab{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.year-tab button{flex:1;padding:10px;font-size:12px;margin:0}
-.score{font-size:32px;font-weight:900;color:#00e5a0;text-align:center}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+  body{background:#07110e;color:white;min-height:100vh}
+  .container{max-width:520px;margin:0 auto;padding:20px}
+  .logo{font-size:30px;font-weight:900;text-align:center;margin:26px 0 5px;line-height:1.1}
+  .logo span{color:#00e5a0}
+  .tagline{text-align:center;color:#9db8ad;margin-bottom:22px;line-height:1.5}
+  .card{background:#12211b;border-radius:16px;padding:20px;margin-bottom:12px;border:1px solid #234034}
+  h2{margin-bottom:12px}
+  input[type="text"],input[type="email"],input[type="password"],select{width:100%;padding:14px;margin-bottom:12px;background:#0f1f18;border:1px solid #2a4a3c;border-radius:10px;color:white;font-size:16px}
+  button{width:100%;padding:14px;background:#00e5a0;color:#00281c;font-weight:800;border:none;border-radius:10px;font-size:16px;cursor:pointer;margin-bottom:10px}
+  button.secondary{background:#1c332a;color:white;border:1px solid #33544a}
+  button.danger{background:#ff4444;color:white}
+  button.small{width:auto;padding:8px 14px;font-size:13px;margin:0 6px 10px 0}
+  .link{text-align:center;color:#00e5a0;cursor:pointer;margin-top:12px}
+  .hidden{display:none}
+  .badge{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;display:inline-block;margin-top:6px}
+  .pending{background:#ffaa00;color:#000}.approved{background:#00e5a0;color:#000}.rejected{background:#ff4444;color:white}
+  .user-row{background:#0f1f18;padding:14px;border-radius:12px;margin-bottom:10px;border:1px solid #234034}
+  .section-title{font-size:13px;letter-spacing:1px;color:#00e5a0;margin:18px 0 8px;text-transform:uppercase;font-weight:800}
+  .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+  .check-item{background:#0f1f18;border:1px solid #2a4a3c;border-radius:10px;padding:11px 10px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px}
+  .check-item:has(input:checked){background:#00e5a0;color:#00281c;border-color:#00e5a0;font-weight:700}
+  .check-item input{width:18px;height:18px;accent-color:#00e5a0;margin:0;flex-shrink:0}
+  .lesson{background:#0f1f18;padding:14px;border-radius:12px;margin-bottom:8px;border:1px solid #234034;display:flex;justify-content:space-between;align-items:center}
+  .lesson small{color:#9db8ad}
+  .count-box{background:#00e5a0;color:#00281c;padding:10px;border-radius:10px;text-align:center;font-weight:800;margin-bottom:12px}
+  .role-box{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+  .role-option{background:#0f1f18;border:2px solid #2a4a3c;border-radius:12px;padding:14px;text-align:center;cursor:pointer}
+  .role-option.active{border-color:#00e5a0;background:#00e5a0;color:#00281c;font-weight:800}
+  .role-option small{display:block;font-weight:400;opacity:0.8}
 </style>
 </head>
 <body>
 <div class="container">
-<div class="logo">PHATHU<span><br>ACADEMY</span></div>
-<p class="tag">The Medical Academy • MBChB 1st Year → 6th Year • Interns • Doctors<br>Learn. Pass. Become. • South Africa</p>
 
-<div class="top">
-<button onclick="show('home')">🏠 Home</button>
-<button onclick="show('pricing')">💳 Pricing</button>
-<button onclick="show('signup')">📝 Sign Up</button>
-<button onclick="show('login')">🔑 Login</button>
-</div>
+  <div id="page-landing">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <p class="tagline">Medical Students Only.<br>Choose ALL modules you want to study.<br>Admin approves. Student learns.</p>
+    <div class="card">
+      <h2>🩺 How To Use</h2>
+      <p style="color:#b8d0c6;line-height:1.7"><b style="color:white">Student:</b> Sign Up → Choose modules → Wait → Login as Student<br><br><b style="color:white">Admin / Owner:</b> Login → Select Admin → Approve / Reject</p>
+      <button onclick="show('signup')">Apply - Student Sign Up</button>
+      <button class="secondary" onclick="show('login')">Sign In - Choose Student or Admin</button>
+    </div>
+  </div>
 
-<!-- ============ HOME ============ -->
-<div id="view-home">
-<div class="hero">
-<h1>Medicine, Made Real.<br>Anatomy That Feels Alive.</h1>
-<p>From DNA → Cell → Organ → System → Patient.<br>Drawings, Real Notes, Quizzes, Memos, OSCE, ECG, Drugs.</p>
-<button style="background:#00281c;color:#fff" onclick="show('pricing')">See Pricing & Join → R199/month</button>
-<p style="font-size:12px;margin-top:8px">Capitec 1677195051 • WhatsApp 082 962 8700 • nevergobroke123456@gmail.com</p>
-</div>
+  <div id="page-signup" class="hidden">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <div class="card">
+      <h2>Student Application</h2>
+      <input id="su-name" type="text" placeholder="Name">
+      <input id="su-surname" type="text" placeholder="Surname">
+      <input id="su-email" type="email" placeholder="Email">
+      <input id="su-password" type="password" placeholder="Password">
+      <select id="su-year"><option>1st Year MBChB</option><option>2nd Year MBChB</option><option>3rd Year MBChB</option><option>4th Year MBChB</option><option>5th Year MBChB</option><option>6th Year MBChB</option><option>Nursing Student</option><option>Other Health Sciences</option></select>
+      <input id="su-university" type="text" placeholder="University e.g. UP, SMU, UCT">
+      <h2>📚 Choose Modules</h2>
+      <p style="color:#b8d0c6;font-size:13px;margin-bottom:12px">Tick as many as you want.</p>
+      <button class="small secondary" onclick="selectAll(true)">✅ Select All</button>
+      <button class="small secondary" onclick="selectAll(false)">Clear</button>
+      <div class="count-box" id="selected-count">0 modules selected</div>
+      <div class="section-title">Pre-Clinical</div><div class="check-grid" id="pre-grid"></div>
+      <div class="section-title">Clinical</div><div class="check-grid" id="clin-grid"></div>
+      <button onclick="signup()">Submit Application</button>
+      <p class="link" onclick="show('login')">Already approved? Login</p>
+      <p class="link" onclick="show('landing')">← Back Home</p>
+    </div>
+  </div>
 
-<div class="card"><h2>🎯 Choose Your Year - Start Learning</h2><p>Tap your year. Every module, every lesson, every quiz is inside.</p>
-<div class="year-tab">
-<button onclick="filterYear('1')">1st Year</button><button onclick="filterYear('2')">2nd Year</button><button onclick="filterYear('3')">3rd Year</button>
-</div>
-<div class="year-tab">
-<button onclick="filterYear('4')">4th Year</button><button onclick="filterYear('5')">5th Year</button><button onclick="filterYear('6')">6th Year</button>
-</div>
-<div class="year-tab">
-<button class="sec" onclick="filterYear('DOC')">👨‍⚕️ Doctors / Interns</button><button class="sec" onclick="filterYear('ALL')">All Modules</button>
-</div>
-<div id="home-modules"></div>
-</div>
+  <div id="page-login" class="hidden">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <div class="card">
+      <h2>Sign In - Who Are You?</h2>
+      <div class="role-box">
+        <div id="role-student" class="role-option active" onclick="setRole('student')">🎓 STUDENT<small>Learn modules</small></div>
+        <div id="role-admin" class="role-option" onclick="setRole('admin')">👑 ADMIN<small>Approve students</small></div>
+      </div>
+      <input id="li-email" type="email" placeholder="Email">
+      <input id="li-password" type="password" placeholder="Password">
+      <div id="admin-code-box" class="hidden">
+        <input id="li-admincode" type="password" placeholder="Admin Code">
+        <p style="color:#ffaa00;font-size:13px;margin-bottom:12px">Only the owner knows this code.</p>
+      </div>
+      <button onclick="login()">Sign In As <span id="login-role-label">Student</span></button>
+      <p id="login-msg" style="color:#ff7777;text-align:center;margin-top:10px"></p>
+      <p class="link" onclick="show('signup')">Not approved yet? Apply Here</p>
+      <p class="link" onclick="show('landing')">← Back Home</p>
+    </div>
+    <div class="card" style="font-size:13px;color:#9db8ad;text-align:center">
+      Medical Students Only • Phathu Academy<br>Having trouble? Contact Admin.
+    </div>
+  </div>
 
-<div class="card"><h2>🔥 Why Phathu Is Different</h2>
-<p>• <b style="color:#fff">Anatomy in 3D Feeling:</b> We don't just list bones. We walk inside the body.<br>
-- <b style="color:#fff">Biochemistry Like A Movie:</b> You SEE glucose become ATP.<br>
-- <b style="color:#fff">Pharmacology Like Stories:</b> Every drug has a character, a mission, a side-effect.<br>
-- <b style="color:#fff">Every Lesson Ends With Quiz + Memo + Score.</b> You know if you are ready.<br>
-- <b style="color:#fff">OSCE, ECG, Surgery, Medicine</b> - All in one place.</p>
-<button onclick="show('signup')">Apply Now - Student Sign Up →</button>
-<button class="sec" onclick="show('pricing')">💳 Pricing - R99 / R199 / R299</button>
-</div>
+  <div id="page-pending" class="hidden">
+    <div class="card" style="text-align:center;padding:28px 10px"><h1 style="font-size:48px">🩺⏳</h1><h2>Application Received</h2><p id="pending-modules" style="color:#b8d0c6;line-height:1.6;margin:12px 0"></p><p style="color:#ffaa00;font-size:13px">Now Admin must approve you.</p><button onclick="logout()">Back To Home</button></div>
+  </div>
 
-<div class="card"><h2>📊 What You Get</h2><p>✅ 50+ Modules • 300+ Lessons • 500+ Quiz Questions<br>✅ Drawings: Heart, Brain, DNA, Cell, Bacteria, Kidney, Lungs<br>✅ Summaries + High-Yield Highlights for Exams<br>✅ Track Your Scores - See Your Weak Topics<br>✅ Approved By Admin - Safe, Medical Students Only</p></div>
-</div>
+  <div id="page-dashboard" class="hidden">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <div class="card"><h2 id="dash-welcome">Welcome</h2><p id="dash-course" style="color:#00e5a0"></p><p id="dash-university" style="color:#b8d0c6;margin-top:4px"></p><p style="margin-top:10px">Status: <span class="badge approved">APPROVED</span> • Role: Student</p></div>
+    <div class="card"><h2>My Modules <span id="my-count" style="color:#00e5a0;font-size:16px"></span></h2><div id="modules-list"></div></div>
+    <button class="secondary" onclick="logout()">Log Out</button>
+  </div>
 
-<!-- ============ PRICING ============ -->
-<div id="view-pricing" class="hidden">
-<div class="card"><h2>💳 Membership - Choose Your Plan</h2><p>Pay monthly. Cancel anytime. Access unlocks after Admin approves your payment.</p>
-<div class="price-grid">
-<div class="price" onclick="pickPlan('BASIC',99,this)"><b>BASIC<br>R99/mo</b><small>1-5 Modules<br>Lessons + Notes<br>Quizzes</small></div>
-<div class="price active" onclick="pickPlan('ALL ACCESS',199,this)"><b>🔥 ALL ACCESS<br>R199/mo ⭐</b><small>ALL 50+ Modules<br>All Lessons + Quizzes<br>OSCE + ECG</small></div>
-</div>
-<div class="price-grid" style="margin-top:10px">
-<div class="price" onclick="pickPlan('PREMIUM',299,this)"><b>👑 PREMIUM<br>R299/mo</b><small>All Access +<br>1-on-1 Help<br>WhatsApp Group</small></div>
-<div class="price" onclick="pickPlan('DOCTORS',399,this)"><b>👨‍⚕️ DOCTORS<br>R399/mo</b><small>Intern / MO<br>CPD Prep<br>Case Discussions</small></div>
-</div>
-</div>
-<div class="card"><h2>How To Pay - Capitec EFT</h2>
-<div style="background:#0f1f18;border:1px dashed #00e5a0;padding:14px;border-radius:12px;line-height:1.9">
-Bank: <b>Capitec Bank</b><br>Account Name: <b>Phathu Mbedzi</b><br>Account No: <b>1677195051</b> <button class="small" onclick="navigator.clipboard.writeText('1677195051');alert('Copied 1677195051')">Copy</button><br>Reference: <b>YOUR EMAIL</b><br>Amount: <b>R<span id="pay-amt">199</span> - <span id="pay-plan">ALL ACCESS</span></b>
-</div><br>
-<p>1. Pay in Capitec App<br>2. Screenshot proof<br>3. Send on WhatsApp below<br>4. Admin marks you PAID in 5 mins</p>
-<button onclick="sendWA()">📲 Send Proof on WhatsApp - 082 962 8700</button>
-<button class="sec" onclick="sendMail()">📧 Send Proof via Email</button>
-<button class="gold" onclick="show('signup')">I Paid - Now Sign Up / Login →</button>
-</div>
-<button class="sec" onclick="show('home')">← Back Home</button>
-</div>
-
-<!-- ============ SIGNUP ============ -->
-<div id="view-signup" class="hidden">
-<div class="card"><h2>📝 Student Application - Medical Students Only</h2>
-<input id="su-name" placeholder="Full Name e.g. Phathutshedzo">
-<input id="su-surname" placeholder="Surname e.g. Mbedzi">
-<input id="su-email" type="email" placeholder="Email - use this as payment reference">
-<input id="su-pass" type="password" placeholder="Create Password">
-<select id="su-year"><option>1st Year MBChB</option><option selected>2nd Year MBChB</option><option>3rd Year MBChB</option><option>4th Year MBChB</option><option>5th Year MBChB</option><option>6th Year MBChB</option><option>Intern Doctor</option><option>Medical Officer / Doctor</option><option>Nursing / Other Health Science</option></select>
-<input id="su-uni" placeholder="University / Institution">
-<p style="font-size:13px;margin-bottom:8px">Choose modules you want (you can choose ALL):</p>
-<div id="su-mods"></div>
-<button onclick="doSignup()">Submit Application → Then Pay R199</button>
-<p style="text-align:center;font-size:12px">After signup you are PENDING until Admin approves + marks you PAID.</p>
-<p style="text-align:center;color:#00e5a0;cursor:pointer" onclick="show('login')">Already have account? Login</p>
-</div>
-</div>
-
-<!-- ============ LOGIN ============ -->
-<div id="view-login" class="hidden">
-<div class="card"><h2>🔑 Sign In</h2>
-<div class="top"><button id="btn-role-stu" onclick="setRole('student')">🎓 Student</button><button id="btn-role-adm" class="sec" onclick="setRole('admin')">👑 Admin</button></div>
-<input id="li-email" type="email" placeholder="Email">
-<input id="li-pass" type="password" placeholder="Password">
-<input id="li-code" type="password" placeholder="Admin Code (Admin only)" class="hidden">
-<button onclick="doLogin()">Sign In</button>
-<p id="login-msg" style="color:#ff7777;text-align:center"></p>
-<p style="text-align:center;color:#00e5a0;cursor:pointer" onclick="show('signup')">No account? Sign Up</p>
-<p style="text-align:center;color:#00e5a0;cursor:pointer" onclick="show('pricing')">Need to Pay? See Pricing</p>
-</div>
-</div>
-
-<!-- ============ PENDING ============ -->
-<div id="view-pending" class="hidden">
-<div class="card" style="border:2px solid #ffaa00;text-align:center"><h2>⏳ Pending Approval</h2><p id="pending-txt"></p></div>
-<div class="card" style="border:2px solid #00e5a0"><h2>💳 Pay Now To Get Unlocked</h2><p>Pay R199 to Capitec 1677195051 • Ref: Your Email • Send proof on WhatsApp 082 962 8700</p><button onclick="show('pricing')">Go To Pricing & Pay →</button></div>
-<button class="sec" onclick="doLogout()">Log Out</button>
-</div>
-
-<!-- ============ DASHBOARD ============ -->
-<div id="view-dash" class="hidden">
-<div class="card"><h2 id="dash-welcome">Welcome</h2><p id="dash-info"></p><p><span class="badge green">APPROVED</span> <span class="badge yellow" id="dash-pay">UNPAID</span> <span class="badge grey" id="dash-score">Score: 0%</span></p></div>
-<div class="card" style="border:2px solid #00e5a0"><h3>💳 Membership</h3><p id="dash-mem">Capitec 1677195051 • Pay R199 monthly</p><button onclick="show('pricing')">Pay / Renew →</button></div>
-<div class="card"><h2>My Modules</h2><p style="font-size:13px">Tap a module → Lessons → Quiz → Memo → Score</p><div id="dash-mods"></div></div>
-<button class="sec" onclick="doLogout()">Log Out</button>
-</div>
-
-<!-- ============ LESSON VIEW ============ -->
-<div id="view-lesson" class="hidden">
-<button class="sec" onclick="show('dash')">← Back To My Modules</button>
-<div class="card"><h2 id="lesson-title"></h2><p id="lesson-meta"></p></div>
-<div id="lesson-body"></div>
-<div class="card"><h2>📝 Quiz - Test Yourself</h2><div id="quiz-body"></div><button onclick="submitQuiz()">Submit Quiz & See Score + Memo →</button><div id="quiz-result"></div></div>
-<button class="sec" onclick="show('dash')">← Back To My Modules</button>
-</div>
-
-<!-- ============ ADMIN ============ -->
-<div id="view-admin" class="hidden">
-<div class="card"><h2>👑 Admin - Phathu Mbedzi</h2><p id="admin-stats"></p><button class="small sec" onclick="renderAdmin()">🔄 Refresh</button><button class="small sec" onclick="show('pricing')">💳 Pricing</button></div>
-<div id="admin-list"></div>
-<button class="sec" onclick="doLogout()">Log Out</button>
-</div>
+  <div id="page-admin" class="hidden">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <div class="card"><h2>👑 Admin Dashboard - Owner</h2><p style="color:#b8d0c6">You are logged in as Admin. You approve students here.</p><p style="color:#00e5a0;font-size:13px;margin-top:8px" id="admin-stats"></p></div>
+    <div id="admin-list"></div>
+    <button class="secondary" onclick="logout()">Log Out</button>
+  </div>
 
 </div>
+
 <script>
-// ===== DATA - PART 1: CORE MODULES =====
-const ADMIN = {email:"admin@phathu.academy", pass:"admin123", code:"PHATHU2026"};
-const MODULES = [
-{id:"anatomy", name:"Anatomy", year:"1", tag:"1st-2nd Year • Foundation", desc:"The Body - From Cell to System. The most visual module."},
-{id:"physiology", name:"Physiology", year:"1", tag:"1st-2nd Year • Foundation", desc:"How The Body Works - Homeostasis, Systems."},
-{id:"biochem", name:"Biochemistry", year:"1", tag:"1st Year • Foundation", desc:"Molecules to Life - DNA, Metabolism, ATP."},
-{id:"pharm", name:"Pharmacology", year:"2", tag:"2nd-3rd Year", desc:"Drugs - How They Heal And Harm."},
-{id:"pathology", name:"Pathology", year:"2", tag:"2nd-3rd Year", desc:"Disease - What Goes Wrong."},
-{id:"micro", name:"Microbiology", year:"2", tag:"2nd Year", desc:"Bacteria, Viruses, Fungi, Parasites."},
-{id:"medicine", name:"Internal Medicine", year:"4", tag:"4th-6th Year • Clinical", desc:"Cardio, Resp, Renal, GIT - The Doctor Module."},
-{id:"surgery", name:"Surgery", year:"4", tag:"4th-6th Year • Clinical", desc:"Trauma, Abdomen, Theatre, Wounds."},
-{id:"paeds", name:"Paediatrics", year:"5", tag:"5th Year", desc:"Children - Neonates to Adolescents."},
-{id:"og", name:"Obstetrics & Gynaecology", year:"5", tag:"5th Year", desc:"Pregnancy, Birth, Women's Health."},
-{id:"psych", name:"Psychiatry", year:"5", tag:"5th Year", desc:"Mind - Mood, Psychosis, Anxiety."},
-{id:"osce", name:"OSCE Prep + ECG", year:"6", tag:"Final Year • Exams", desc:"Stations, ECG, X-Ray, Clinical Skills."},
-];
-const LESSONS = {
-anatomy: [
-{title:"1. The Human Body - A Sci-Fi Journey Inside You", meta:"Anatomy • 25 mins • HIGH YIELD", img:"CELL", content:`Imagine you shrink to the size of a cell and fly inside the human body.
-
-You start in the MOUTH - teeth crush, saliva with amylase starts digestion.
-You slide down the OESOPHAGUS - a muscular tube, 25cm, that pushes food by PERISTALSIS.
-You land in the STOMACH - acid pH 1.5-2, kills bacteria, pepsin breaks protein.
-Then SMALL INTESTINE - 6 METRES long, villi like fingers, absorbs everything.
-Then LARGE INTESTINE - absorbs water, forms stool.
-Then RECTUM - you exit.
-
-BUT THE BODY IS MORE THAN A TUBE:
-- SKELETON: 206 bones. Femur is longest, strongest. Stapes in ear is smallest.
-- MUSCLES: 600+ muscles. Gluteus maximus is largest. Stapedius is smallest.
-- BLOOD: 5 Litres. Heart pumps 100,000 times per day.
-- BRAIN: 86 BILLION neurons. Each connects to 10,000 others.
-
-ANATOMICAL POSITION (EXAM - MUST KNOW):
-Body erect, eyes forward, palms FORWARD, feet together. All descriptions use this. If patient is lying, you still describe as if standing.
-
-PLANES:
-- Sagittal: Left / Right - e.g. MRI brain sagittal
-- Coronal: Front / Back
-- Transverse: Top / Bottom
-
-TERMS:
-Superior = Above • Inferior = Below • Medial = Towards midline • Lateral = Away • Proximal = Near trunk • Distal = Far • Anterior = Front • Posterior = Back
-
-HIGHLIGHT FOR EXAM:
-- Anatomical snuffbox = Scaphoid fracture if tender after fall on outstretched hand.
-- Femoral triangle = NAVEL - Nerve, Artery, Vein, Empty space, Lymphatics (medial to lateral: N-A-V-E-L)
-- Carpal bones: Scaphoid Loves To Play, Try To Catch Her - Scaphoid, Lunate, Triquetral, Pisiform, Trapezium, Trapezoid, Capitate, Hamate`},
-{title:"2. Heart & Blood Vessels - The Pump That Never Sleeps", meta:"Anatomy • Cardiology • 30 mins", img:"HEART", content:`YOUR HEART IS THE SIZE OF YOUR FIST. It sits in the mediastinum, behind sternum, between lungs.
-
-4 CHAMBERS:
-Right Atrium → Right Ventricle → Lungs → Left Atrium → Left Ventricle → Body
-
-VALVES (Prevent backflow):
-- Tricuspid (Right AV) - 3 cusps
-- Mitral / Bicuspid (Left AV) - 2 cusps - Most common to prolapse
-- Pulmonary + Aortic (Semilunar)
-
-BLOOD FLOW - MEMORISE THIS LOOP:
-Vena Cava → RA → Tricuspid → RV → Pulmonary Artery (ONLY artery with deoxygenated blood) → Lungs → Pulmonary Vein (ONLY vein with oxygenated blood) → LA → Mitral → LV (Thickest wall, pumps to whole body) → Aorta → Body
-
-CORONARY ARTERIES - HEART'S OWN SUPPLY:
-- Left Coronary → LAD (Widowmaker - if blocked = massive MI) + Circumflex
-- Right Coronary → Supplies SA node (60% of people)
-
-DRAWING IN YOUR MIND:
-Draw a heart like a house: Right side = BLUE (deoxygenated), Left side = RED (oxygenated). Right side is low pressure, Left side is high pressure.
-
-CLINICAL:
-- MI = Myocardial Infarction = Heart muscle dies from no blood. Pain: crushing central chest, radiates to left arm, jaw, back. Sweating, nausea.
-- ECG: ST elevation = STEMI = Emergency, go to cath lab.
-- Heart sounds: Lub = S1 (AV valves close), Dub = S2 (Semilunar close). Murmur = turbulent flow = valve problem.`},
-{title:"3. Brain - 86 Billion Neurons, One You", meta:"Anatomy • Neuroscience • 30 mins", img:"BRAIN", content:`BRAIN WEIGHT: 1.4kg. Uses 20% of body's oxygen even though it's 2% of weight.
-
-LOBES:
-- Frontal: Personality, Movement, Speech (Broca's area - if damaged, can't speak)
-- Parietal: Sensation, Spatial
-- Temporal: Hearing, Memory (Wernicke's area - if damaged, can't understand speech)
-- Occipital: Vision - if stroke here, blind in opposite visual field
-- Cerebellum: Balance, Coordination - drunk person = cerebellum not working
-- Brainstem: Medulla = Breathing + Heart rate - if damaged, you die. Pons + Midbrain = Relay.
-
-CRANIAL NERVES - 12 - MNEMONIC: Oh Oh Oh To Touch And Feel Very Good Velvet, AH!
-I Olfactory (Smell) - II Optic (Vision) - III Oculomotor - IV Trochlear - V Trigeminal (Face sensation) - VI Abducens - VII Facial - VIII Vestibulocochlear (Hearing/Balance) - IX Glossopharyngeal - X Vagus (Longest, to gut) - XI Accessory - XII Hypoglossal (Tongue)
-
-BLOOD SUPPLY - Circle of Willis:
-Connects carotid + vertebral. If one blocked, other can compensate. Aneurysm here = Subarachnoid haemorrhage - Thunderclap headache - "Worst headache of my life" - EMERGENCY.
-
-SUMMARY:
-Frontal = Do, Parietal = Feel, Temporal = Hear/Remember, Occipital = See, Cerebellum = Balance, Brainstem = Breathe.`}
-],
-physiology: [
-{title:"1. Homeostasis - The Secret Of Life", meta:"Physiology • Core Concept", img:"HOMEO", content:`HOMEOSTASIS = Keeping internal environment stable even when outside changes.
-
-Examples: Body temp 37°C even if outside 40°C or 5°C. Blood pH 7.35-7.45 ALWAYS. Blood glucose 3.5-5.5 mmol/L.
-
-NEGATIVE FEEDBACK (95% of physiology):
-Change → Sensor → Control Centre (Brain) → Effector → REVERSE change
-Example: BP High → Baroreceptors in carotid → Brain → Heart slows + Vessels dilate → BP drops
-
-POSITIVE FEEDBACK (Amplifies):
-Example: Labour - Oxytocin → Contractions → More oxytocin → Stronger contractions → Baby born → Stops.
-Example: Clotting - Platelets → More platelets → Clot.
-
-EXAM TRICK: If question says "maintains stable", answer is NEGATIVE feedback. If "amplifies", POSITIVE.`},
-{title:"2. Cardiovascular Physiology - Blood Pressure Explained", meta:"Physiology • Cardiology", img:"BP", content:`BLOOD PRESSURE = Cardiac Output x Total Peripheral Resistance
-BP = CO x TPR
-CO = Heart Rate x Stroke Volume
-
-So if HR ↑, BP ↑. If vessels constrict (TPR ↑), BP ↑.
-
-HYPERTENSION (BP >140/90):
-- Essential (95%) - No single cause, lifestyle + genes
-- Secondary - Kidney disease, Phaeochromocytoma, Cushing
-
-HYPOTENSION - Shock:
-- Hypovolaemic: Bleeding, Dehydration - Cold, clammy, fast HR
-- Cardiogenic: Heart failure - Heart can't pump
-- Septic: Infection - Warm, vasodilated, fever
-- Anaphylactic: Allergy - Airway swelling + low BP
-
-TREATMENT LOGIC: If BP low from bleeding → Give FLUIDS + BLOOD. If BP low from heart failure → Don't drown them with fluids, give inotropes.`}
-]
-};
-const QUIZZES = {
-anatomy: [
-{q:"Which bone is the longest and strongest in the body?", opts:["Humerus","Tibia","Femur","Fibula"], ans:2, memo:"Femur - Thigh
-  <!-- ================= PART 2 START - PASTE AFTER PART 1 ================= -->
-<script>
-// PART 2: BIOCHEMISTRY + PHARMACOLOGY + PATHOLOGY + MICROBIOLOGY
-// This script runs AFTER Part 1 and adds lessons to the same LESSONS + QUIZZES
-
-LESSONS.biochem = [
-{title:"1. DNA → RNA → Protein - The Code Of Life", meta:"Biochemistry • 35 mins • HIGH YIELD • DNA Drawing", img:"DNA", content:`YOU ARE MADE OF CODE. 3 BILLION LETTERS.
-
-DNA = Double Helix. Like a twisted ladder.
-- Rungs = Bases: A-T, G-C. ALWAYS. A pairs with T, G pairs with C. Exam loves this.
-- Sides = Sugar + Phosphate backbone.
-
-DNA lives in NUCLEUS. It NEVER leaves. So it sends a messenger: mRNA.
-
-THE CENTRAL DOGMA - MEMORISE THIS:
-DNA --(Transcription)--> mRNA --(Translation)--> Protein --(Folding)--> Function
-
-1. TRANSCRIPTION (In Nucleus):
-DNA unzips, RNA Polymerase reads it, makes mRNA. mRNA is single strand, U replaces T. So DNA A-T-G becomes mRNA U-A-C.
-
-2. TRANSLATION (In Ribosome):
-mRNA goes to ribosome. tRNA brings amino acids. 3 bases = 1 codon = 1 amino acid.
-Start codon = AUG = Methionine. Stop codons = UAA, UAG, UGA = STOP.
-
-3. PROTEIN:
-Chain folds. If folding goes wrong = Disease. Example: Sickle Cell = 1 amino acid wrong (Glutamate → Valine) in haemoglobin → RBC becomes sickle → Blocks vessels → Pain crisis.
-
-MUTATIONS:
-- Silent: No change, same amino acid
-- Missense: One amino acid changes - Sickle cell
-- Nonsense: Early stop - Protein cut short - Cystic fibrosis
-- Frameshift: Insertion/Deletion shifts all codons - Disaster
-
-HIGH YIELD EXAM:
-- DNA = Deoxyribose, double strand, Thymine
-- RNA = Ribose, single strand, Uracil
-- A-T, G-C - Chargaff's Rule
-- Sickle cell = Point mutation, chromosome 11, autosomal recessive`},
-{title:"2. Metabolism - How Food Becomes ATP (Energy)", meta:"Biochemistry • Metabolism • 30 mins", img:"ATP", content:`YOU EAT TO MAKE ATP. ATP = Energy currency. Without it, you die in seconds.
-
-GLYCOLYSIS (Cytoplasm - No oxygen needed):
-Glucose (6C) → 2 Pyruvate (3C) → Net +2 ATP + 2 NADH
-This is FAST but inefficient. Happens in ALL cells. RBCs ONLY do this - they have no mitochondria.
-
-KREBS CYCLE / TCA (Mitochondria - Needs oxygen):
-Pyruvate → Acetyl-CoA → Krebs Cycle → CO2 + NADH + FADH2 + GTP
-This is where CO2 you breathe out comes from.
-
-ELECTRON TRANSPORT CHAIN (Mitochondria membrane):
-NADH + FADH2 → Pump protons → ATP Synthase spins like a turbine → +32 ATP
-TOTAL: 1 Glucose = 32 ATP (old books say 36-38, new = 32, exam accepts 32)
-
-FAT METABOLISM:
-Fat → Fatty acids → Beta-oxidation → Acetyl-CoA → Krebs → LOTS of ATP. Fat gives MORE energy than glucose, but slower.
-
-PROTEIN METABOLISM:
-Protein → Amino acids → Urea cycle in LIVER → Urea → Kidney excretes. If liver fails, ammonia builds up → Hepatic encephalopathy → Confusion, coma.
-
-DIABETES - THE BIGGEST METABOLISM DISEASE:
-- Type 1: Autoimmune, pancreas destroyed, NO insulin, young, DKA, needs insulin for life
-- Type 2: Insulin resistance, adult, obese, lifestyle, tablets + lifestyle, can progress to insulin
-- DKA = Diabetic Ketoacidosis: Glucose high + Ketones + Acidic pH + Dehydration. Breath smells like nail polish remover (acetone). EMERGENCY: Fluids + Insulin + Potassium.
-- HHS: Hyperglycaemic Hyperosmolar State: Very high glucose, no ketones, elderly, dehydration.
-
-SUMMARY TO DRAW IN EXAM:
-Glucose → Glycolysis (2 ATP) → Krebs (CO2) → ETC (32 ATP) = ENERGY
-No insulin = Glucose stays in blood, cells starve, body burns fat → Ketones → Acid`},
-{title:"3. Enzymes, Vitamins & Hormones - The Workers", meta:"Biochemistry • High Yield", img:"ENZYME", content:`ENZYMES = Workers that speed up reactions. They are NOT used up. They are PROTEINS.
-
-- Lock and Key: Enzyme shape fits substrate perfectly.
-- Active site: Where reaction happens.
-- Competitive Inhibitor: Blocks active site, looks like substrate. Can be overcome by MORE substrate.
-- Non-competitive: Binds elsewhere, changes shape, CANNOT be overcome.
-
-VITAMINS - MUST KNOW DEFICIENCIES:
-- B1 Thiamine: Beriberi + Wernicke-Korsakoff (Alcoholics - Confusion, Ataxia, Ophthalmoplegia)
-- B3 Niacin: Pellagra - 3 Ds: Diarrhoea, Dermatitis, Dementia
-- B9 Folate: Neural Tube Defects - Give folate to ALL pregnant women
-- B12 Cobalamin: Megaloblastic anaemia + Neuropathy - Vegans + Pernicious anaemia (no intrinsic factor)
-- C: Scurvy - Bleeding gums, poor wound healing
-- D: Rickets (children) + Osteomalacia (adults) - Bowed legs, weak bones
-- A: Night blindness + Xerophthalmia
-- K: Bleeding - Newborns get Vitamin K injection at birth
-
-HORMONES:
-- Insulin (Beta cells): Lowers glucose, stores fat
-- Glucagon (Alpha cells): Raises glucose, breaks down glycogen
-- Thyroxine T3/T4: Metabolism speed. Low = Hypothyroid (slow, cold, weight gain), High = Hyperthyroid (fast, hot, weight loss, tremor)
-- Cortisol: Stress hormone. High = Cushing (moon face, buffalo hump, purple striae). Low = Addison (dark skin, low BP, craving salt)
-- ADH: Water retention. No ADH = Diabetes Insipidus - Peeing litres of dilute urine.`}
-];
-
-LESSONS.pharm = [
-{title:"1. Pharmacology Like Stories - How Drugs Work", meta:"Pharmacology • 35 mins • DRUGS", img:"DRUG", content:`EVERY DRUG IS A CHARACTER WITH A MISSION.
-
-PHARMACOKINETICS = What BODY does to DRUG - ADME:
-- Absorption: How drug enters blood. IV = 100%, Oral = Less (first-pass in liver)
-- Distribution: Where it goes. Bound to albumin? Crosses placenta? Crosses brain?
-- Metabolism: Liver (CYP450) breaks it down. If liver fails, drug builds up → Toxicity.
-- Excretion: Kidney excretes. If kidney fails, drug builds up → Toxicity.
-
-PHARMACODYNAMICS = What DRUG does to BODY:
-- Agonist: Turns receptor ON. Example: Salbutamol turns on Beta-2 → Bronchodilation in asthma.
-- Antagonist: Blocks receptor OFF. Example: Atenolol blocks Beta-1 → Slows heart in hypertension.
-- Therapeutic Index: Safe dose vs Toxic dose. Warfarin = NARROW (easy to overdose). Paracetamol = Wide but overdose kills liver.
-
-THE BIG DRUG GROUPS - EXAM TABLE:
-
-1. ANTIBIOTICS:
-- Penicillin: Kills bacteria by breaking cell wall. Allergy = Anaphylaxis. Give alternative: Erythromycin.
-- Amoxicillin: Broader penicillin.
-- Ceftriaxone: Cephalosporin, for meningitis, pneumonia.
-- Azithromycin: Macrolide, for STIs, atypical pneumonia.
-- Ciprofloxacin: Quinolone, for UTI, diarrhoea. Side effect: Tendon rupture, don't give to children.
-- Metronidazole: Anaerobes, Giardia, C. diff. NO ALCOHOL - Disulfiram reaction.
-
-2. PAIN + INFLAMMATION:
-- Paracetamol: Safe, first line. Overdose = Liver failure, antidote = N-Acetylcysteine (NAC).
-- Ibuprofen / NSAIDs: Pain + Inflammation, but causes Gastric ulcers + Kidney failure + Asthma worse.
-- Morphine: Severe pain. Side effects: Respiratory depression, Constipation, Addiction. Antidote: Naloxone.
-- Tramadol: Moderate pain, less respiratory depression.
-
-3. HEART + BP:
-- Amlodipine (CCB): Dilates vessels, ankle swelling.
-- Enalapril (ACE-I): Cough + Angioedema, never in pregnancy.
-- Losartan (ARB): Like ACE-I but NO cough.
-- Atenolol (Beta-blocker): Slows heart, don't stop suddenly, masks hypoglycaemia in diabetics.
-- Furosemide (Diuretic): Makes you pee, loses K+, for heart failure + oedema.
-- Aspirin: Antiplatelet, for MI/stroke prevention. Causes bleeding + Reye's in children.
-
-4. DIABETES:
-- Metformin: First line Type 2, no hypoglycaemia, causes diarrhoea + lactic acidosis if kidney fails.
-- Insulin: Type 1, DKA. Types: Short (Actrapid), Long (Glargine). Hypoglycaemia = Sweating, shaking, confusion → Give glucose.
-
-5. ASTHMA:
-- Salbutamol (Blue pump): Reliever, short-acting Beta-2.
-- Beclomethasone (Brown pump): Preventer, inhaled steroid, rinse mouth after (thrush).
-- Prednisone: Oral steroid for severe attack, causes weight gain + high glucose if long term.
-
-EXAM TRICK: If question says "Drug causes cough" → ACE Inhibitor. If "Tendon rupture" → Ciprofloxacin. If "Nail polish breath + DKA" → Insulin + Fluids.`},
-{title:"2. Antibiotics & Resistance - The War Against Bacteria", meta:"Pharmacology • Microbiology Link", img:"BACTERIA", content:`BACTERIA ARE LEARNING. WE ARE LOSING IF WE OVERUSE ANTIBIOTICS.
-
-BACTERICIDAL = Kills bacteria (Penicillin, Ceftriaxone)
-BACTERIOSTATIC = Stops growth, immune system kills (Tetracycline, Erythromycin)
-
-GRAM POSITIVE vs GRAM NEGATIVE:
-- Gram +: Purple, thick peptidoglycan, Staph, Strep
-- Gram -: Pink, thin, outer membrane, E. coli, Klebsiella, Pseudomonas
-
-RESISTANCE - HOW BACTERIA FIGHT BACK:
-- Beta-lactamase: Breaks penicillin
-- Efflux pump: Pumps drug out
-- Mutation: Changes target
-
-MRSA = Methicillin Resistant Staph Aureus - Resistant to all penicillins. Treat with Vancomycin (Red Man Syndrome if infused fast).
-XDR-TB = Extensively Drug Resistant TB - Very hard to treat.
-
-RULES FOR DOCTORS:
-1. Never give antibiotics for viral infection (cold, flu)
-2. Always take cultures BEFORE antibiotics if septic
-3. Finish the course
-4. Narrow spectrum is better than broad`}
-];
-
-LESSONS.pathology = [
-{title:"1. Inflammation & Healing - The Body's Army", meta:"Pathology • Core", img:"INFLAM", content:`INFLAMMATION = Body's response to injury. 5 Cardinal Signs (Celsus):
-RUBOR (Redness) - CALOR (Heat) - TUMOR (Swelling) - DOLOR (Pain) - FUNCTIO LAESA (Loss of function)
-
-ACUTE INFLAMMATION (Minutes - Days):
-Neutrophils rush in. Vasodilation → Red + Hot. Increased permeability → Swelling. Example: Appendicitis, Abscess, Pneumonia.
-
-CHRONIC INFLAMMATION (Weeks - Years):
-Macrophages + Lymphocytes. Example: TB, Rheumatoid Arthritis, Crohn's.
-
-HEALING:
-- Primary intention: Clean cut, sutured, minimal scar
-- Secondary intention: Open wound, granulation, big scar
-- Keloid: Over-healing, scar grows beyond wound, common in dark skin, on earlobes, chest.
-
-NEOPLASIA - CANCER:
-- Benign: Slow, encapsulated, does NOT spread, does NOT kill (Lipoma, Fibroid)
-- Malignant: Fast, invades, metastasises, kills (Carcinoma, Sarcoma)
-- Metastasis: Spreads via Blood, Lymph, Direct. Common sites: Lung, Liver, Bone, Brain.
-
-CANCER WARNING SIGNS - CAUTION:
-Change in bowel/bladder, A sore that doesn't heal, Unusual bleeding, Thickening/lump, Indigestion, Obvious change in wart/mole, Nagging cough/hoarseness.
-
-RISK FACTORS: Smoking (Lung, bladder), Alcohol (Liver, oesophagus), HPV (Cervical), HIV (Kaposi sarcoma), Sun (Melanoma), Asbestos (Mesothelioma)`},
-{title:"2. Cell Injury & Death - Necrosis vs Apoptosis", meta:"Pathology • High Yield", img:"CELLDEATH", content:`NECROSIS = Bad death, messy, inflammation, from injury.
-- Coagulative: Heart (MI), Kidney - Architecture preserved, cell dead
-- Liquefactive: Brain, Abscess - Liquid, pus
-- Caseous: TB - Cheese-like, granuloma
-- Fat: Pancreatitis - Chalky white
-
-APOPTOSIS = Good death, programmed, clean, no inflammation.
-Example: Tadpole tail disappears, fingers separate in embryo, cells die daily and are replaced.
-
-ISCHAEMIA vs INFARCTION:
-- Ischaemia = Reduced blood flow, reversible if caught early
-- Infarction = Tissue DEAD from no blood, irreversible. MI = Heart infarction. Stroke = Brain infarction.
-
-SHOCK - PATHOLOGY OF LOW PERFUSION:
-All shock = Cells not getting oxygen → Lactic acidosis → Multi-organ failure → Death if not treated.
-Treatment: Find cause + Fluids + Oxygen + Treat cause.`}
-];
-
-LESSONS.micro = [
-{title:"1. Bacteria, Viruses, Fungi - Know Your Enemy", meta:"Microbiology • 35 mins • Drawings", img:"BACTERIA", content:`BACTERIA - Single cell, can live alone, can be killed by antibiotics.
-
-GRAM POSITIVE COCCI (Clusters/Chains):
-- Staphylococcus aureus: Skin abscess, boils, food poisoning, MRSA. Clusters like grapes.
-- Streptococcus pyogenes: Sore throat, Scarlet fever, Rheumatic fever (damages heart valves). Chains.
-
-GRAM NEGATIVE RODS:
-- E. coli: UTI (most common), diarrhoea, neonatal meningitis. Lives in gut.
-- Klebsiella: Pneumonia in alcoholics, UTI, red currant jelly sputum.
-- Pseudomonas: Burns, ICU, green pus, smells like grapes, resistant.
-
-ACID-FAST BACILLI:
-- Mycobacterium tuberculosis: TB. Cough >2 weeks, night sweats, weight loss, haemoptysis. Ziehl-Neelsen stain = Red rods. Airborne. Treat 6 months: RIPE (Rifampicin, Isoniazid, Pyrazinamide, Ethambutol).
-
-VIRUSES - Smaller, need host cell, antibiotics DON'T work, vaccines DO:
-- HIV: Attacks CD4 T-cells → AIDS if CD4 <200. Treat with ART (Tenofovir, Lamivudine, Dolutegravir). U=U: Undetectable = Untransmittable.
-- Hepatitis B: Liver, blood + sex, vaccine exists. Hepatitis C: No vaccine, curable with DAAs.
-- Measles: Highly infectious, Koplik spots in mouth, vitamin A helps.
-- COVID / Influenza: Respiratory, droplets.
-
-FUNGI:
-- Candida albicans: Oral thrush (white patches), vaginal thrush, in diabetics + HIV + antibiotics.
-- Cryptococcus: Meningitis in HIV, India ink stain.
-- Aspergillus: Lung balls in cavities.
-
-PARASITES:
-- Malaria: Plasmodium falciparum, Anopheles mosquito, fever + chills + anaemia. Treat: Artemether-Lumefantrine (Coartem).
-- Schistosomiasis (Bilharzia): Snails, blood in urine, swim in rivers.
-- Giardia: Diarrhoea, camping, Metronidazole.
-
-EXAM DRAWING:
-Draw bacteria as: Cocci = Circles (clusters = Staph, chains = Strep), Bacilli = Rods (E. coli, TB), Spirilla = Spirals (Syphilis).`},
-{title:"2. HIV, TB & Sepsis - The Big 3", meta:"Microbiology • Clinical • Must Know", img:"HIVTB", content:`HIV:
-- Transmission: Sex, blood, mother-to-child, needles. NOT by hugging, sharing food.
-- Window period: 4-6 weeks, test negative but infected.
-- Stages: Acute (flu-like) → Latent (years) → AIDS (CD4 <200, opportunistic infections: TB, cryptococcus, PCP, Kaposi)
-- Diagnosis: Rapid test + ELISA + Viral load + CD4 count
-- Treatment: ART for LIFE. Adherence = Life. If you stop, virus rebounds, resistance.
-- Prevention: Condoms, PrEP (for negative), PEP (after exposure, within 72h), PMTCT.
-
-TB:
-- Symptoms: Cough >2 weeks, night sweats, weight loss, loss of appetite, fever, haemoptysis
-- Diagnosis: GeneXpert (sputum), Chest X-ray (cavities, upper lobe), Culture
-- Treatment: 6 months RIPE. DOTS: Directly Observed Treatment. If you stop early → MDR-TB (resistant).
-- TB + HIV: Co-infection common. Start TB treatment first, then ART.
-
-SEPSIS - KILLS IN HOURS:
-- Definition: Infection + Organ dysfunction. qSOFA: Respiratory rate ≥22, Altered mental state, Systolic BP ≤100. If 2/3 → Sepsis.
-- Sepsis 6 (Do in 1 hour): 1. Oxygen, 2. Blood cultures, 3. IV antibiotics, 4. IV fluids, 5. Lactate + Hb, 6. Urine output.
-- Septic shock: Sepsis + Low BP despite fluids + Need vasopressors (Noradrenaline) → ICU.
-
-GOLDEN RULE: If patient is febrile + confused + low BP + fast breathing = SEPSIS. Don't wait. Act.`}
-];
-
-QUIZZES.biochem = [
-{q:"A pairs with which base in DNA?", opts:["G","C","T","U"], ans:2, memo:"A-T, G-C. In RNA, A pairs with U."},
-{q:"1 Glucose gives how many ATP (net) in total?", opts:["2","8","32","100"], ans:2, memo:"Glycolysis 2 + Krebs + ETC = 32 ATP total. Old books say 36-38."},
-{q:"Sickle cell is caused by:", opts:["Virus","1 amino acid change Glu→Val","No DNA","Too much iron"], ans:1, memo:"Point mutation - Glutamate to Valine in beta-globin, chromosome 11."},
-{q:"DKA breath smells like:", opts:["Garlic","Nail polish remover / acetone","Roses","Fish"], ans:1, memo:"Ketones → Acetone smell. DKA = High glucose + Ketones + Acidosis."},
-{q:"Vitamin B12 deficiency causes:", opts:["Night blindness","Megaloblastic anaemia + neuropathy","Scurvy","Rickets"], ans:1, memo:"B12 = Pernicious anaemia + tingling, loss of vibration sense. Vegans at risk."}
-];
-QUIZZES.pharm = [
-{q:"Which drug causes cough as side effect?", opts:["Amlodipine","Enalapril (ACE-I)","Losartan","Atenolol"], ans:1, memo:"ACE Inhibitors cause dry cough + angioedema. Switch to ARB (Losartan) if cough."},
-{q:"Paracetamol overdose antidote is:", opts:["Naloxone","N-Acetylcysteine","Vitamin K","Flumazenil"], ans:1, memo:"NAC protects liver. Give within 8 hours best. Paracetamol overdose = liver failure."},
-{q:"Morphine side effects include:", opts:["Diarrhoea","Respiratory depression + constipation","High BP","Insomnia"], ans:1, memo:"Opioids: Respiratory depression, constipation, addiction. Antidote Naloxone."},
-{q:"Metformin first-line for:", opts:["Type 1 diabetes","Type 2 diabetes","Asthma","Hypertension"], ans:1, memo:"Metformin = Type 2 first line. No hypoglycaemia alone. Causes diarrhoea."},
-{q:"Blue pump for asthma is:", opts:["Beclomethasone","Salbutamol","Prednisone","Amoxicillin"], ans:1, memo:"Salbutamol = Reliever (blue). Beclomethasone = Preventer (brown)."}
-];
-QUIZZES.pathology = [
-{q:"5 cardinal signs of inflammation are:", opts:["Red, Hot, Swelling, Pain, Loss of function","Cold, Blue, Numb, Pale, Dry","Fever only","No signs"], ans:0, memo:"Rubor, Calor, Tumor, Dolor, Functio Laesa - Celsus."},
-{q:"Benign vs Malignant: Which spreads?", opts:["Benign","Malignant","Both","Neither"], ans:1, memo:"Malignant invades + metastasises. Benign is encapsulated, does not spread."},
-{q:"Caseous necrosis is seen in:", opts:["Heart MI","Brain","TB","Pancreatitis"], ans:2, memo:"Caseous = Cheese-like, TB granuloma. Coagulative = Heart, Liquefactive = Brain."}
-];
-QUIZZES.micro = [
-{q:"Most common cause of UTI is:", opts:["Staph aureus","E. coli","TB","Candida"], ans:1, memo:"E. coli from gut, 80% of UTIs. Women more prone - short urethra."},
-{q:"MRSA is treated with:", opts:["Penicillin","Vancomycin","Amoxicillin","Paracetamol"], ans:1, memo:"MRSA resistant to penicillins. Vancomycin. Watch Red Man Syndrome - infuse slowly."},
-{q:"TB treatment RIPE is for how long?", opts:["1 week","2 weeks","6 months","1 day"], ans:2, memo:"6 months: 2 months RIPE + 4 months RI. Stop early = MDR-TB."},
-{q:"HIV attacks which cells?", opts:["RBC","CD4 T-cells","Platelets","Neurons"], ans:1, memo:"CD4 T-cells. AIDS when CD4 <200. ART suppresses virus."},
-{q:"Sepsis 6 includes:", opts:["Wait and see","Oxygen, Cultures, Antibiotics, Fluids, Lactate, Urine output","Only paracetamol","Discharge"], ans:1, memo:"Do Sepsis 6 in 1 hour. Every hour delay increases death."}
-];
-
-// PART 2 DRAWINGS - Adds new drawings without breaking Part 1 drawings
-const _oldDraw2 = drawSVG;
-drawSVG = function(type){
-  if(type==='DNA') return `<div class="draw"><svg viewBox="0 0 400 260"><text x="200" y="20" text-anchor="middle" font-weight="bold">DNA DOUBLE HELIX</text><path d="M100 40 Q200 80 300 40" stroke="#0077aa" stroke-width="4" fill="none"/><path d="M100 220 Q200 180 300 220" stroke="#0077aa" stroke-width="4" fill="none"/><line x1="140" y1="55" x2="140" y2="205" stroke="#cc0000" stroke-width="6"/><text x="140" y="130" text-anchor="middle" font-size="11">A - T</text><line x1="200" y1="80" x2="200" y2="180" stroke="#00aa00" stroke-width="6"/><text x="200" y="130" text-anchor="middle" font-size="11">G - C</text><line x1="260" y1="55" x2="260" y2="205" stroke="#cc0000" stroke-width="6"/><text x="260" y="130" text-anchor="middle" font-size="11">A - T</text><text x="200" y="250" text-anchor="middle" font-size="12">A-T, G-C ALWAYS - DNA to mRNA to Protein</text></svg><p style="font-size:12px">Draw ladder: Sides = Sugar-Phosphate, Rungs = A-T, G-C. Twist it = Helix.</p></div>`;
-  if(type==='ATP') return `<div class="draw"><svg viewBox="0 0 400 180"><rect x="20" y="60" width="100" height="60" rx="12" fill="#ffcc00"/><text x="70" y="95" text-anchor="middle" font-weight="bold">GLUCOSE</text><text x="140" y="95" text-anchor="middle">→</text><rect x="160" y="60" width="100" height="60" rx="12" fill="#ff9999"/><text x="210" y="95" text-anchor="middle" font-weight="bold">PYRUVATE</text><text x="280" y="95" text-anchor="middle">→</text><rect x="300" y="60" width="80" height="60" rx="12" fill="#00e5a0"/><text x="340" y="90" text-anchor="middle" font-weight="bold">32 ATP</text><text x="200" y="150" text-anchor="middle">Glycolysis (2 ATP) → Krebs → ETC (30 ATP)</text></svg></div>`;
-  if(type==='BACTERIA') return `<div class="draw"><svg viewBox="0 0 400 180"><text x="200" y="20" text-anchor="middle" font-weight="bold">BACTERIA SHAPES</text><circle cx="80" cy="80" r="18" fill="#ff9999"/><circle cx="120" cy="80" r="18" fill="#ff9999"/><text x="100" y="130" text-anchor="middle" font-size="11">COCCI - Staph</text><ellipse cx="220" cy="80" rx="35" ry="15" fill="#99ccff"/><text x="220" y="130" text-anchor="middle" font-size="11">BACILLI - E.coli / TB</text><path d="M320 60 Q350 80 320 100" stroke="#00aa00" stroke-width="6" fill="none"/><text x="330" y="130" text-anchor="middle" font-size="11">SPIRILLA</text><text x="200" y="165" text-anchor="middle" font-size="11">Gram + = Purple - Gram - = Pink - Acid-Fast = Red (TB)</text></svg></div>`;
-  if(type==='DRUG') return `<div class="draw"><svg viewBox="0 0 400 160"><rect x="30" y="50" width="90" height="60" rx="10" fill="#00e5a0"/><text x="75" y="85" text-anchor="middle" font-weight="bold">DRUG</text><text x="140" y="85">→</text><rect x="160" y="50" width="90" height="60" rx="10" fill="#ffcc00"/><text x="205" y="85" text-anchor="middle" font-weight="bold">RECEPTOR</text><text x="270" y="85">→</text><rect x="290" y="50" width="90" height="60" rx="10" fill="#ff9999"/><text x="335" y="85" text-anchor="middle" font-weight="bold">EFFECT</text><text x="200" y="140" text-anchor="middle" font-size="12">Agonist = ON - Antagonist = OFF - ADME</text></svg></div>`;
-  return _oldDraw2(type);
-};
-console.log("PART 2 LOADED - Biochem, Pharm, Pathology, Micro added");
+// ===== HIDDEN ADMIN CREDENTIALS - NOT SHOWN ON SCREEN =====
+// Only owner knows these. They are in code, not displayed.
+const ADMIN_EMAIL = "admin@phathu.academy";
+const ADMIN_PASSWORD = "admin123";
+const ADMIN_CODE = "PHATHU2026";
+// ===============================================
+
+const PRE = ["Anatomy","Physiology","Biochemistry","Histology","Embryology","Genetics","Immunology","Microbiology","Pathology","Pharmacology","Biostatistics & Epidemiology","Behavioural Science","Medical Ethics"];
+const CLIN = ["Internal Medicine","Surgery","Paediatrics","Obstetrics & Gynaecology","Psychiatry","Family Medicine","Public Health","Emergency Medicine","Anaesthesiology","Orthopaedics","Ophthalmology","ENT","Dermatology","Radiology","Oncology","Neurology","Cardiology","Urology","Infectious Diseases","OSCE Prep"];
+const DESCS = {"Anatomy":"Gross, neuro, diagrams","Physiology":"Systems, homeostasis","Biochemistry":"Metabolism","Histology":"Tissues","Embryology":"Development","Genetics":"Inheritance","Immunology":"Innate, adaptive","Microbiology":"Bacteria, viruses","Pathology":"General + systemic","Pharmacology":"Drugs","Biostatistics & Epidemiology":"Stats","Behavioural Science":"Psychology","Medical Ethics":"Consent, HPCSA","Internal Medicine":"Cardio, resp, renal","Surgery":"General, trauma","Paediatrics":"Neonates","Obstetrics & Gynaecology":"Pregnancy","Psychiatry":"Mood, psychosis","Family Medicine":"PHC","Public Health":"Systems","Emergency Medicine":"Resus","Anaesthesiology":"Airway, ICU","Orthopaedics":"Fractures","Ophthalmology":"Eye","ENT":"Ear, nose, throat","Dermatology":"Skin","Radiology":"X-ray, CT, MRI","Oncology":"Cancer","Neurology":"Stroke","Cardiology":"ECG","Urology":"Renal tract","Infectious Diseases":"HIV, TB","OSCE Prep":"History, exam"};
+
+let selectedRole = 'student';
+function setRole(r){
+  selectedRole = r;
+  document.getElementById('role-student').classList.toggle('active', r==='student');
+  document.getElementById('role-admin').classList.toggle('active', r==='admin');
+  document.getElementById('admin-code-box').classList.toggle('hidden', r!=='admin');
+  document.getElementById('login-role-label').textContent = r==='admin' ? 'Admin' : 'Student';
+}
+function buildCheckboxes(){
+  document.getElementById('pre-grid').innerHTML = PRE.map(m=>`<label class="check-item"><input type="checkbox" value="${m}" class="mod-check" onchange="updateCount()"> ${m}</label>`).join('');
+  document.getElementById('clin-grid').innerHTML = CLIN.map(m=>`<label class="check-item"><input type="checkbox" value="${m}" class="mod-check" onchange="updateCount()"> ${m}</label>`).join('');
+}
+function updateCount(){ const n=document.querySelectorAll('.mod-check:checked').length; document.getElementById('selected-count').textContent=n+' modules selected'; }
+function selectAll(v){ document.querySelectorAll('.mod-check').forEach(c=>c.checked=v); updateCount(); }
+function getUsers(){
+  let u=JSON.parse(localStorage.getItem('phathu_med_users')||'[]');
+  if(!u.find(x=>x.email===ADMIN_EMAIL)){
+    u.push({name:'Phathu',surname:'Admin',email:ADMIN_EMAIL,password:ADMIN_PASSWORD,adminCode:ADMIN_CODE,modules:[],year:'Admin',university:'Phathu Academy',status:'approved',role:'admin'});
+    localStorage.setItem('phathu_med_users',JSON.stringify(u));
+  }
+  return u;
+}
+function saveUsers(u){ localStorage.setItem('phathu_med_users',JSON.stringify(u)); }
+function show(p){ ['landing','signup','login','pending','dashboard','admin'].forEach(x=>document.getElementById('page-'+x).classList.add('hidden')); document.getElementById('page-'+p).classList.remove('hidden'); }
+function signup(){
+  const name=document.getElementById('su-name').value.trim(); const surname=document.getElementById('su-surname').value.trim(); const email=document.getElementById('su-email').value.trim().toLowerCase(); const password=document.getElementById('su-password').value; const year=document.getElementById('su-year').value; const university=document.getElementById('su-university').value.trim();
+  const modules=[...document.querySelectorAll('.mod-check:checked')].map(c=>c.value);
+  if(!name||!surname||!email||!password||!university){alert('Fill all fields');return;}
+  if(modules.length===0){alert('Choose at least 1 module');return;}
+  let users=getUsers(); if(users.find(u=>u.email===email)){alert('Email already exists');return;}
+  users.push({name,surname,email,password,modules,year,university,status:'pending',role:'student'}); saveUsers(users);
+  document.getElementById('pending-modules').innerHTML='You chose <b style="color:#00e5a0">'+modules.length+' modules</b><br>'+modules.join(' • ');
+  show('pending');
+}
+function login(){
+  const email=document.getElementById('li-email').value.trim().toLowerCase(); const password=document.getElementById('li-password').value; const adminCode=document.getElementById('li-admincode')?.value; const msg=document.getElementById('login-msg');
+  let users=getUsers(); const user=users.find(u=>u.email===email && u.password===password);
+  if(!user){msg.textContent='Wrong email or password';return;}
+  if(selectedRole==='admin'){
+    if(user.role!=='admin'){msg.textContent='This account is NOT an Admin. Select Student.';return;}
+    if(adminCode!==ADMIN_CODE){msg.textContent='Wrong Admin Code.';return;}
+    localStorage.setItem('phathu_med_current',JSON.stringify(user)); renderAdmin(); show('admin'); return;
+  } else {
+    if(user.role==='admin'){msg.textContent='Admins must login as Admin, not Student.';return;}
+    if(user.status==='pending'){show('pending');return;}
+    if(user.status==='rejected'){msg.textContent='Application not approved.';return;}
+    localStorage.setItem('phathu_med_current',JSON.stringify(user));
+    document.getElementById('dash-welcome').textContent='Welcome, Dr. '+user.name+' '+user.surname;
+    document.getElementById('dash-course').textContent=user.year+' • '+user.modules.length+' modules';
+    document.getElementById('dash-university').textContent=user.university;
+    document.getElementById('my-count').textContent='('+user.modules.length+')';
+    document.getElementById('modules-list').innerHTML = user.modules.map(m=>`<div class="lesson"><div><b>${m}</b><br><small>${DESCS[m]||''}</small></div><span>›</span></div>`).join('');
+    show('dashboard'); return;
+  }
+}
+function renderAdmin(){
+  let users=getUsers(); let pending=users.filter(u=>u.role!=='admin' && u.status==='pending').length; let approved=users.filter(u=>u.role!=='admin' && u.status==='approved').length;
+  document.getElementById('admin-stats').textContent = `Pending: ${pending} • Approved: ${approved} • Total Students: ${pending+approved}`;
+  let html='';
+  users.filter(u=>u.role!=='admin').forEach(u=>{ html+=`<div class="card user-row"><div><b>Dr. ${u.name} ${u.surname}</b><br><span style="color:#b8d0c6;font-size:13px">${u.email}<br>${u.year} • ${u.university}</span><br><span style="color:#00e5a0;font-size:13px"><b>${(u.modules||[]).length} modules:</b> ${(u.modules||[]).join(', ')}</span><br><span class="badge ${u.status}">${u.status.toUpperCase()}</span></div><div style="display:flex;gap:6px;margin-top:10px"><button style="width:auto;padding:8px 14px" onclick="setStatus('${u.email}','approved')">Approve</button><button class="danger" style="width:auto;padding:8px 14px" onclick="setStatus('${u.email}','rejected')">Reject</button></div></div>`; });
+  document.getElementById('admin-list').innerHTML = html || '<div class="card">No applications yet.</div>';
+}
+function setStatus(email,status){ let users=getUsers(); let u=users.find(x=>x.email===email); if(u) u.status=status; saveUsers(users); renderAdmin(); alert(u.name+' is now '+status); }
+function logout(){ localStorage.removeItem('phathu_med_current'); show('landing'); }
+buildCheckboxes(); getUsers(); updateCount();
 </script>
-<!-- ================= PART 2 END ================= -->
-  <!-- ================= PART 3 START - PASTE AFTER PART 2 ================= -->
-<script>
-// PART 3: INTERNAL MEDICINE + SURGERY + PAEDS + O&G + PSYCHIATRY + OSCE + ECG
-
-LESSONS.medicine = [
-{title:"1. Cardiology - Heart Failure, MI, Hypertension", meta:"Internal Medicine • 40 mins • HIGH YIELD", img:"ECG", content:`CARDIOLOGY IS THE MOST EXAMINED SYSTEM. MASTER THIS AND YOU PASS MEDICINE.
-
-HEART FAILURE - Heart can't pump enough.
-- Left failure: Lungs fill with fluid → Dyspnoea, Orthopnoea (can't lie flat), PND (wake up gasping), Crackles, Pink frothy sputum.
-- Right failure: Body fills → Oedema ankles, Raised JVP, Hepatomegaly, Ascites.
-- Causes: Ischaemic heart disease (most common), Hypertension, Cardiomyopathy, Valvular disease.
-- Treatment - THE 4 PILLARS (MEMORISE):
-1. ACE-I / ARNI (Enalapril / Sacubitril) - Dilates, reduces load
-2. Beta-blocker (Carvedilol / Bisoprolol) - Slows, protects - Start LOW, go SLOW
-3. MRA (Spironolactone) - Diuretic + anti-fibrosis - Watch K+
-4. SGLT2-i (Dapagliflozin) - New pillar, protects heart + kidney
-+ Furosemide for fluid overload, + Digoxin if AF.
-- NYHA Classes: I = No symptoms, II = Mild exertion, III = Moderate exertion, IV = At rest.
-
-MYOCARDIAL INFARCTION - MI:
-- STEMI: ST Elevation, complete block, EMERGENCY. Pain: Crushing central chest >20 mins, radiates to left arm, jaw, back, sweating, nausea, fear of death. ECG: ST elevation. Troponin: Rises in 3-6h. Treatment: MONA + Cath lab - Morphine, Oxygen, Nitrates, Aspirin + Clopidogrel + Heparin, then PCI (stent) within 90 mins. If no PCI, Thrombolysis (Streptokinase).
-- NSTEMI: No ST elevation, partial block, Troponin positive. Treatment: Aspirin + Heparin, admit, angiogram within 24-72h.
-- Unstable Angina: Chest pain at rest, Troponin NEGATIVE.
-
-HYPERTENSION - SILENT KILLER:
-- Normal <120/80, Hypertension >140/90, Crisis >180/120.
-- Target Organ Damage: Eye (retinopathy), Kidney (proteinuria), Heart (LVH), Brain (stroke).
-- Treatment: Lifestyle + Amlodipine + Enalapril + Hydrochlorothiazide. In Black patients, CCB + Diuretic work best first line.
-- Hypertensive Emergency: BP very high + Organ damage (stroke, chest pain, kidney failure) → Lower BP SLOWLY in ICU, don't drop too fast or you cause stroke.
-
-VALVES:
-- Aortic Stenosis: Harsh systolic murmur, radiates to carotids, Syncope + Angina + Dyspnoea = SAD. Treatment: Valve replacement.
-- Mitral Regurgitation: Pansystolic murmur radiates to axilla, after rheumatic fever.
-- Mitral Stenosis: Diastolic murmur, opening snap, left atrium enlarges, AF.
-
-ECG BASICS - READ IN 10 SECONDS:
-Rate: 300 / No. of large squares between R-R. Rhythm: Regular? P before QRS? QRS narrow = Supraventricular, Wide = Ventricular.
-- Sinus: P before every QRS, regular.
-- AF: Irregularly irregular, NO P waves, chaotic baseline. Treatment: Rate control (Beta-blocker) + Anticoagulate (Warfarin / Apixaban) to prevent stroke.
-- VF: Chaotic, no QRS, patient dead → SHOCK + CPR.
-- Heart block: PR prolongs then drops (Wenckebach).`},
-{title:"2. Respiratory, Renal & GIT - The Rest Of Medicine", meta:"Internal Medicine • 40 mins", img:"LUNGS", content:`RESPIRATORY:
-- Pneumonia: Fever, cough, purulent sputum, crackles, consolidation on X-ray. CURB-65 score. Treat: Amoxicillin + Azithromycin, or Ceftriaxone if severe.
-- Asthma: Reversible wheeze, worse at night, triggers: cold, dust, exercise. Treatment: Blue pump (Salbutamol) reliever, Brown pump (Steroid) preventer.
-- COPD: Irreversible, smokers, barrel chest, chronic bronchitis + emphysema. Treatment: Stop smoking, Tiotropium, Salbutamol. Oxygen if low, but careful - too much oxygen → CO2 retention.
-- TB: Already in Part 2. Remember: Cough >2 weeks, night sweats, weight loss. GeneXpert.
-- Pulmonary Embolism: Sudden dyspnoea + pleuritic chest pain + tachycardia after long flight / surgery / DVT. Wells score. Treatment: Heparin → Warfarin / Apixaban. Massive PE → Thrombolysis.
-
-RENAL:
-- Acute Kidney Injury (AKI): Creatinine rises fast, oliguria. Causes: Pre-renal (dehydration, shock), Renal (ATN from drugs, sepsis), Post-renal (obstruction, prostate). Treatment: Fluids if pre-renal, STOP nephrotoxins (NSAIDs, contrast), treat cause. Dialysis if: AEIOU - Acidosis, Electrolytes (K+ high), Intoxication, Overload, Uraemia.
-- Chronic Kidney Disease: Slow, diabetes + hypertension top causes. Stages 1-5, Stage 5 = Dialysis. Anaemia (no erythropoietin), Bone disease (no vitamin D), Acidosis.
-- Nephrotic Syndrome: Proteinuria >3.5g/day + Oedema + Low albumin + High cholesterol. Causes: Minimal change (children), Membranous, Diabetic.
-- Nephritic: Haematuria + Hypertension + Oliguria + Red cell casts. Post-streptococcal.
-
-GIT + LIVER:
-- GORD: Heartburn, worse lying, treat with PPI (Omeprazole).
-- Peptic Ulcer: H. pylori + NSAIDs. Epigastric pain, worse at night. Test: Urea breath test. Treat: Triple therapy (PPI + Clarithromycin + Amoxicillin).
-- Liver Cirrhosis: Alcohol + Hepatitis B/C. Signs: Jaundice, Ascites, Spider naevi, Palmar erythema, Encephalopathy (flapping tremor, confusion). Treatment: No alcohol, low salt, spironolactone for ascites, lactulose for encephalopathy.
-- Hepatitis: A = Faecal-oral, self-limiting. B = Blood/sex, vaccine, chronic → cirrhosis + cancer. C = Blood, curable.
-- Diarrhoea: Acute = Infective (cholera, rotavirus). Chronic = IBD, coeliac. Dehydration is killer - ORS saves lives.
-
-DIABETES IN MEDICINE:
-- Check feet, eyes, kidneys, heart every visit. HbA1c <7% target.
-- Diabetic foot: Neuropathy → No pain → Ulcer → Infection → Amputation. Prevention: Check feet, good shoes, control glucose.
-- Diabetic nephropathy: Proteinuria → CKD. ACE-I protects kidney.`}
-];
-
-LESSONS.surgery = [
-{title:"1. General Surgery - Abdomen, Trauma, Wounds", meta:"Surgery • 40 mins", img:"SURGERY", content:`SURGERY = Anatomy + Decision Making + Hands. The exam is about WHEN to operate, not just HOW.
-
-ACUTE ABDOMEN - THE SURGEON'S EMERGENCY LIST:
-Use this approach for EVERY abdominal pain question:
-1. Where? 2. Onset? 3. Radiation? 4. Associated? 5. Examination? 6. Investigations? 7. Management?
-
-APPENDICITIS:
-- Pain: Starts periumbilical → Moves to Right Iliac Fossa (McBurney's point). Anorexia, nausea, low-grade fever.
-- Signs: McBurney tenderness, Rovsing, Rebound tenderness.
-- Investigation: Raised WCC, Ultrasound / CT.
-- Treatment: Appendicectomy (laparoscopic). If ruptured → Peritonitis → Sepsis → Emergency surgery + Antibiotics.
-- Differential: Ectopic pregnancy (women - ALWAYS do pregnancy test), Ovarian torsion, UTI, Mesenteric adenitis.
-
-CHOLECYSTITIS vs CHOLELITHIASIS vs CHOLANGITIS vs PANCREATITIS - THE 4 Cs:
-- Gallstones (Cholelithiasis): RUQ pain after fatty food, colicky, no fever. Risk: 4 Fs - Female, Fat, Forty, Fertile.
-- Cholecystitis: Gallbladder inflamed, RUQ pain + Fever + Murphy's sign (pain on inspiration when pressing RUQ). Treatment: Antibiotics + Cholecystectomy.
-- Cholangitis: Charcot's Triad - RUQ pain + Fever + Jaundice. + Reynolds Pentad - + Confusion + Hypotension = Septic shock, ERCP urgently.
-- Pancreatitis: Epigastric pain radiates to BACK, relieved by leaning forward, vomiting. Causes: Gallstones + Alcohol (GET SMASHED mnemonic). Amylase/Lipase very high. Treatment: Nil by mouth, IV fluids, pain relief, no surgery unless necrotic.
-
-BOWEL OBSTRUCTION:
-- Signs: Colicky pain, Vomiting, Distension, Absolute constipation (no stool, no flatus).
-- Small bowel: Vomits early, distension central, X-ray: Step-ladder, dilated loops.
-- Large bowel: Distension huge, vomits late, X-ray: Coffee bean (sigmoid volvulus).
-- Causes: Adhesions (most common small bowel), Hernia, Tumour (large bowel), Volvulus.
-- Treatment: Nil by mouth, NG tube, IV fluids, correct electrolytes, surgery if strangulated / ischaemic.
-
-HERNIAS:
-- Inguinal (most common, men), Femoral (women, higher strangulation), Umbilical (children), Incisional (after surgery).
-- Reducible vs Irreducible vs Strangulated (blood cut off → Necrosis → Emergency surgery).
-- Treatment: Mesh repair (Lichtenstein).
-
-TRAUMA - ATLS - ABCDE:
-A - Airway (with C-spine protection) - If blocked, die in minutes.
-B - Breathing - Tension pneumothorax: Deviated trachea, absent breath sounds, hypotension → Needle decompression NOW, then chest drain.
-C - Circulation - Bleeding: Pelvic binder, FAST scan, blood transfusion. Don't give too much crystalloid.
-D - Disability - GCS, pupils.
-E - Exposure - Log roll, keep warm, check back.
-- Primary survey first, then secondary survey, then investigations.
-
-WOUNDS:
-- Clean: No infection, close primarily.
-- Contaminated: Debride, wash, leave open or delayed closure.
-- Healing: Haemostasis → Inflammation → Proliferation → Remodelling (1 year).
-- Tetanus: Dirty wound, not vaccinated → Tetanus toxoid + Immunoglobulin.
-
-BURNS:
-- Rule of 9s: Head 9%, Each arm 9%, Each leg 18%, Front trunk 18%, Back 18%, Perineum 1%.
-- Parkland Formula: 4ml x Weight (kg) x %TBSA = Fluids in 24h (half in first 8h).
-- Treatment: Cool, cover, analgesia, fluids, refer to burns unit if >10% or face/hands/genitals.`},
-{title:"2. Orthopaedics, Urology & Breast - Surgery Specials", meta:"Surgery • Specials", img:"BONE", content:`ORTHOPAEDICS:
-- Fractures: Open (bone through skin, infection risk, tetanus) vs Closed. Treatment: Analgesia, Reduction, Immobilisation (POP / ORIF), Rehab. Check neurovascular before AND after reduction.
-- Hip fracture in elderly: Fall + Shortened, externally rotated leg. Treatment: Surgery within 24-48h (hemiarthroplasty / DHS), else mortality high.
-- Compartment Syndrome: Pain out of proportion, pain on passive stretch, tense compartment, paraesthesia, pallor, pulseless (late). EMERGENCY: Fasciotomy or limb dies in 6 hours.
-- Osteomyelitis: Bone infection, Staph aureus, children, fever + bone pain, X-ray late, MRI early. Treat: Long antibiotics + debridement.
-
-UROLOGY:
-- Kidney stones: Loin to groin colicky pain, haematuria, vomiting, can't sit still. Treatment: Fluids, NSAIDs, CT KUB. Small stones pass, large need lithotripsy / surgery.
-- BPH: Elderly man, frequency, nocturia, weak stream, hesitancy. DRE: Enlarged smooth prostate. Treatment: Tamsulosin (alpha-blocker) + Finasteride (5-alpha reductase). PSA to rule out cancer.
-- Prostate cancer: Elderly, hard nodular prostate on DRE, raised PSA, bone mets (back pain). Treatment: Depends on stage - Active surveillance, surgery, radiotherapy, hormones.
-- Testicular torsion: Teenager, sudden severe testicular pain, vomiting, absent cremasteric reflex. EMERGENCY: Detorsion within 6 hours or testicle dies. Don't confuse with epididymitis (gradual, fever, Prehn's sign positive).
-
-BREAST:
-- Fibroadenoma: Young woman, mobile, rubbery, painless lump, benign.
-- Breast cancer: Older, hard, fixed, irregular, skin dimpling, nipple retraction, bloody discharge, axillary nodes. Triple assessment: Clinical + Imaging (mammogram/US) + Biopsy. Treatment: Surgery (mastectomy / lumpectomy) + Chemo + Radiotherapy + Hormonal (Tamoxifen if ER+).
-- Teach: Breast self-examination monthly, mammogram screening.`}
-];
-
-LESSONS.paeds = [
-{title:"1. Paediatrics - Children Are Not Small Adults", meta:"Paediatrics • 35 mins", img:"CHILD", content:`CHILDREN HAVE DIFFERENT PHYSIOLOGY, DIFFERENT DOSES, DIFFERENT DISEASES.
-
-NEONATE (0-28 days):
-- APGAR at 1 and 5 mins: Appearance, Pulse, Grimace, Activity, Respiration. 0-2 each, total 10.
-- Neonatal resuscitation: Dry, Warm, Stimulate, Airway, Breathing, Circulation. Keep warm - hypothermia kills.
-- Neonatal jaundice: Physiological (day 2-4, normal) vs Pathological (day 1, very high, direct). Treatment: Phototherapy, exchange transfusion if severe → Kernicterus (brain damage).
-- Sepsis in neonate: Poor feeding, lethargy, hypothermia, jaundice. Don't wait - cultures + antibiotics + fluids.
-
-GROWTH & DEVELOPMENT - MILESTONES:
-- 3 months: Head control, social smile
-- 6 months: Sits with support, babbles, stranger anxiety
-- 9 months: Crawls, pincer grasp, says mama/dada
-- 12 months: Walks, first words, waves bye-bye
-- 2 years: Runs, 2-word sentences, climbs
-- 3 years: Tricycle, 3-word sentences, draws circle
-- Red flags: No babbling by 12m, no walking by 18m, loss of milestones = Regression → Urgent referral.
-
-COMMON PAEDS EMERGENCIES:
-- Diarrhoea + Dehydration: Biggest killer. Signs: Sunken fontanelle, dry mouth, no tears, lethargic, reduced urine. Treatment: ORS if mild, IV fluids if severe, zinc, continue breastfeeding.
-- Pneumonia: Fast breathing, chest indrawing, grunting. WHO: Tachypnoea - >60/min neonate, >50/min infant, >40/min child. Treatment: Amoxicillin, oxygen.
-- Malnutrition: Kwashiorkor (protein deficiency - oedema, hair changes, moon face) vs Marasmus (total calorie deficiency - wasted, old man face). Treatment: F-75, F-100, careful refeeding (refeeding syndrome).
-- Meningitis: Fever, bulging fontanelle, neck stiffness (older), petechial rash (meningococcal). Lumbar puncture after CT if raised ICP. Treatment: Ceftriaxone + dexamethasone, isolation.
-- Febrile convulsions: 6 months - 5 years, fever, generalised seizure <15 mins, normal development. Benign, reassure parents, treat fever, no long-term epilepsy in most.
-
-IMMUNISATION - EPI SCHEDULE (South Africa):
-Birth: BCG + OPV. 6, 10, 14 weeks: DTaP-IPV-Hib-HBV + PCV + Rotavirus. 9 months: Measles. 18 months: DTaP booster + Measles. 6 years: Td. 12 years: Td + HPV (girls).
-- Missed vaccines = Catch up. Never say "too late".
-
-DOSING: Always weight-based. mg/kg. Double-check. Children are not small adults - their liver and kidney are immature.`}
-];
-
-LESSONS.og = [
-{title:"1. Obstetrics - Pregnancy, Labour & Emergencies", meta:"O&G • 40 mins", img:"PREG", content:`OBSTETRICS = TWO PATIENTS: MOTHER + BABY. ALWAYS THINK OF BOTH.
-
-ANTENATAL CARE:
-- Booking: BP, urine, bloods (HIV, syphilis, Hb, blood group), dating scan.
-- Danger signs: Bleeding, severe headache, visual disturbance, swollen face/hands, reduced fetal movements, fever, leaking fluid.
-- Supplements: Folic acid (prevent neural tube), Iron, Calcium.
-
-TRIMESTERS:
-- 1st (0-12w): Nausea, miscarriage risk, ectopic risk. No X-rays, no teratogenic drugs.
-- 2nd (13-28w): Best time, anomaly scan at 20w, feel movements at 18-20w.
-- 3rd (29-40w): Growth, pre-eclampsia risk, preterm labour risk.
-
-LABOUR - 3 STAGES:
-1. Latent + Active: Cervix dilates 0-10cm. 1cm/hour in active phase. Partogram to monitor.
-2. Delivery: Baby born, then...
-3. Placenta: Delivered within 30 mins. If retained → PPH risk. Give Oxytocin (10 IU IM) to prevent PPH - Active management of 3rd stage.
-
-OBSTETRIC EMERGENCIES - THE KILLERS:
-
-1. POSTPARTUM HAEMORRHAGE (PPH) - #1 Killer:
-- Definition: Blood loss >500ml vaginal, >1000ml caesarean.
-- 4 Ts: Tone (atonic uterus - most common), Trauma (tears), Tissue (retained placenta), Thrombin (coagulopathy).
-- Management: Call for help, Oxytocin, Fundal massage, IV fluids, Blood transfusion, Empty bladder, Check for tears/retained placenta, Tranexamic acid within 3 hours, Balloon tamponade, Surgery if fails (hysterectomy last resort).
-
-2. PRE-ECLAMPSIA / ECLAMPSIA:
-- Pre-eclampsia: BP ≥140/90 + Proteinuria after 20 weeks + Oedema, headache, visual disturbance.
-- Eclampsia: Pre-eclampsia + Seizures. EMERGENCY: Magnesium sulphate (Pritchard), control BP (Labetalol / Nifedipine), deliver baby - Delivery is the ONLY cure.
-- HELLP: Haemolysis, Elevated Liver enzymes, Low Platelets - Severe variant.
-
-3. ECTOPIC PREGNANCY:
-- Triad: Amenorrhoea + Abdominal pain + Vaginal bleeding. Positive pregnancy test, empty uterus on scan, adnexal mass. Rupture → Shock → Emergency laparotomy. NEVER miss in a woman of childbearing age with abdominal pain - ALWAYS do pregnancy test.
-
-4. ANTEPARTUM HAEMORRHAGE:
-- Placenta Praevia: Painless, bright red bleeding, placenta covers os, no vaginal exam, caesarean.
-- Abruptio Placentae: Painful, dark blood, tender uterus, high BP, smoking, trauma. Fetal distress. Emergency delivery.
-
-5. FOETAL DISTRESS: Reduced movements, abnormal CTG (late decelerations, bradycardia). Treatment: Left lateral, oxygen, fluids, stop oxytocin, emergency caesarean if not improving.`},
-{title:"2. Gynaecology - Women's Health", meta:"O&G • Gynae", img:"GYNAE", content:`MENSTRUAL CYCLE: 28 days average.
-- Day 1-5: Menstruation (shedding)
-- Day 1-14: Follicular (FSH → Follicle grows, Oestrogen rises)
-- Day 14: Ovulation (LH surge, egg released)
-- Day 14-28: Luteal (Progesterone, prepares uterus)
-- If no pregnancy: Progesterone falls → Period.
-
-AMENORRHOEA:
-- Primary: No period by 16 years. Causes: Pregnancy (exclude first!), Turner, MRKH (no uterus), outflow obstruction.
-- Secondary: No period for 3-6 months after normal periods. Causes: Pregnancy (most common), PCOS, Hyperprolactinaemia, Stress, Thyroid, Premature ovarian failure.
-
-PCOS - Polycystic Ovary Syndrome:
-- Rotterdam: 2/3 - Oligo/anovulation + Hyperandrogenism (hirsutism, acne) + Polycystic ovaries on scan.
-- Treatment: Lifestyle, COCP for cycles, Metformin, Clomiphene for fertility.
-
-CERVICAL CANCER - PREVENTABLE:
-- Cause: HPV (16, 18). Screening: Pap smear, HPV test. Vaccine: HPV vaccine to girls (and boys) before sexual debut.
-- Symptoms: Post-coital bleeding, intermenstrual bleeding, foul discharge, pelvic pain. Late = Fistula, kidney failure.
-- Treatment: Early - Surgery, Late - Chemoradiation.
-
-STIs:
-- Chlamydia: Most common, often silent, causes infertility if untreated. Treat: Azithromycin + Doxycycline, partner treatment.
-- Gonorrhoea: Purulent discharge, PID risk. Treat: Ceftriaxone + Azithromycin.
-- Syphilis: Chancre (painless ulcer) → Rash on palms/soles → Tertiary (neurosyphilis). Test: RPR + TPHA. Treat: Benzathine penicillin. In pregnancy → Congenital syphilis, stillbirth.
-- PID: Lower abdominal pain + fever + vaginal discharge + cervical motion tenderness. Causes: Chlamydia + Gonorrhoea. Complications: Infertility, ectopic, chronic pain.
-
-CONTRACEPTION:
-- COCP: Combined pill, effective, but clot risk, no smoking if >35.
-- Injectable (Depo): 3-monthly, amenorrhoea, weight gain, delayed fertility return.
-- Implant (Implanon): 3 years, very effective.
-- IUD: Copper (10 years, heavier periods) vs Hormonal (Mirena, 5 years, lighter periods).
-- Condoms: Only method that prevents STIs + HIV.`}
-];
-
-LESSONS.psych = [
-{title:"1. Psychiatry - Mind, Mood & Psychosis", meta:"Psychiatry • 35 mins", img:"MIND", content:`PSYCHIATRY = History + Mental State Exam + Risk Assessment. Listen, don't judge.
-
-DEPRESSION - Major Depressive Disorder:
-- 5/9 for 2 weeks: Depressed mood, Anhedonia (loss of interest), Sleep change, Appetite/weight change, Psychomotor change, Fatigue, Worthlessness/guilt, Poor concentration, Suicidal thoughts.
-- SIG E CAPS mnemonic: Sleep, Interest, Guilt, Energy, Concentration, Appetite, Psychomotor, Suicidal.
-- Treatment: Psychotherapy + SSRI (Fluoxetine, Sertraline, Citalopram). Start low, warn about 2-4 weeks to work, don't stop suddenly. If suicidal: Safety plan, involve family, admit if high risk. ECT for severe, psychotic, catatonic depression.
-- Suicide risk: Ask directly - "Have you thought of harming yourself?" Asking does NOT plant the idea, it SAVES lives. Risk: Previous attempt, plan, means, hopelessness, male, elderly, substance abuse, isolation.
-
-ANXIETY:
-- Generalised Anxiety: Excessive worry >6 months, restless, muscle tension, poor sleep.
-- Panic: Sudden palpitations, sweating, feeling of doom, shortness of breath, chest pain - Must exclude MI first.
-- PTSD: After trauma, flashbacks, nightmares, hypervigilance, avoidance. Treatment: Trauma-focused CBT + SSRI.
-
-PSYCHOSIS - SCHIZOPHRENIA:
-- Positive: Delusions (fixed false beliefs - persecutory, grandiose), Hallucinations (auditory most common - voices), Disorganised speech/behaviour.
-- Negative: Flat affect, Avolition, Alogia, Anhedonia, Asociality.
-- Duration: >6 months. Onset: Late teens/early 20s, men earlier.
-- Treatment: Antipsychotics - Typical (Haloperidol - EPS side effects: Parkinsonism, tardive dyskinesia) vs Atypical (Olanzapine, Risperidone - Metabolic: weight gain, diabetes). Long-acting injectable if non-adherent.
-- Rule out: Drug
-<!-- ================= PART 4 START - PASTE AFTER PART 3 - FINAL ================= -->
-<script>
-// PART 4: EXTRA MODULES - Histology, Embryology, Genetics, Immunology, Haematology, Endocrine, Derm, Radiology, Anaesthesia, Emergency, Family Med, Public Health, Neuro, Ophthal, ENT, Ortho + FINAL TOUCHES
-
-// Add new modules to the existing list - they will appear on Home + Dashboard
-MODULES.push(
-{id:"histo", name:"Histology + Embryology", year:"1", tag:"1st Year • Foundation", desc:"Tissues, Cells Under Microscope + How Baby Forms."},
-{id:"genetics", name:"Genetics", year:"1", tag:"1st Year • Foundation", desc:"Inheritance, Chromosomes, Genetic Diseases."},
-{id:"immuno", name:"Immunology", year:"2", tag:"2nd Year", desc:"Immune System - How Body Fights Infection."},
-{id:"haem", name:"Haematology", year:"2", tag:"2nd-3rd Year", desc:"Blood - Anaemia, Clotting, Leukaemia."},
-{id:"endo", name:"Endocrinology", year:"3", tag:"3rd Year • Clinical", desc:"Hormones - Thyroid, Diabetes, Adrenal, Pituitary."},
-{id:"derm", name:"Dermatology", year:"4", tag:"4th Year", desc:"Skin - Rashes, Eczema, Infections, Cancer."},
-{id:"radio", name:"Radiology + X-Ray", year:"4", tag:"4th-6th Year", desc:"Read X-Ray, CT, MRI Like A Radiologist."},
-{id:"anaesth", name:"Anaesthesia + ICU", year:"5", tag:"5th-6th Year", desc:"Theatre, Airway, Ventilator, ICU."},
-{id:"emerg", name:"Emergency Medicine", year:"6", tag:"Final Year • Life Saving", desc:"Resus, Trauma, Poisoning, Shock."},
-{id:"family", name:"Family Medicine + Public Health", year:"6", tag:"Final Year • Community", desc:"PHC, Prevention, EPI, Health System."},
-{id:"neuro", name:"Neurology", year:"4", tag:"4th-6th Year", desc:"Stroke, Epilepsy, Meningitis, Headache."},
-{id:"eyeent", name:"Ophthalmology + ENT", year:"5", tag:"5th Year", desc:"Eye + Ear, Nose, Throat - Vision, Hearing."},
-{id:"ortho", name:"Orthopaedics", year:"5", tag:"5th Year", desc:"Bones, Joints, Fractures, Back Pain."}
-);
-
-LESSONS.histo = [
-{title:"1. Histology - Tissues Under The Microscope + Embryology", meta:"Histology + Embryology • 30 mins", img:"HISTO", content:`4 BASIC TISSUES - EVERY ORGAN IS MADE OF THESE:
-1. Epithelial: Covers surfaces. Squamous (flat - skin, alveoli), Cuboidal (kidney tubules), Columnar (gut), Ciliated (trachea - moves mucus).
-2. Connective: Supports. Bone, cartilage, fat, blood, tendons.
-3. Muscle: Skeletal (voluntary, striated), Cardiac (heart, branched, intercalated discs), Smooth (gut, vessels, involuntary).
-4. Nervous: Neurons + Glia.
-
-EMBRYOLOGY - HOW YOU FORMED:
-- Week 1: Fertilisation in fallopian tube → Morula → Blastocyst → Implants in uterus day 6-7.
-- Week 2: Bilaminar disc - Epiblast + Hypoblast.
-- Week 3: Gastrulation - 3 Germ Layers FORM - THIS IS THE KEY:
-ECTODERM → Skin, Brain, Spinal cord, Nerves, Eye, Teeth enamel. (Ecto = Outer)
-MESODERM → Muscle, Bone, Blood, Kidney, Heart, Gonads. (Meso = Middle)
-ENDODERM → Gut, Liver, Pancreas, Lungs, Bladder lining. (Endo = Inner)
-- Week 4: Heart starts beating, neural tube closes. FOLATE prevents neural tube defects (spina bifida, anencephaly) - Give folate BEFORE conception.
-- Week 8: All organs formed - Embryo becomes Foetus.
-
-TERATOGENS - Things that cause birth defects:
-- Alcohol → Foetal Alcohol Syndrome (flat face, growth retardation, intellectual disability) - NO safe amount in pregnancy.
-- Rubella → Deaf, blind, heart defects.
-- Thalidomide → Limb defects.
-- Warfarin → Bone defects - Never in pregnancy, use Heparin instead.
-
-PLACENTA: Delivers O2 + nutrients, removes CO2 + waste. Umbilical cord: 2 arteries (deoxygenated, to placenta) + 1 vein (oxygenated, to baby) - OPPOSITE to adult.`}
-];
-
-LESSONS.genetics = [
-{title:"1. Genetics - Inheritance Made Simple", meta:"Genetics • 30 mins • Pedigrees", img:"GENE", content:`CHROMOSOMES: 46 total. 22 pairs autosomes + 1 pair sex (XX female, XY male). You get 1 from mum, 1 from dad.
-
-MENDELIAN INHERITANCE - EXAM PEDIGREES:
-- Autosomal Dominant: Affected in EVERY generation, male + female, 50% risk if one parent affected. Examples: Huntington's, Achondroplasia, Marfan, Polycystic kidney (adult).
-- Autosomal Recessive: Skips generations, parents are carriers, 25% risk if both carriers, more common if consanguinity. Examples: Cystic Fibrosis, Sickle Cell, Thalassaemia, Albinism.
-- X-Linked Recessive: Males affected, females carriers, passed by carrier mother to sons. Examples: Haemophilia (bleeding), Duchenne Muscular Dystrophy, Colour blindness, G6PD deficiency.
-- X-Linked Dominant: Rare, Rett syndrome.
-- Mitochondrial: ONLY mother passes to ALL children, father passes to NONE. Example: Leber optic neuropathy.
-
-TRISOMIES - EXTRA CHROMOSOME:
-- Down Syndrome (Trisomy 21): Most common, flat face, upslanting eyes, single palmar crease, intellectual disability, heart defects (AVSD), hypothyroidism, increased leukaemia. Risk increases with maternal age >35. Screening: Nuchal translucency + Bloods + NIPT. Diagnosis: Amniocentesis / CVS.
-- Edwards (Trisomy 18): Severe, rocker-bottom feet, clenched hands, die early.
-- Patau (Trisomy 13): Cleft lip/palate, polydactyly, severe brain defects.
-
-SINGLE GENE:
-- Cystic Fibrosis: AR, CFTR gene, thick mucus → Lung infections + Pancreatic insufficiency + Salty sweat. Sweat test diagnosis. Treatment: Physiotherapy, antibiotics, CFTR modulators.
-- Sickle Cell: AR, Glu→Val, sickle RBCs block vessels → Pain crisis, splenic sequestration, stroke. Treatment: Hydroxyurea, folic acid, transfusions, avoid cold/dehydration/infection triggers.
-
-GENETIC COUNSELLING: Always offer, explain risk, don't judge, test only with consent.`}
-];
-
-LESSONS.immuno = [
-{title:"1. Immunology - Your Body's Army", meta:"Immunology • 30 mins", img:"IMMUNE", content:`IMMUNE SYSTEM = 2 Lines:
-
-INNATE (Born with, fast, non-specific):
-- Skin + Mucus = Barrier
-- Neutrophils, Macrophages = Eat bacteria
-- Complement = Punches holes in bacteria
-- Inflammation, Fever
-
-ADAPTIVE (Learned, slow first time, specific, memory):
-- B-cells → Make ANTIBODIES (Humoral). IgM first, IgG long-term memory, IgA in mucus/milk, IgE in allergy, IgD unknown.
-- T-cells → CELL-mediated. CD4 Helper (coordinates, HIV attacks these), CD8 Cytotoxic (kills infected cells), Regulatory (stops autoimmunity).
-
-VACCINES - HOW THEY WORK:
-Expose to dead/weakened antigen → Memory B + T cells → Next time real infection comes, body kills it fast.
-- Live: BCG, Measles, Yellow fever - Strong, not in pregnancy / immunocompromised.
-- Inactivated: Polio (IPV), Hepatitis A.
-- mRNA: COVID.
-
-HYPERSENSITIVITY - 4 TYPES (Gell & Coombs):
-- Type I: Immediate, IgE, Anaphylaxis - Peanut, bee sting, penicillin. Seconds-minutes. Treatment: Adrenaline IM (1:1000, 0.5mg adult, lateral thigh), oxygen, antihistamine, steroids. NEVER wait.
-- Type II: Cytotoxic, IgG/IgM attacks cells - Autoimmune haemolytic anaemia, Goodpasture, Myasthenia.
-- Type III: Immune complex, deposits in vessels/kidneys - SLE, Post-strep glomerulonephritis.
-- Type IV: Delayed, T-cell, 48-72h - TB test (Mantoux), Contact dermatitis, Transplant rejection.
-
-AUTOIMMUNE DISEASES: Body attacks itself.
-- SLE: Young woman, butterfly rash, joint pain, kidney, ANA positive. Sun worsens.
-- Rheumatoid Arthritis: Symmetrical small joints, morning stiffness >1h, anti-CCP.
-- Type 1 Diabetes: Pancreas attacked.
-- Graves: Thyroid attacked, hyperthyroid.
-
-IMMUNODEFICIENCY:
-- Primary: Born with it - SCID (bubble baby).
-- Secondary: HIV (most common), steroids, chemotherapy, malnutrition.`}
-];
-
-LESSONS.haem = [
-{title:"1. Haematology - Blood, Anaemia, Clotting", meta:"Haematology • 30 mins", img:"BLOOD", content:`BLOOD = 45% Cells + 55% Plasma.
-- RBC: Carry O2, 120 days lifespan, made in bone marrow, destroyed in spleen. No nucleus.
-- WBC: Fight infection. Neutrophils (bacteria), Lymphocytes (virus), Eosinophils (parasite/allergy), Monocytes (TB).
-- Platelets: Clotting, 150-400 x10^9/L. Low = Bleeding.
-- Plasma: Water, proteins (albumin, clotting factors, antibodies).
-
-ANAEMIA - Low Hb. Symptoms: Fatigue, pallor, shortness of breath, tachycardia, koilonychia (spoon nails).
-- Iron Deficiency: Most common, microcytic (small RBC, low MCV), bleeding (periods, GIT), poor diet. Treatment: Ferrous sulphate + Vitamin C, find bleeding source. Ferritin low.
-- Megaloblastic: Macrocytic (large RBC, high MCV), B12 / Folate deficiency. Treatment: B12 IM if B12 low, Folate if folate low. NEVER give folate alone if B12 low - worsens neuropathy.
-- Haemolytic: RBCs broken, jaundice, reticulocytes high, LDH high. Causes: Sickle, thalassaemia, G6PD, malaria, autoimmune.
-- Aplastic: Bone marrow failure, pancytopenia (all cells low), drugs, viruses.
-
-CLOTTING - COAGULATION CASCADE:
-- Platelets form plug → Fibrin mesh stabilises.
-- PT/INR = Extrinsic pathway, Warfarin monitoring. Target INR 2-3 for most.
-- aPTT = Intrinsic, Heparin monitoring.
-- Haemophilia: X-linked, Factor VIII (A) or IX (B) low, bleeding into joints, treat with factor replacement. No IM injections.
-- DIC: Disseminated Intravascular Coagulation - Clotting + Bleeding at same time, sepsis/obstetric catastrophe, treat cause + blood products.
-
-LEUKAEMIA vs LYMPHOMA:
-- Leukaemia: Blood cancer, bone marrow, blasts in blood. Acute (children, fast) vs Chronic (adults, slow). ALL (children), AML (adults), CML (Philadelphia chromosome).
-- Lymphoma: Lymph node cancer. Hodgkin (Reed-Sternberg cells, B symptoms: fever, night sweats, weight loss) vs Non-Hodgkin.
-
-TRANSFUSION: Always check blood group, cross-match, consent. Reaction: Fever, chills, back pain, haematuria → STOP transfusion immediately, check.`}
-];
-
-LESSONS.endo = [
-{title:"1. Endocrinology - Hormones Masterclass", meta:"Endocrinology • 35 mins", img:"ENDO", content:`THYROID:
-- Hypothyroid: Slow - Weight gain, cold, constipation, dry skin, hair loss, bradycardia, depression. TSH HIGH, T4 LOW. Cause: Hashimoto (autoimmune). Treatment: Levothyroxine (T4) lifelong, take on empty stomach.
-- Hyperthyroid: Fast - Weight loss, heat, diarrhoea, tremor, palpitations, sweating, anxiety, exophthalmos (Graves). TSH LOW, T4 HIGH. Treatment: Carbimazole, Radioactive iodine, Surgery. Thyroid storm = Fever + Tachycardia + Confusion = EMERGENCY: Beta-blocker + Carbimazole + Steroids + Cooling.
-- Thyroid nodules: Most benign, but check: Hard, fixed, lymph nodes, hoarseness = Cancer. FNA biopsy.
-
-DIABETES (See Biochem Part 2 + Medicine Part 3):
-- Complications: Eyes (retinopathy - laser), Kidneys (nephropathy - ACE-I), Nerves (neuropathy - foot ulcers), Heart (MI), Stroke.
-- Hypoglycaemia: Sweating, shaking, confusion, aggressive. Treatment: If awake - Oral glucose/juice. If unconscious - IV glucose / Glucagon IM. NEVER give food to unconscious patient (aspiration).
-
-ADRENAL:
-- Cushing (High Cortisol): Moon face, buffalo hump, central obesity, purple striae, hypertension, diabetes, weak muscles. Causes: Steroids (most common), Pituitary tumour (Cushing disease). Treatment: Stop steroids slowly, surgery if tumour.
-- Addison (Low Cortisol): Dark skin (hyperpigmentation), low BP, craving salt, vomiting, weight loss, tired. Cause: Autoimmune, TB. Treatment: Hydrocortisone + Fludrocortisone lifelong. Addisonian crisis (infection/surgery) → IV hydrocortisone + fluids + glucose - Can die.
-
-PITUITARY:
-- Prolactinoma: High prolactin → Galactorrhoea (milk), amenorrhoea, infertility. Treatment: Bromocriptine / Cabergoline.
-- Acromegaly: High GH → Large hands, feet, jaw, forehead. Cause: Pituitary adenoma. Treatment: Surgery + Octreotide.
-- Diabetes Insipidus: No ADH → Polyuria (litres of dilute urine), polydipsia. Treatment: Desmopressin (DDAVP). Don't confuse with Diabetes Mellitus (high glucose).
-
-CALCIUM:
-- Hypercalcaemia: Stones, Bones, Groans, Moans (Kidney stones, bone pain, abdominal pain, psychiatric). Cause: Hyperparathyroidism, cancer. Treatment: Fluids + Bisphosphonates.
-- Hypocalcaemia: Tetany, Chvostek (tap face → twitch), Trousseau (BP cuff → carpopedal spasm), perioral tingling. Cause: Hypoparathyroidism after thyroid surgery.`}
-];
-
-LESSONS.derm = [
-{title:"1. Dermatology - Read The Skin", meta:"Dermatology • 30 mins", img:"SKIN", content:`DESCRIBE EVERY RASH: Morphology + Distribution + Colour + Symptoms.
-- Macule: Flat, <1cm. Papule: Raised, <1cm. Plaque: Raised, >1cm. Vesicle: Fluid <1cm. Bulla: Fluid >1cm. Pustule: Pus.
-
-ECZEMA vs PSORIASIS - THE 2 BIG ONES:
-- Eczema (Atopic Dermatitis): Itchy, flexural (elbows, knees), children, dry skin, atopy (asthma + hayfever family). Treatment: Emollients (moisturise daily), Topical steroids (mild to potent), avoid triggers, antihistamine for itch.
-- Psoriasis: Well-defined scaly plaques, extensor (knees, elbows), silvery scale, Auspitz sign (bleeding when scale removed), nail pitting, Koebner (lesions at trauma sites). Treatment: Emollients, Topical steroids + Vitamin D (Calcipotriol), Phototherapy, Methotrexate / Biologics if severe.
-
-INFECTIONS:
-- Impetigo: Honey-coloured crusts, Staph/Strep, children, highly infectious. Treatment: Topical mupirocin / Oral flucloxacillin.
-- Cellulitis: Hot, red, painful, spreading, fever, unilateral leg. Treatment: Flucloxacillin + Penicillin. If bilateral, think oedema, not cellulitis.
-- Fungal (Tinea): Ring-shaped, itchy, raised edge. Tinea capitis (scalp, children, hair loss), Tinea corporis (body), Tinea pedis (athlete's foot). Treatment: Topical terbinafine, oral if scalp/nails.
-- Scabies: Intense itch at night, burrows between fingers, wrists, genitals, household contacts itch. Treatment: Permethrin 5% cream whole body, repeat in 7 days, treat ALL contacts, wash bedding.
-- Herpes: Cold sores (HSV-1), Genital (HSV-2), Shingles (Varicella zoster, dermatomal, painful vesicles, don't cross midline). Treatment: Aciclovir, best within 72h.
-
-SKIN CANCER:
-- Basal Cell: Pearly, telangiectasia, non-healing ulcer, sun-exposed.
-- Squamous Cell: Scaly, crusty, grows fast, can metastasise.
-- Melanoma: ABCDE - Asymmetry, Border irregular, Colour varied, Diameter >6mm, Evolution (changing). Dark skin: Check palms, soles, nails (acral lentiginous). Biopsy if suspicious - Early excision cures.
-
-ACNE: Teens, androgens, Propionibacterium. Treatment: Benzoyl peroxide, Topical retinoid, Oral antibiotics, Isotretinoin (Roaccutane) if severe - Teratogenic, check liver + lipids, no pregnancy.`}
-];
-
-LESSONS.radio = [
-{title:"1. Radiology - Read X-Ray, CT, MRI Like A Radiologist", meta:"Radiology • 35 mins", img:"XRAY", content:`CHEST X-RAY - SYSTEMATIC: ABCDE
-A - Airway (trachea central?), B - Breathing (lungs, effusion, pneumothorax), C - Circulation (heart size, CTR <50%), D - Diaphragm (free air? blunting?), E - Everything else (bones, soft tissues).
-- Cardiomegaly: Heart >50% of chest width.
-- Pleural effusion: Blunted costophrenic angle, meniscus.
-- Pneumothorax: No lung markings, visible pleural line, mediastinal shift if tension.
-- Pneumonia: Consolidation, air bronchograms.
-- TB: Cavities upper lobes, miliary (tiny dots everywhere).
-- Pulmonary oedema: Bat's wing, Kerley B lines, enlarged heart.
-
-ABDOMINAL X-RAY:
-- Bowel obstruction: Dilated loops, air-fluid levels, no gas in rectum.
-- Perforation: Free air under diaphragm (erect chest X-ray is best).
-- Kidney stones: Radio-opaque (calcium) - 90% visible.
-
-CT vs MRI:
-- CT: Fast, radiation, best for trauma, bleeding, bones, lungs. Contrast: Kidney risk, allergy.
-- MRI: Slow, no radiation, magnetic, best for brain, spine, joints, soft tissue. Contraindicated: Pacemaker, metal fragments, claustrophobia.
-- Ultrasound: No radiation, best for pregnancy, gallbladder, DVT, FAST in trauma. Operator dependent.
-
-ALWAYS: Check patient name, date, left/right marker. Compare with old films. Correlate clinically - X-ray never diagnoses alone.`}
-];
-
-LESSONS.anaesth = [
-{title:"1. Anaesthesia + ICU - Airway, Theatre, Ventilator", meta:"Anaesthesia + ICU • 30 mins", img:"AIRWAY", content:`ANAESTHESIA = Triad: Unconsciousness + Analgesia + Muscle Relaxation.
-- Pre-op: History, allergies, airway assessment (Mallampati), fasting (6h food, 2h clear fluids), consent, ASA grade.
-- Induction: Propofol (white, pain on injection, hypotension) + Fentanyl (pain) + Rocuronium (paralysis). Intubate, ventilate.
-- Maintenance: Gas (Sevoflurane) + Oxygen + Analgesia.
-- Recovery: Reverse (Neostigmine + Glycopyrrolate), extubate when awake, monitor in recovery.
-
-AIRWAY - THE #1 SKILL:
-- Assessment: Mouth opening, teeth, neck movement, Mallampati (tongue vs palate).
-- Basic: Head tilt-chin lift, jaw thrust, oropharyngeal airway, suction, oxygen.
-- Advanced: LMA (supraglottic), Endotracheal tube (definitive), Cricothyroidotomy (can't intubate, can't oxygenate - last resort).
-- Difficult airway: Call for help, don't keep trying, use video laryngoscope, wake patient if possible.
-
-ICU:
-- Ventilator: Modes - SIMV, CPAP, Pressure control. ARDS: Low tidal volume (6ml/kg), PEEP.
-- Sedation: Propofol + Midazolam. Daily sedation hold.
-- Vasopressors: Noradrenaline first line for septic shock.
-- Lines: Central line, arterial line - Strict asepsis.
-- ABCDE in ICU: Airway, Breathing, Circulation, Disability, Exposure - Every hour.
-
-PAIN IN THEATRE: Multimodal - Paracetamol + NSAID + Opioid + Regional (spinal/epidural). Spinal for C-section: Bupivacaine, hypotension is common - Fluids + Ephedrine.`}
-];
-
-LESSONS.emerg = [
-{title:"1. Emergency Medicine - Resus, Poisoning, Shock", meta:"Emergency • 35 mins • Life Saving", img:"RESUS", content:`EMERGENCY = ABCDE + TIME. Don't delay.
-
-RESUS - CARDIAC ARREST:
-- CPR: 30 compressions : 2 breaths, 100-120/min, depth 5-6cm, allow recoil, minimise interruptions.
-- Defib: VF / Pulseless VT = SHOCK. Asystole / PEA = NO shock, CPR + Adrenaline.
-- 4 Hs + 4 Ts: Hypoxia, Hypovolaemia, Hypo/Hyperkalaemia, Hypothermia, Thrombosis (coronary/pulmonary), Tension pneumothorax, Tamponade, Toxins.
-
-POISONING:
-- Paracetamol: NAC (see Pharm). Check level at 4h.
-- Organophosphate (pesticide): SLUDGE - Salivation, Lacrimation, Urination, Defecation, GI cramps, Emesis + Miosis + Bronchorrhoea. Treatment: Atropine (large doses) + Pralidoxime + Decontaminate.
-- Iron: Kids, colourful tablets, vomiting, shock. Treatment: Desferrioxamine.
-- Tricyclic antidepressants: Wide QRS, seizures, hypotension. Treatment: Sodium bicarbonate.
-- Always: Airway, decontaminate (remove clothes, wash), call poison centre, don't induce vomiting if corrosive.
-
-ANAPHYLAXIS (See Immuno): Adrenaline IM first, then oxygen, fluids, antihistamine, steroids. Biphasic - Can recur in 4-12h, observe.
-
-STROKE - FAST:
-- Face drooping, Arm weakness, Speech difficulty, Time to call.
-- Ischaemic (85%): Clot. Treatment: Thrombolysis (alteplase) within 4.5h if eligible, thrombectomy. Aspirin.
-- Haemorrhagic (15%): Bleed. Treatment: Control BP, reverse anticoagulants, neurosurgery if needed.
-- NEVER give thrombolysis if haemorrhagic - CT first.`}
-];
-
-LESSONS.family = [
-{title:"1. Family Medicine + Public Health - Prevention Is Better", meta:"Family Medicine • 30 mins", img:"PHC", content:`PRIMARY HEALTH CARE (PHC) - First contact, continuous, comprehensive, coordinated.
-- Alma-Ata: Health for all. Prevention > Cure.
-- Levels: Primary (clinic), Secondary (district hospital), Tertiary (academic hospital).
-
-PUBLIC HEALTH - EPIDEMIOLOGY:
-- Incidence = New cases. Prevalence = Total cases.
-- Sensitivity = Picks up true positives. Specificity = Picks up true negatives.
-- Screening: Test healthy people to catch disease early (Pap smear, mammogram, HIV test).
-- Outbreak: More cases than expected. Investigate: Confirm, define case, find source, control.
-
-NON-COMMUNICABLE DISEASES (NCDs): Diabetes, Hypertension, Cancer, Mental health - Now bigger killers than HIV/TB in SA. Lifestyle: Diet, exercise, no smoking, no alcohol excess.
-
-COMMUNICABLE: HIV, TB, STIs, COVID, Measles - Prevention: Vaccines, condoms, hand hygiene, isolation.
-
-MATERNAL & CHILD HEALTH: Antenatal care, immunisation, breastfeeding (exclusive 6 months), growth monitoring (Road to Health Booklet).
-
-HEALTH PROMOTION: Education, community health workers, school health, water + sanitation.
-
-ETHICS - 4 PILLARS:
-- Autonomy: Patient decides.
-- Beneficence: Do good.
-- Non-maleficence: Do no harm.
-- Justice: Fair distribution.
-- Confidentiality: Don't share patient info. Consent: Informed, voluntary, capacity.`}
-];
-
-LESSONS.neuro = [
-{title:"1. Neurology - Stroke, Epilepsy, Meningitis, Headache", meta:"Neurology • 35 mins", img:"NEURO", content:`STROKE (See Emergency):
-- Localise: Right brain = Left weakness, left brain = Right weakness + Speech (if dominant).
-- FAST + CT + Thrombolysis window 4.5h.
-- Risk factors: Hypertension (biggest), diabetes, smoking, AF, high cholesterol.
-- Secondary prevention: Aspirin, statin, control BP, anticoagulate if AF.
-
-EPILEPSY:
-- Seizure = Abnormal electrical discharge. Epilepsy = Recurrent seizures.
-- Generalised tonic-clonic: Loss of consciousness, tonic (stiff) → clonic (jerking), tongue biting, incontinence, post-ictal confusion.
-- Absence: Children, staring, brief, no fall.
-- Status epilepticus: Seizure >5 mins or repeated without recovery = EMERGENCY: Lorazepam IV → Phenytoin → ICU.
-- Treatment: Sodium valproate (avoid in pregnancy), Carbamazepine, Levetiracetam. Counsel: No driving until seizure-free, adherence, avoid triggers (sleep deprivation, alcohol, flashing lights).
-- Don't put anything in mouth during seizure. Turn to side, protect head, time it.
-
-MENINGITIS:
-- Bacterial: Fever, neck stiffness, headache, photophobia, petechial rash, confusion. LP: High protein, low glucose, high neutrophils. Treatment: Ceftriaxone + Dexamethasone, isolation.
-- Viral: Milder, lymphocytic, supportive.
-- TB meningitis: Chronic headache, low-grade fever, cranial nerve palsies, high protein, low glucose, lymphocytes. Treatment: RIPE + Steroids.
-
-HEADACHE - RED FLAGS:
-- Thunderclap (worst ever) = Subarachnoid haemorrhage → CT + LP.
-- Fever + Neck stiffness = Meningitis.
-- Papilloedema + Vomiting = Raised ICP / Tumour.
-- Migraine: Unilateral, throbbing, aura (zig-zag lights), nausea, photophobia. Treatment: Triptans, avoid triggers.
-- Tension: Band-like, bilateral, stress.
-- Cluster: Severe, one eye, tearing, male, alcohol trigger.
-
-PARKINSON'S: TRAP - Tremor (resting, pill-rolling), Rigidity, Akinesia/bradykinesia, Postural instability. Treatment: Levodopa + Carbidopa.`}
-];
-
-LESSONS.eyeent = [
-{title:"1. Ophthalmology + ENT - Eye, Ear, Nose, Throat", meta:"Ophthal + ENT • 30 mins", img:"EYE", content:`EYE:
-- Red eye: Conjunctivitis (itchy, discharge, bilateral), Uveitis (pain, photophobia, small pupil), Acute glaucoma (severe pain, halos, vomiting, fixed dilated pupil - EMERGENCY: Pilocarpine + Acetazolamide + Surgery), Corneal ulcer (contact lens, fluorescein stain).
-- Cataract: Cloudy lens, gradual painless vision loss, elderly, surgery cures (phacoemulsification).
-- Diabetic retinopathy: Microaneurysms, haemorrhages, exudates, new vessels. Screening yearly, laser if proliferative.
-- Visual acuity: Snellen chart, 6/6 normal, 6/60 = Sees at 6m what normal sees at 60m.
-- Eye exam: VA, pupils (RAPD = Marcus Gunn), fundoscopy (disc, vessels, macula).
-
-ENT:
-- Otitis media: Children, fever, ear pain, bulging red tympanic membrane. Treatment: Amoxicillin.
-- Otitis externa: Swimmer's ear, pain on pulling tragus, discharge. Treatment: Ear drops + keep dry.
-- Tonsillitis: Sore throat, exudates, fever. CENTOR score. Viral vs Strep (penicillin if bacterial).
-- Epistaxis: Nosebleed. Sit up, lean forward, pinch soft part 10 mins, don't blow. Cautery / packing if fails.
-- Stridor vs Wheeze: Stridor = Upper airway (croup, epiglottitis - drooling, tripod, DON'T examine throat with tongue depressor, call anaesthetics), Wheeze = Lower airway (asthma).
-- Hearing loss: Conductive (wax, otitis, perforation - Rinne negative, Weber to affected side) vs Sensorineural (presbycusis, noise, ototoxic drugs - Rinne positive, Weber to normal side).`}
-];
-
-LESSONS.ortho = [
-{title:"1. Orthopaedics - Bones, Joints, Back Pain", meta:"Orthopaedics • 30 mins", img:"BONE2", content:`FRACTURES (See Surgery Part 3):
-- Check: Neurovascular, open vs closed, deformity, shortening.
-- Complications: Compartment syndrome (see Surgery), Fat embolism (long bone fracture + confusion + petechiae + hypoxia), Non-union, Malunion, Infection.
-- Hip fracture: Elderly, fall, shortened externally rotated leg, surgery within 24-48h.
-
-BACK PAIN - RED FLAGS:
-- Cauda equina: Saddle anaesthesia, bladder/bowel dysfunction, leg weakness = EMERGENCY MRI + Surgery within hours.
-- Cancer, infection (TB spine - Pott's), fracture (trauma, osteoporosis), fever, weight loss, age >50, night pain.
-- Mechanical: 90% - No red flags, reassure, mobilise, analgesia, physiotherapy, no routine X-ray.
-
-ARTHRITIS:
-- Osteoarthritis: Wear and tear, elderly, weight-bearing joints (knee, hip), pain worse with activity, better with rest, Heberden nodes (DIP), Bouchard (PIP). Treatment: Weight loss, physio, paracetamol, NSAIDs, joint replacement if severe.
-- Rheumatoid: Autoimmune, symmetrical small joints, morning stiffness >1h, better with activity, anti-CCP. Treatment: DMARDs (Methotrexate), biologics, steroids.
-- Gout: Sudden severe big toe pain, red, hot, uric acid crystals (needle-shaped, negative birefringence). Treatment: Acute - NSAIDs / Colchicine. Chronic - Allopurinol (start after acute attack, with cover).
-
-SPORTS: Sprain (ligament), Strain (muscle), Dislocation (joint out - shoulder most common, reduce + sling). RICE: Rest, Ice, Compression, Elevation.`}
-];
-
-QUIZZES.histo = [
-{q:"Ectoderm gives rise to:", opts:["Gut + Liver","Brain + Skin + Nerves","Muscle + Bone","Blood + Kidney"], ans:1, memo:"Ectoderm = Outer - Skin, Brain, Nerves. Mesoderm = Muscle/Bone/Blood. Endoderm = Gut/Liver/Lungs."},
-{q:"Folate prevents:", opts:["Heart disease","Neural tube defects","Diabetes","Asthma"], ans:1, memo:"Folate before conception prevents spina bifida + anencephaly."}
-];
-QUIZZES.genetics = [
-{q:"Autosomal recessive risk if both parents carriers is:", opts:["50%","25%","100%","0%"], ans:1, memo:"25% affected, 50% carrier, 25% normal. Skips generations."},
-{q:"Down syndrome is:", opts:["Trisomy 21","Trisomy 18","Monosomy X","XXY"], ans:0, memo:"Trisomy 21. Edwards 18, Patau 13. Risk increases with maternal age."},
-{q:"X-linked recessive example is:", opts:["Huntington","Haemophilia","Cystic Fibrosis","Sickle Cell"], ans:1, memo:"Haemophilia + Duchenne + Colour blindness = X-linked recessive, males affected."}
-];
-QUIZZES.immuno = [
-{q:"Anaphylaxis first drug is:", opts:["Antihistamine","Adrenaline IM","Steroids","Paracetamol"], ans:1, memo:"Adrenaline IM lateral thigh, 0.5mg adult. Don't wait. Antihistamine + steroids are second."},
-{q:"HIV attacks:", opts:["B-cells","CD4 T-cells","Neutrophils","Platelets"], ans:1, memo:"CD4 helper T-cells. CD4 <200 = AIDS."}
-];
-QUIZZES.haem = [
-{q:"Iron deficiency anaemia MCV is:", opts:["High","Low - Microcytic","Normal","Very high"], ans:1, memo:"Iron deficiency = Microcytic, low MCV, low ferritin. Megaloblastic = Macrocytic, high MCV."},
-{q:"Warfarin is monitored by:", opts:["aPTT","PT/INR","Platelets","Hb"], ans:1, memo:"Warfarin = PT/INR (target 2-3). Heparin = aPTT."}
-];
-QUIZZES.endo = [
-{q:"Hypothyroid TSH is:", opts:["Low","High","Normal","Zero"], ans:1, memo:"Hypo = TSH HIGH, T4 LOW. Hyper = TSH LOW, T4 HIGH."},
-{q:"Addison crisis treatment is:", opts:["Insulin","IV Hydrocortisone + Fluids + Glucose","Paracetamol","Antibiotics only"], ans:1, memo:"IV hydrocortisone + fluids + glucose. Can die if missed."}
-];
-QUIZZES.derm = [
-{q:"Psoriasis vs Eczema - Psoriasis is:", opts:["Flexural, itchy","Extensor, silvery scale, well-defined","Only face","Only feet"], ans:1, memo:"Psoriasis = Extensor, silvery scale, Auspitz. Eczema = Flexural, itchy."},
-{q:"Melanoma ABCDE includes:", opts:["Asymmetry, Border, Colour, Diameter, Evolution","Only pain","Only itch","Only red"], ans:0, memo:"ABCDE - Asymmetry, Border irregular, Colour varied, Diameter >6mm, Evolution."}
-];
-QUIZZES.radio = [
-{q:"Free air under diaphragm means:", opts:["Pneumonia","Perforation","Normal","TB"], ans:1, memo:"Perforation - Erect chest X-ray best. Surgical emergency."},
-{q:"CT vs MRI - MRI is best for:", opts:["Trauma bleeding","Brain, spine, soft tissue, no radiation","Bones only","Fast scan"], ans:1, memo:"MRI = Brain, spine, joints, soft tissue, no radiation. CT = Fast, trauma, bleeding."}
-];
-QUIZZES.anaesth = [
-{q:"Anaesthesia triad is:", opts:["Sleep only","Unconsciousness + Analgesia + Muscle Relaxation","Pain only","Fever"], ans:1, memo:"Unconsciousness + Analgesia + Relaxation."}
-];
-QUIZZES.emerg = [
-{q:"Cardiac arrest - VF treatment is:", opts:["No shock","Shock + CPR","Paracetamol","Wait"], ans:1, memo:"VF / Pulseless VT = SHOCK. Asystole / PEA = No shock, CPR + Adrenaline."},
-{q:"Organophosphate poisoning treatment is:", opts:["Paracetamol","Atropine + Pralidoxime","Insulin","Warfarin"], ans:1, memo:"SLUDGE + Miosis. Atropine large doses + Pralidoxime."}
-];
-QUIZZES.family = [
-{q:"Incidence vs Prevalence - Incidence is:", opts:["Total cases","New cases","Death rate","Cure rate"], ans:1, memo:"Incidence = New cases. Prevalence = Total cases."}
-];
-QUIZZES.neuro = [
-{q:"Status epilepticus first drug is:", opts:["Paracetamol","Lorazepam IV","Insulin","Aspirin"], ans:1, memo:"Lorazepam IV → Phenytoin → ICU. Seizure >5 mins."},
-{q:"Parkinson's TRAP includes:", opts:["Tremor, Rigidity, Akinesia, Postural instability","Fever only","Rash","Diarrhoea"], ans:0, memo:"TRAP - Tremor (resting), Rigidity, Akinesia, Postural instability. Levodopa."}
-];
-QUIZZES.eyeent = [
-{q:"Acute glaucoma is:", opts:["Painless","Severe pain, halos, vomiting, fixed dilated pupil - Emergency","Itchy only","Normal"], ans:1, memo:"Acute glaucoma = Emergency. Pilocarpine + Acetazolamide + Surgery."},
-{q:"Stridor means:", opts:["Lower airway asthma","Upper airway obstruction - Croup / Epiglottitis","Normal","Heart"], ans:1, memo:"Stridor = Upper airway. Wheeze = Lower airway."}
-];
-QUIZZES.ortho = [
-{q:"Cauda equina red flags include:", opts:["Saddle anaesthesia + Bladder/bowel dysfunction","Only back pain","Only fever","Only rash"], ans:0, memo:"Cauda equina = Emergency MRI + Surgery within hours."},
-{q:"Gout is caused by:", opts:["Calcium","Uric acid crystals","Iron","Bacteria"], ans:1, memo:"Uric acid, needle-shaped crystals. Big toe, sudden severe pain. Colchicine / NSAIDs acute, Allopurinol chronic."}
-];
-
-// PART 4 DRAWINGS
-const _oldDraw4 = drawSVG;
-drawSVG = function(type){
-  if(type==='HISTO') return `<div class="draw"><svg viewBox="0 0 400 140"><text x="200" y="20" text-anchor="middle" font-weight="bold">3 GERM LAYERS</text><rect x="40" y="40" width="100" height="50" fill="#ff9999"/><text x="90" y="70" text-anchor="middle">ECTODERM</text><text x="90" y="85" text-anchor="middle" font-size="11">Skin + Brain</text><rect x="150" y="40" width="100" height="50" fill="#99ff99"/><text x="200" y="70" text-anchor="middle">MESODERM</text><text x="200" y="85" text-anchor="middle" font-size="11">Muscle + Bone</text><rect x="260" y="40" width="100" height="50" fill="#99ccff"/><text x="310" y="70" text-anchor="middle">ENDODERM</text><text x="310" y="85" text-anchor="middle" font-size="11">Gut + Liver</text><text x="200" y="120" text-anchor="middle" font-size="12">Week 3 Gastrulation - Ecto Outer, Meso Middle, Endo Inner</text></svg></div>`;
-  if(type==='BLOOD') return `<div class="draw"><svg viewBox="0 0 400 140"><text x="200" y="20" text-anchor="middle" font-weight="bold">BLOOD CELLS</text><circle cx="80" cy="70" r="25" fill="#cc0000"/><text x="80" y="115" text-anchor="middle" font-size="11">RBC - O2</text><circle cx="180" cy="70" r="25" fill="#ffffff" stroke="#333" stroke-width="2"/><text x="180" y="115" text-anchor="middle" font-size="11">WBC - Fight</text><circle cx="280" cy="70" r="12" fill="#ffcc00"/><text x="280" y="115" text-anchor="middle" font-size="11">Platelet - Clot</text><text x="200" y="135" text-anchor="middle" font-size="11">RBC 120 days - WBC fights - Platelets 150-400</text></svg></div>`;
-  if(type==='SKIN') return `<div class="draw"><svg viewBox="0 0 400 140"><text x="200" y="20" text-anchor="middle" font-weight="bold">SKIN LAYERS</text><rect x="80" y="40" width="240" height="20" fill="#ffcc99"/><text x="200" y="55" text-anchor="middle" font-size="11">EPIDERMIS</text><rect x="80" y="60" width="240" height="30" fill="#ff9999"/><text x="200" y="80" text-anchor="middle" font-size="11">DERMIS - Vessels + Nerves</text><rect x="80" y="90" width="240" height="30" fill="#ffff99"/><text x="200" y="110" text-anchor="middle" font-size="11">SUBCUTIS - Fat</text></svg></div>`;
-  if(type==='GENE') return `<div class="draw"><svg viewBox="0 0 400 140"><text x="200" y="20" text-anchor="middle" font-weight="bold">PEDIGREE - AUTOSOMAL RECESSIVE</text><text x="100" y="70" text-anchor="middle" font-size="20">○ - Carrier Mum</text><text x="300" y="70" text-anchor="middle" font-size="20">□ - Carrier Dad</text><text x="200" y="110" text-anchor="middle">25% Affected - 50% Carrier - 25% Normal</text></svg></div>`;
-  if(type==='IMMUNE') return `<div class="draw"><svg viewBox="0 0 400 140"><text x="200" y="20" text-anchor="middle" font-weight="bold">IMMUNE SYSTEM</text><rect x="40" y="40" width="150" height="50" fill="#ccffcc"/><text x="115" y="70" text-anchor="middle">B-CELLS</text><text x="115" y="85" text-anchor="middle" font-size="11">Antibodies</text><rect x="210" y="40" width="150" height="50" fill="#ccccff"/><text x="285" y="70" text-anchor="middle">T-CELLS</text><text x="285" y="85" text-anchor="middle" font-size="11">Kill Infected</text><text x="200" y="120" text-anchor="middle" font-size="11">CD4 Helper - HIV attacks CD4 - CD8 Killer</text></svg></div>`;
-  return _oldDraw4(type);
-};
-
-// Refresh home to show new modules
-try{ filterYear('ALL'); }catch(e){}
-console.log("PART 4 LOADED - All extra modules added. WEBSITE COMPLETE.");
-</script>
-<!-- ================= PART 4 END - WEBSITE COMPLETE ================= -->
-  <!-- ================= PART 5 START - PASTE AFTER PART 4 - THE WHOLE BODY + CONCLUSION ================= -->
-<script>
-// PART 5: THE WHOLE BODY - Head To Toe + All Systems Together + Final Exam Master Plan + Conclusion
-
-MODULES.push(
-{id:"body", name:"THE WHOLE BODY - Head To Toe", year:"ALL", tag:"ALL YEARS • The Conclusion • Most Important", desc:"Full Body Map - All 11 Systems Together. Read This Last."},
-{id:"final", name:"FINAL EXAM MASTER PLAN", year:"6", tag:"Final Year • Exams", desc:"How To Pass - Study Plan, Past Paper Strategy, OSCE Checklist."}
-);
-
-LESSONS.body = [
-{title:"1. THE WHOLE BODY - Head To Toe Map", meta:"The Whole Body • 45 mins • READ THIS LAST", img:"BODY", content:`THIS IS THE MAP OF YOU. IF YOU UNDERSTAND THIS, YOU UNDERSTAND MEDICINE.
-
-START AT THE TOP - HEAD:
-- BRAIN: 1.4kg, 86 billion neurons. Frontal (Do), Parietal (Feel), Temporal (Hear/Remember), Occipital (See), Cerebellum (Balance), Brainstem (Breathe). Blood: Circle of Willis.
-- EYES: See. Retina = Film. Cataract = Cloudy lens. Glaucoma = High pressure kills optic nerve.
-- EARS: Hear + Balance. Conductive loss = Outer/middle ear. Sensorineural = Inner ear / nerve.
-- NOSE: Smell + Air filter. Sinuses drain here. Epistaxis = Kiesselbach's plexus.
-- MOUTH: Teeth (32 adult), tongue, salivary glands. First part of digestion.
-- NECK: Thyroid (metabolism), Carotids (brain blood), Jugulars (drain), Lymph nodes (infection/cancer), Trachea (air), Oesophagus (food).
-
-CHEST - THORAX:
-- HEART: 4 chambers, 4 valves, LAD = Widowmaker. Pumps 5L/min, 100,000 beats/day.
-- LUNGS: Left 2 lobes, Right 3 lobes. Alveoli = Gas exchange. O2 in, CO2 out. Surfactant keeps alveoli open - Babies born without it get RDS.
-- RIBS: 12 pairs. Protect heart + lungs. Fracture = Pain + Pneumothorax risk.
-- OESOPHAGUS: Food tube, 25cm, passes through diaphragm. Reflux = Heartburn.
-
-ABDOMEN - THE 9 REGIONS:
-Draw a tic-tac-toe on the belly:
-- Right Hypochondrium: Liver, Gallbladder - Pain = Cholecystitis.
-- Epigastric: Stomach, Pancreas - Pain = Ulcer, Pancreatitis.
-- Left Hypochondrium: Spleen - Rupture in trauma = Bleeding.
-- Right Lumbar: Kidney, Ascending colon.
-- Umbilical: Small intestine, Aorta.
-- Left Lumbar: Kidney, Descending colon.
-- Right Iliac Fossa: Appendix - Appendicitis.
-- Hypogastric: Bladder, Uterus - Pain = UTI, Ectopic.
-- Left Iliac Fossa: Sigmoid colon - Diverticulitis.
-
-- LIVER: Largest organ, detox, makes albumin + clotting factors, stores glycogen, makes bile. Cirrhosis = Hard, fails.
-- GALLBLADDER: Stores bile. Stones = 4 Fs.
-- PANCREAS: Head (in C-loop of duodenum), Body, Tail. Exocrine (digestive enzymes) + Endocrine (Insulin + Glucagon). Pancreatitis = Epigastric pain to back.
-- SPLEEN: Filters blood, removes old RBCs, fights encapsulated bacteria. No spleen = Vaccinate (pneumococcal, meningococcal, Hib).
-- KIDNEYS: 2, filter 180L/day, make 1.5L urine. Nephron = Functional unit. Renin (BP) + Erythropoietin (RBC) + Vitamin D activation.
-- BLADDER: Stores urine. UTI = Burning, frequency.
-- INTESTINES: Small (6m, absorbs) + Large (1.5m, absorbs water).
-
-PELVIS + REPRODUCTIVE:
-- Female: Ovaries (eggs + hormones), Fallopian tubes (fertilisation), Uterus (baby grows), Cervix (HPV cancer), Vagina.
-- Male: Testes (sperm + testosterone), Epididymis, Vas deferens, Prostate (BPH + Cancer), Penis.
-- Torsion = Emergency. Ectopic = Emergency.
-
-LIMBS:
-- ARMS: Shoulder → Elbow → Wrist. Brachial plexus (C5-T1) - Erb's (C5-C6, waiter's tip) vs Klumpke (C8-T1, claw hand). Radial nerve = Wrist drop (Saturday night palsy). Median = Carpal tunnel (pins + needles in thumb/index/middle).
-- LEGS: Hip → Knee → Ankle. Femoral nerve, Sciatic nerve (L4-S3, largest nerve). Sciatica = Shooting leg pain. Femoral triangle NAVEL.
-- BONES: 206 bones. Longest = Femur. Smallest = Stapes. Skull protects brain, Vertebrae protect spinal cord.
-- JOINTS: Shoulder (most mobile, most dislocates), Hip (most stable), Knee (most injured).
-
-SKIN - LARGEST ORGAN:
-- 2m2, protects, regulates temp (sweat + vessels), makes Vitamin D, sensation. Layers: Epidermis → Dermis → Subcutis. Burns = Rule of 9s.
-
-BLOOD - THE HIGHWAY:
-- 5 Litres. RBC (O2), WBC (fight), Platelets (clot), Plasma (proteins).
-- Arteries = Away from heart (Oxygenated, except pulmonary artery). Veins = To heart (Deoxygenated, except pulmonary vein).
-- Aorta = Largest artery. Vena cava = Largest vein.
-
-THE 11 SYSTEMS - ONE SENTENCE EACH:
-1. Integumentary (Skin): Protects.
-2. Skeletal: Supports + Protects + Makes blood.
-3. Muscular: Moves.
-4. Nervous: Controls + Senses.
-5. Endocrine: Hormones, slow control.
-6. Cardiovascular: Transports O2 + nutrients.
-7. Lymphatic / Immune: Defends.
-8. Respiratory: Gas exchange.
-9. Digestive: Breaks food, absorbs.
-10. Urinary: Filters, removes waste, controls BP.
-11. Reproductive: Makes babies.
-
-IF ONE SYSTEM FAILS, ALL FAIL. That is why you must think WHOLE PATIENT, not just one organ.`},
-{title:"2. Blood Vessels, Nerves & Lymph - The Wiring Of The Body", meta:"The Whole Body • Vessels + Nerves", img:"VESSELS", content:`BLOOD VESSELS - THE PIPES:
-
-ARTERIES → ARTERIOLES → CAPILLARIES → VENULES → VEINS
-
-- AORTA: Leaves LV, arches, descends. Branches: Coronaries (heart), Carotids (brain), Subclavians (arms), Renals (kidneys), Mesenterics (gut), Iliacs (legs).
-- CAROTID: Neck, pulse. Plaque here = Stroke. Carotid endarterectomy removes plaque.
-- FEMORAL: Groin, pulse. Used for angiogram, large bore access in emergency.
-- PULMONARY ARTERY: Only artery with deoxygenated blood. Pulmonary embolism blocks it.
-- VEINS: Have valves (prevent backflow). Varicose veins = Valves fail, blood pools. DVT = Clot in deep vein, leg swells, can travel to lungs = PE.
-
-CAPILLARIES: Thinnest, 1 cell thick. Gas + nutrient exchange happens HERE. Not in arteries, not in veins. In capillaries.
-
-NERVES - THE WIRES:
-
-CENTRAL: Brain + Spinal Cord.
-PERIPHERAL: 12 Cranial + 31 Spinal nerves.
-
-- SPINAL CORD: 31 segments. Cervical 8, Thoracic 12, Lumbar 5, Sacral 5, Coccygeal 1.
-- DERMATOMES: Skin area supplied by one nerve root. C6 = Thumb, C7 = Middle finger, C8 = Little finger. T4 = Nipple, T10 = Umbilicus, L1 = Groin, S1 = Heel.
-- REFLEXES: Knee (L3-L4), Ankle (S1), Biceps (C5-C6), Triceps (C7). Hyperreflexia = Upper motor neuron (brain/spinal cord). Hyporeflexia = Lower motor neuron (nerve).
-- UPPER vs LOWER MOTOR NEURON:
-Upper (Brain/Spinal Cord): Spastic, hyperreflexia, Babinski up, weakness in groups.
-Lower (Nerve): Flaccid, hyporeflexia, fasciculations, weakness in single muscle.
-
-AUTONOMIC:
-- Sympathetic: Fight or Flight - Heart fast, pupils dilate, sweating, blood to muscles. Adrenaline.
-- Parasympathetic: Rest and Digest - Heart slow, pupils constrict, digestion. Vagus nerve.
-
-LYMPHATIC SYSTEM - THE DRAINAGE:
-- Lymph nodes: Neck, axilla, groin. Swollen = Infection, TB, Lymphoma, Cancer spread.
-- Spleen + Thymus + Tonsils = Lymphoid organs.
-- Lymphoedema: Arm swells after breast cancer surgery (nodes removed).
-
-CLINICAL PEARL:
-- If patient has leg swelling + chest pain + shortness of breath after surgery → Think DVT → PE. Do Wells score, D-dimer, CTPA. Give heparin.
-- If patient has unilateral leg swelling + fever + redness → Think Cellulitis vs DVT. Cellulitis = Hot, red, fever. DVT = Swollen, painful, no fever, Homan's sign unreliable.`},
-{title:"3. Cells, Bacteria, DNA & The Microscopic World - The Smallest Parts", meta:"The Whole Body • Microscopic", img:"MICRO", content:`CELL - THE UNIT OF LIFE:
-- Nucleus: DNA, boss.
-- Mitochondria: ATP, powerhouse. Maternal inheritance. Mutations = Mitochondrial disease (muscle + brain + eye).
-- Ribosome: Makes protein.
-- Endoplasmic Reticulum: Rough (protein) + Smooth (lipid, detox).
-- Golgi: Packages, ships proteins.
-- Lysosome: Digests, suicide bag. Tay-Sachs = Lysosome fails.
-- Cell Membrane: Phospholipid bilayer, controls entry. Receptors sit here - Drugs bind here.
-
-BACTERIA vs VIRUS vs FUNGI - FINAL SUMMARY:
-- Bacteria: Single cell, live alone, antibiotics work, Gram stain, culture. Examples: Staph, Strep, E. coli, TB.
-- Virus: Needs host, antibiotics DON'T work, vaccines DO, smaller than bacteria. Examples: HIV, Hepatitis, Measles, COVID.
-- Fungi: Yeast + Mould, thrush, tinea. Treatment: Fluconazole, Terbinafine.
-
-DNA - THE INSTRUCTION BOOK:
-- 3 billion letters, 23 pairs chromosomes, 20,000 genes.
-- Gene → Protein → Function. If gene wrong → Disease.
-- Epigenetics: Environment turns genes on/off without changing DNA. Smoking, diet, stress change expression.
-
-BLOOD CELLS - FORMED IN BONE MARROW:
-- RBC: 4.5-5.5 million, biconcave, no nucleus, 120 days.
-- WBC: 4-11k. Neutrophils 60% (bacteria), Lymphocytes 30% (virus), Monocytes 5%, Eosinophils 2% (parasite/allergy), Basophils 1%.
-- Platelets: 150-400k, 7-10 days, from megakaryocytes.
-
-WHEN YOU LOOK AT A PATIENT, SEE ALL LEVELS AT ONCE:
-DNA → Cell → Tissue → Organ → System → Person → Family → Community.
-A doctor who only sees the organ misses the person. A doctor who only sees the person misses the disease. See BOTH.`},
-{title:"4. The Body In Disease - How Everything Connects", meta:"The Whole Body • Integration", img:"BODY2", content:`ONE DISEASE, MANY SYSTEMS - EXAMPLES:
-
-DIABETES - NOT JUST HIGH SUGAR:
-- Pancreas (no insulin) → Blood (high glucose) → Vessels (damaged) → Eyes (blind), Kidneys (failure), Nerves (numb feet), Heart (MI), Feet (ulcers, amputation), Brain (stroke).
-- Treat the WHOLE patient, not just glucose.
-
-HYPERTENSION - NOT JUST HIGH BP:
-- Vessels (stiff) → Heart (LVH, failure) → Brain (stroke) → Kidneys (failure) → Eyes (retinopathy).
-- Treat BP + cholesterol + smoking + diet.
-
-HIV - NOT JUST LOW CD4:
-- Immune (CD4 falls) → Lungs (TB, PCP) → Brain (cryptococcus, toxoplasma) → Gut (diarrhoea, wasting) → Skin (Kaposi) → Cancer risk.
-- ART restores immune, prevents all of this.
-
-SEPSIS - NOT JUST INFECTION:
-- Infection → Immune overreacts → Vessels dilate → BP falls → Kidneys fail → Lungs fail (ARDS) → Brain confused → Multi-organ failure → Death.
-- Early antibiotics + fluids saves life.
-
-HEART FAILURE - NOT JUST HEART:
-- Heart weak → Lungs fill (breathless) → Kidneys retain fluid (oedema) → Liver swells → Gut oedema (can't absorb drugs) → Muscles waste.
-- Treat heart + fluid + kidney + nutrition.
-
-THE DOCTOR'S MINDSET - FINAL LESSON:
-1. Listen to the patient - 80% of diagnosis is history.
-2. Examine systematically - Don't skip.
-3. Think anatomy - Where is the lesion?
-4. Think physiology - What function is lost?
-5. Think pathology - What disease process?
-6. Think pharmacology - What drug helps? What drug harms?
-7. Think whole person - Age, family, social, mental health.
-8. Think safety - What can kill this patient in the next hour? Rule that out first.
-9. Document - If you didn't write it, you didn't do it.
-10. Be kind - The patient will remember how you made them feel, long after they forget your diagnosis.
-
-YOU ARE NOT JUST MEMORISING. YOU ARE BECOMING A DOCTOR.`}
-];
-
-LESSONS.final = [
-{title:"1. FINAL EXAM MASTER PLAN - How To Pass In 30 Days", meta:"Final Exam • Study Plan", img:"PLAN", content:`30-DAY PLAN - DO THIS AND YOU PASS:
-
-WEEK 1 - FOUNDATIONS (Anatomy, Physio, Biochem, Pharm):
-- Day 1-2: Anatomy - Heart, Brain, Abdomen. Draw each from memory.
-- Day 3: Physiology - Homeostasis, BP, Fluids.
-- Day 4: Biochemistry - DNA, Metabolism, Diabetes.
-- Day 5: Pharmacology - Antibiotics, Heart drugs, Diabetes drugs.
-- Day 6: Pathology + Micro - Inflammation, Bacteria, HIV/TB.
-- Day 7: TEST - Do ALL quizzes in Part 1 + Part 2. Score <70% = Re-read those lessons.
-
-WEEK 2 - CLINICAL (Medicine, Surgery, Paeds, O&G, Psych):
-- Day 8-9: Medicine - Cardio, Resp, Renal, GIT.
-- Day 10: Surgery - Acute abdomen, Trauma, Burns.
-- Day 11: Paeds - Neonate, Milestones, Diarrhoea, Pneumonia.
-- Day 12: O&G - Labour, PPH, Pre-eclampsia, Ectopic.
-- Day 13: Psych + Neuro - Depression, Schizophrenia, Stroke, Epilepsy.
-- Day 14: TEST - Do ALL quizzes in Part 3. Revise weak topics.
-
-WEEK 3 - SPECIALS + OSCE:
-- Day 15-16: Endo, Haem, Immuno, Genetics, Derm, Radio.
-- Day 17: OSCE - Practice history + examination on a friend. Time yourself.
-- Day 18: ECG - Do 20 ECGs. Rate, Rhythm, P, PR, QRS, ST, T.
-- Day 19: X-Ray - Do 20 Chest X-Rays. ABCDE.
-- Day 20: Emergency + Anaesthesia - Resus, Poisoning, Airway.
-- Day 21: TEST - Do ALL quizzes in Part 4 + Part 5.
-
-WEEK 4 - REVISION + MOCK:
-- Day 22-24: Re-read ONLY your weak topics (from quiz scores) + High-yield summaries.
-- Day 25: Mock OSCE - 10 stations, 5 mins each, with a friend.
-- Day 26: Mock MCQ - 100 questions, timed.
-- Day 27: Rest + Light revision. Sleep early.
-- Day 28: Exam day - Eat, breathe, trust your preparation.
-
-EXAM TECHNIQUE - MCQ:
-- Read question, cover answers, think answer, then look.
-- Eliminate 2 wrong, choose between 2.
-- Words like ALWAYS, NEVER are usually wrong. Words like MOST COMMON are clues.
-- If stuck, choose the SAFEST answer (the one that won't kill patient).
-
-EXAM TECHNIQUE - OSCE:
-- Wash hands, introduce, consent, chaperone - Free marks.
-- If you don't know, say what you WOULD do safely.
-- Speak your findings out loud - Examiner can't mark what you think silently.
-
-EXAM TECHNIQUE - ESSAY / LONG CASE:
-- Structure: History → Examination → Differential → Investigations → Management → Complications → Prevention.
-- Always include: Safety, patient education, follow-up.
-
-SLEEP + FOOD:
-- Sleep 7-8h. All-nighters kill memory.
-- Eat protein + water. No energy drinks before exam (palpitations).
-- Exercise 20 mins - Brain needs oxygen.`},
-{title:"2. High-Yield One-Page Summary - Read Morning Of Exam", meta:"Final Exam • One Page", img:"SUMMARY", content:`READ THIS ON EXAM MORNING. 5 MINUTES.
-
-ANATOMY: Femur longest. LAD Widowmaker. Circle of Willis = Carotid + Vertebral. Broca = Frontal, speech. Femoral triangle NAVEL.
-
-PHYSIO: BP = CO x TPR. pH 7.35-7.45. Negative feedback = Stability.
-
-BIOCHEM: A-T, G-C. Glucose = 32 ATP. DKA = Acetone breath. B12 = Megaloblastic + Neuropathy.
-
-PHARM: ACE-I = Cough. Paracetamol overdose = NAC. Morphine = Respiratory depression, Naloxone. Metformin = Type 2. Salbutamol = Blue reliever.
-
-PATH: Inflammation = Rubor, Calor, Tumor, Dolor, Functio. Caseous = TB. Malignant spreads.
-
-MICRO: E. coli = UTI. MRSA = Vancomycin. TB = 6 months RIPE. HIV = CD4. Sepsis 6 in 1 hour.
-
-MEDICINE: Heart failure = ACE-I + Beta-blocker + MRA + SGLT2-i. STEMI = ST elevation, PCI. AF = Irregularly irregular, no P. Hyperkalaemia = Tall T.
-
-SURGERY: Appendicitis = Periumbilical → RIF. Cholangitis = Charcot triad. Compartment = Fasciotomy. Tension pneumothorax = Needle NOW.
-
-PAEDS: APGAR 1+5 mins. Kwashiorkor = Protein, oedema. Febrile convulsion 6m-5y.
-
-O&G: PPH = Tone (atonic). Eclampsia = MgSO4. Ectopic = Amenorrhoea + Pain + Bleeding.
-
-PSYCH: Depression SIG E CAPS. Schizophrenia = Delusions + Hallucinations. Delirium = Acute.
-
-OSCE: Wash, Introduce, Consent, Chaperone. SPIKES for bad news. SOCRATES for pain.
-
-ECG: Rate 300/RR. AF no P. STEMI ST up. HyperK tall T. VF = Shock.
-
-GENETICS: AR = 25% if both carriers. Down = Trisomy 21. Haemophilia = X-linked.
-
-IMMUNO: Anaphylaxis = Adrenaline IM.
-
-HAEM: Iron = Microcytic. Warfarin = INR.
-
-ENDO: Hypo = TSH high. Addison = Hydrocortisone.
-
-DERM: Psoriasis = Extensor, silvery. Melanoma ABCDE.
-
-RADIO: Free air = Perforation.
-
-EMERG: VF = Shock. Organophosphate = Atropine.
-
-NEURO: Status = Lorazepam. Parkinson TRAP.
-
-EYE/ENT: Glaucoma = Pain, halos, vomiting. Stridor = Upper airway.
-
-ORTHO: Cauda equina = Saddle + Bladder. Gout = Uric acid.
-
-BODY: 206 bones, 600 muscles, 5L blood, 86 billion neurons, 11 systems, 1 patient, 1 doctor - YOU.
-
-GO. PASS. BECOME.`}
-];
-
-QUIZZES.body = [
-{q:"How many bones in adult body?", opts:["106","206","306","86"], ans:1, memo:"206 bones. Femur longest, Stapes smallest."},
-{q:"Circle of Willis is formed by:", opts:["Carotid + Vertebral","Aorta + Pulmonary","Renal","Femoral"], ans:0, memo:"Carotid (front) + Vertebral (back) = Circle. Protects brain."},
-{q:"Which organ is in Right Hypochondrium?", opts:["Spleen","Liver + Gallbladder","Appendix","Bladder"], ans:1, memo:"RUQ = Liver + Gallbladder. Pain = Cholecystitis. RIF = Appendix."},
-{q:"How many lobes does Right lung have?", opts:["1","2","3","4"], ans:2, memo:"Right = 3 lobes, Left = 2 lobes (heart takes space)."},
-{q:"Umbilical cord has:", opts:["1 artery + 1 vein","2 arteries + 1 vein","2 veins + 1 artery","No vessels"], ans:1, memo:"2 arteries (deoxygenated to placenta) + 1 vein (oxygenated to baby) - Opposite to adult."},
-{q:"Dermatome T10 is at:", opts:["Nipple","Umbilicus","Thumb","Groin"], ans:1, memo:"T4 = Nipple, T10 = Umbilicus, L1 = Groin, C6 = Thumb."},
-{q:"Upper motor neuron signs include:", opts:["Flaccid + Hyporeflexia","Spastic + Hyperreflexia + Babinski up","No weakness","Only pain"], ans:1, memo:"Upper = Spastic, hyperreflexia, Babinski up. Lower = Flaccid, hyporeflexia."}
-];
-QUIZZES.final = [
-{q:"Best first step in OSCE station is:", opts:["Start examining","Wash hands + Introduce + Consent","Leave","Ignore"], ans:1, memo:"Wash, Introduce, Consent, Chaperone = Free marks every station."},
-{q:"MCQ technique - If stuck, choose:", opts:["Most dangerous","Safest answer that won't kill patient","Longest answer","First answer"], ans:1, memo:"Safest answer. Medicine exam rewards safe doctors."},
-{q:"How many hours sleep before exam?", opts:["0","2","7-8","12"], ans:2, memo:"7-8h. All-nighters kill memory. Sleep consolidates learning."}
-];
-
-// PART 5 DRAWINGS - FULL BODY
-const _oldDraw5 = drawSVG;
-drawSVG = function(type){
-  if(type==='BODY') return `<div class="draw"><svg viewBox="0 0 400 320"><text x="200" y="20" text-anchor="middle" font-weight="bold">FULL BODY MAP - HEAD TO TOE</text><circle cx="200" cy="50" r="28" fill="#ffcc99" stroke="#aa6600"/><text x="200" y="55" text-anchor="middle" font-size="11">BRAIN</text><rect x="160" y="85" width="80" height="40" rx="10" fill="#ff9999"/><text x="200" y="110" text-anchor="middle" font-size="11">HEART + LUNGS</text><rect x="150" y="135" width="100" height="70" rx="10" fill="#ffff99"/><text x="200" y="160" text-anchor="middle" font-size="11">LIVER</text><text x="200" y="175" text-anchor="middle" font-size="11">STOMACH</text><text x="200" y="190" text-anchor="middle" font-size="11">KIDNEYS</text><rect x="150" y="215" width="100" height="40" rx="10" fill="#ccffcc"/><text x="200" y="240" text-anchor="middle" font-size="11">GUT + BLADDER</text><line x1="150" y1="260" x2="120" y2="300" stroke="#333" stroke-width="6"/><line x1="250" y1="260" x2="280" y2="300" stroke="#333" stroke-width="6"/><text x="200" y="315" text-anchor="middle" font-size="11">ARMS + LEGS - 206 Bones - 600 Muscles - 5L Blood</text></svg><p style="font-size:12px">Draw this in exam: Head (Brain) → Chest (Heart+Lungs) → Abdomen (Liver, Stomach, Kidneys) → Pelvis (Gut+Bladder) → Limbs.</p></div>`;
-  if(type==='VESSELS') return `<div class="draw"><svg viewBox="0 0 400 160"><text x="200" y="20" text-anchor="middle" font-weight="bold">BLOOD VESSELS - ARTERY vs VEIN</text><rect x="40" y="50" width="130" height="50" fill="#cc0000"/><text x="105" y="80" text-anchor="middle" fill="white" font-weight="bold">ARTERY</text><text x="105" y="95" text-anchor="middle" fill="white" font-size="11">Away - O2 - Thick</text><rect x="230" y="50" width="130" height="50" fill="#3333ff"/><text x="295" y="80" text-anchor="middle" fill="white" font-weight="bold">VEIN</text><text x="295" y="95" text-anchor="middle" fill="white" font-size="11">To Heart - Valves</text><text x="200" y="130" text-anchor="middle" font-size="12">Capillaries = Exchange - 1 cell thick - O2 in, CO2 out</text></svg></div>`;
-  if(type==='MICRO') return `<div class="draw"><svg viewBox="0 0 400 140"><text x="200" y="20" text-anchor="middle" font-weight="bold">DNA → CELL → TISSUE → ORGAN → SYSTEM → PERSON</text><text x="200" y="60" text-anchor="middle" font-size="13">🧬 → 🔬 → 🧫 → ❤️ → � human → 👨‍⚕️</text><text x="200" y="90" text-anchor="middle" font-size="12">DNA (3 Billion Letters) → Cell → Tissue → Organ → System → YOU</text><text x="200" y="115" text-anchor
-  </script>
 </body>
 </html>
