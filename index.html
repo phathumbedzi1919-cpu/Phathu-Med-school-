@@ -45,11 +45,6 @@ button.small{width:auto;padding:8px 14px;font-size:13px;margin:0 6px 10px 0}
 .payment-box{background:#0f1f18;border:1px solid #00e5a0;border-radius:12px;padding:16px;margin:15px 0;text-align:center}
 .payment-box h1{color:#00e5a0;font-size:36px;margin:8px}
 .muted{color:#b8d0c6;line-height:1.7}
-.dashboard-button{
-background:linear-gradient(135deg,#00e5a0,#00b77d);
-color:#00281c;padding:17px;font-size:17px;
-box-shadow:0 5px 20px rgba(0,229,160,.12)
-}
 </style>
 </head>
 
@@ -183,7 +178,9 @@ box-shadow:0 5px 20px rgba(0,229,160,.12)
     </p>
 
     <button onclick="openPayment()">💳 Pay R199 Now</button>
+
     <button class="secondary" onclick="sendProofWhatsApp()">Send Proof of Payment on WhatsApp</button>
+
     <button class="secondary" onclick="logout()">Back To Home</button>
   </div>
 </div>
@@ -203,15 +200,13 @@ box-shadow:0 5px 20px rgba(0,229,160,.12)
     <p id="membership-date" class="muted" style="margin-top:8px"></p>
   </div>
 
-  <!-- LEARNING CENTRE CONNECTION -->
+  <!-- ADDED: LEARNING CENTRE BUTTON -->
   <div class="card">
-    <h2>📚 Your Learning Centre</h2>
+    <h2>📚 Learning Centre</h2>
     <p class="muted" style="margin-bottom:14px">
-      Access your selected medical modules, lessons, classes, quizzes, scores, notes, definitions and recommended books.
+      Access your selected modules, lessons, notes, quizzes, definitions, scores and recommended books.
     </p>
-    <button class="dashboard-button" onclick="openLearning()">
-      ENTER LEARNING CENTRE →
-    </button>
+    <button onclick="openLearning()">ENTER LEARNING CENTRE →</button>
   </div>
 
   <div class="card">
@@ -241,10 +236,8 @@ box-shadow:0 5px 20px rgba(0,229,160,.12)
 
 <script>
 
-// ADMIN CREDENTIALS
-// These are demonstration credentials stored in this local website.
-// They are not secure for a public website.
-
+// DEMONSTRATION ADMIN CREDENTIALS.
+// These are visible in the page source and are NOT secure for a public website.
 const ADMIN_EMAIL = "admin@phathu.academy";
 const ADMIN_PASSWORD = "admin123";
 const ADMIN_CODE = "PHATHU2026";
@@ -301,58 +294,34 @@ const DESCS = {
 
 let selectedRole = "student";
 
-// PAYMENT PAGE
 function openPayment(){
   window.location.href = "payment.html";
 }
 
-// WHATSAPP PAYMENT PROOF
 function sendProofWhatsApp(){
-  const message =
-    "Hello Phathu Med School Admin. I have made my R199 membership payment. I would like to submit my proof of payment for verification.";
-
-  window.open(
-    "https://wa.me/27829628700?text="+encodeURIComponent(message),
-    "_blank"
-  );
+  const message = "Hello Phathu Med School Admin. I have made my R199 membership payment. I would like to submit my proof of payment for verification.";
+  window.open("https://wa.me/27829628700?text="+encodeURIComponent(message),"_blank");
 }
 
-// LOGIN ROLE
 function setRole(r){
   selectedRole = r;
-
   document.getElementById("role-student").classList.toggle("active",r==="student");
   document.getElementById("role-admin").classList.toggle("active",r==="admin");
-
   document.getElementById("admin-code-box").classList.toggle("hidden",r!=="admin");
-
-  document.getElementById("login-role-label").textContent =
-    r==="admin" ? "Admin" : "Student";
+  document.getElementById("login-role-label").textContent = r==="admin" ? "Admin" : "Student";
 }
 
-// BUILD MODULE CHECKBOXES
 function buildCheckboxes(){
   document.getElementById("pre-grid").innerHTML =
-    PRE.map(m=>`
-      <label class="check-item">
-        <input type="checkbox" value="${m}" class="mod-check" onchange="updateCount()">
-        ${m}
-      </label>
-    `).join("");
+    PRE.map(m=>`<label class="check-item"><input type="checkbox" value="${m}" class="mod-check" onchange="updateCount()"> ${m}</label>`).join("");
 
   document.getElementById("clin-grid").innerHTML =
-    CLIN.map(m=>`
-      <label class="check-item">
-        <input type="checkbox" value="${m}" class="mod-check" onchange="updateCount()">
-        ${m}
-      </label>
-    `).join("");
+    CLIN.map(m=>`<label class="check-item"><input type="checkbox" value="${m}" class="mod-check" onchange="updateCount()"> ${m}</label>`).join("");
 }
 
 function updateCount(){
   const n=document.querySelectorAll(".mod-check:checked").length;
-  document.getElementById("selected-count").textContent =
-    n+" modules selected";
+  document.getElementById("selected-count").textContent=n+" modules selected";
 }
 
 function selectAll(v){
@@ -360,7 +329,6 @@ function selectAll(v){
   updateCount();
 }
 
-// USER STORAGE
 function getUsers(){
   let u=JSON.parse(localStorage.getItem("phathu_med_users")||"[]");
 
@@ -377,10 +345,8 @@ function getUsers(){
       status:"approved",
       role:"admin"
     });
-
     saveUsers(u);
   }
-
   return u;
 }
 
@@ -388,16 +354,13 @@ function saveUsers(u){
   localStorage.setItem("phathu_med_users",JSON.stringify(u));
 }
 
-// PAGE NAVIGATION
 function show(p){
   ["landing","signup","login","pending","dashboard","admin"].forEach(x=>{
     document.getElementById("page-"+x).classList.add("hidden");
   });
-
   document.getElementById("page-"+p).classList.remove("hidden");
 }
 
-// STUDENT SIGNUP
 function signup(){
   const name=document.getElementById("su-name").value.trim();
   const surname=document.getElementById("su-surname").value.trim();
@@ -406,9 +369,7 @@ function signup(){
   const year=document.getElementById("su-year").value;
   const university=document.getElementById("su-university").value.trim();
 
-  const modules=[
-    ...document.querySelectorAll(".mod-check:checked")
-  ].map(c=>c.value);
+  const modules=[...document.querySelectorAll(".mod-check:checked")].map(c=>c.value);
 
   if(!name||!surname||!email||!password||!university){
     alert("Please fill in all fields.");
@@ -452,35 +413,28 @@ function signup(){
   localStorage.setItem("phathu_med_last_applicant",email);
 
   document.getElementById("pending-modules").innerHTML =
-    "You selected <b style='color:#00e5a0'>"+
-    modules.length+
-    " modules</b><br>"+
-    modules.join(" • ");
+    "You selected <b style='color:#00e5a0'>"+modules.length+
+    " modules</b><br>"+modules.join(" • ");
 
   show("pending");
 }
 
-// LOGIN
 function login(){
   const email=document.getElementById("li-email").value.trim().toLowerCase();
   const password=document.getElementById("li-password").value;
-  const adminCode=document.getElementById("li-admincode").value;
-
+  const adminCode=document.getElementById("li-admincode")?.value;
   const msg=document.getElementById("login-msg");
+
   msg.textContent="";
 
   let users=getUsers();
-
-  const user=users.find(
-    u=>u.email===email&&u.password===password
-  );
+  const user=users.find(u=>u.email===email&&u.password===password);
 
   if(!user){
     msg.textContent="Wrong email or password.";
     return;
   }
 
-  // ADMIN LOGIN
   if(selectedRole==="admin"){
     if(user.role!=="admin"){
       msg.textContent="This account is not an Admin.";
@@ -492,17 +446,12 @@ function login(){
       return;
     }
 
-    localStorage.setItem(
-      "phathu_med_current",
-      JSON.stringify(user)
-    );
-
+    localStorage.setItem("phathu_med_current",JSON.stringify(user));
     renderAdmin();
     show("admin");
     return;
   }
 
-  // STUDENT LOGIN
   if(user.role==="admin"){
     msg.textContent="Admins must login as Admin.";
     return;
@@ -510,10 +459,8 @@ function login(){
 
   if(user.status==="pending"){
     localStorage.setItem("phathu_med_last_applicant",user.email);
-
     document.getElementById("pending-modules").textContent =
       "Your application is still awaiting payment verification and admin approval.";
-
     show("pending");
     return;
   }
@@ -524,17 +471,12 @@ function login(){
   }
 
   if(user.status==="approved"){
-    localStorage.setItem(
-      "phathu_med_current",
-      JSON.stringify(user)
-    );
-
+    localStorage.setItem("phathu_med_current",JSON.stringify(user));
     renderStudent(user);
     show("dashboard");
   }
 }
 
-// STUDENT DASHBOARD
 function renderStudent(user){
   document.getElementById("dash-welcome").textContent =
     "Welcome, "+user.name+" "+user.surname;
@@ -549,69 +491,42 @@ function renderStudent(user){
     "("+user.modules.length+")";
 
   document.getElementById("modules-list").innerHTML =
-    user.modules.map(m=>`
-      <div class="lesson">
-        <div>
-          <b>${m}</b><br>
-          <small>${DESCS[m]||""}</small>
-        </div>
-        <span>›</span>
-      </div>
-    `).join("");
+    user.modules.map(m=>
+      `<div class="lesson"><div><b>${m}</b><br><small>${DESCS[m]||""}</small></div><span>›</span></div>`
+    ).join("");
 
   let membershipText="Membership: 5 months from approval";
-
   if(user.approvedAt){
-    membershipText=
-      "Membership activated: "+
-      new Date(user.approvedAt).toLocaleDateString();
+    membershipText="Membership activated: "+new Date(user.approvedAt).toLocaleDateString();
   }
 
-  document.getElementById("membership-date").textContent =
-    membershipText;
+  document.getElementById("membership-date").textContent=membershipText;
 }
 
-// OPEN LEARNING CENTRE
+/* ADDED: CONNECT APPROVED STUDENTS TO LEARNING.HTML */
 function openLearning(){
   const user=JSON.parse(
     localStorage.getItem("phathu_med_current")||"null"
   );
 
-  if(
-    !user ||
-    user.role==="admin" ||
-    user.status!=="approved"
-  ){
+  if(!user || user.role==="admin" || user.status!=="approved"){
     alert("Please sign in using an approved student account.");
     show("login");
     return;
   }
 
-  // Keep the student's latest account record available
-  // to learning.html through localStorage.
   window.location.href="learning.html";
 }
 
-// ADMIN DASHBOARD
 function renderAdmin(){
   let users=getUsers();
 
-  let pending=users.filter(
-    u=>u.role!=="admin"&&u.status==="pending"
-  ).length;
-
-  let approved=users.filter(
-    u=>u.role!=="admin"&&u.status==="approved"
-  ).length;
-
-  let rejected=users.filter(
-    u=>u.role!=="admin"&&u.status==="rejected"
-  ).length;
+  let pending=users.filter(u=>u.role!=="admin"&&u.status==="pending").length;
+  let approved=users.filter(u=>u.role!=="admin"&&u.status==="approved").length;
+  let rejected=users.filter(u=>u.role!=="admin"&&u.status==="rejected").length;
 
   document.getElementById("admin-stats").textContent =
-    "Pending: "+pending+
-    " • Approved: "+approved+
-    " • Rejected: "+rejected;
+    "Pending: "+pending+" • Approved: "+approved+" • Rejected: "+rejected;
 
   let html="";
 
@@ -620,7 +535,6 @@ function renderAdmin(){
     <div class="card user-row">
       <div>
         <b>${u.name} ${u.surname}</b><br>
-
         <span class="muted" style="font-size:13px">
           ${u.email}<br>
           ${u.year} • ${u.university}
@@ -643,17 +557,53 @@ function renderAdmin(){
 
       <div style="display:flex;gap:6px;margin-top:10px">
         <button style="width:auto;padding:8px 14px"
-          onclick="setStatus('${u.email}','approved')">
-          Approve
-        </button>
+          onclick="setStatus('${u.email}','approved')">Approve</button>
 
         <button class="danger" style="width:auto;padding:8px 14px"
-          onclick="setStatus('${u.email}','rejected')">
-          Reject
-        </button>
+          onclick="setStatus('${u.email}','rejected')">Reject</button>
       </div>
     </div>`;
   });
 
   document.getElementById("admin-list").innerHTML =
-    html||'<div class="car
+    html||'<div class="card">No applications yet.</div>';
+}
+
+function setStatus(email,status){
+  let users=getUsers();
+  let u=users.find(x=>x.email===email);
+
+  if(!u)return;
+
+  if(status==="approved"){
+    if(!confirm("Have you verified this student's R199 payment?"))return;
+
+    u.paymentStatus="verified";
+    u.approvedAt=new Date().toISOString();
+    u.membershipMonths=5;
+  }
+
+  if(status==="rejected"){
+    if(!confirm("Are you sure you want to reject this application?"))return;
+  }
+
+  u.status=status;
+  saveUsers(users);
+  renderAdmin();
+
+  alert(u.name+" "+u.surname+" is now "+status+".");
+}
+
+function logout(){
+  localStorage.removeItem("phathu_med_current");
+  show("landing");
+}
+
+buildCheckboxes();
+getUsers();
+updateCount();
+
+</script>
+</body>
+      </html>
+  
