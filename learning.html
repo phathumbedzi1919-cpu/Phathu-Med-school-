@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phathu Med School | Learning Hub</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#07110e;color:white;min-height:100vh}
+.container{max-width:650px;margin:auto;padding:18px}
+.logo{text-align:center;font-size:27px;font-weight:900;margin:25px 0 5px}
+.logo span{color:#00e5a0}
+.tagline{text-align:center;color:#9db8ad;margin-bottom:22px}
+.card{background:#12211b;border:1px solid #234034;border-radius:15px;padding:17px;margin-bottom:13px}
+h2{margin-bottom:12px}
+h3{margin:14px 0 8px;color:#00e5a0}
+p{line-height:1.7}
+.muted{color:#b8d0c6}
+input[type=text]{width:100%;padding:14px;background:#0f1f18;border:1px solid #2a4a3c;border-radius:10px;color:white;font-size:16px;margin-bottom:15px}
+button{padding:12px 15px;border:0;border-radius:9px;background:#00e5a0;color:#00281c;font-weight:800;cursor:pointer}
+button.secondary{background:#1c332a;color:white;border:1px solid #33544a}
+button.full{width:100%;margin-top:10px}
+.hidden{display:none!important}
+.section-title{color:#00e5a0;font-size:13px;font-weight:900;letter-spacing:1px;margin:20px 0 10px}
+.module{background:#0f1f18;border:1px solid #234034;border-radius:11px;padding:15px;margin-bottom:9px;cursor:pointer}
+.module:active{border-color:#00e5a0}
+.module strong{display:block;margin-bottom:5px}
+.module small{color:#9db8ad}
+.topic{background:#0f1f18;border-radius:10px;padding:15px;margin-bottom:10px;border:1px solid #234034}
+.topic p{color:#c4d9d0;font-size:14px}
+.definition{padding:12px;border-bottom:1px solid #234034;line-height:1.6}
+.definition:last-child{border:0}
+.option{display:block;background:#0f1f18;padding:12px;border-radius:9px;margin:8px 0;border:1px solid #234034;cursor:pointer}
+.option input{margin-right:8px}
+.result{padding:15px;background:#0f1f18;border:1px solid #00e5a0;border-radius:10px;margin-top:15px}
+.score{font-size:30px;color:#00e5a0;font-weight:900}
+.back{margin-bottom:14px}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="logo">PHATHU<span><br>MED SCHOOL</span></div>
+<p class="tagline">Your Medical Learning Library</p>
+
+<!-- HOME -->
+<div id="home">
+
+<div class="card">
+<h2>📚 Learning Hub</h2>
+<p class="muted">Explore your medical modules. Select a subject to access its lessons, notes, definitions and quizzes.</p>
+</div>
+
+<input type="text" id="search" placeholder="🔍 Search modules..." oninput="searchModules()">
+
+<div class="section-title">PRE-CLINICAL MODULES</div>
+<div id="pre-list"></div>
+
+<div class="section-title">CLINICAL MODULES</div>
+<div id="clin-list"></div>
+
+</div>
+
+<!-- MODULE PAGE -->
+<div id="module-page" class="hidden">
+
+<button class="secondary back" onclick="goHome()">← All Modules</button>
+
+<div class="card">
+<h2 id="module-title"></h2>
+<p id="module-description" class="muted"></p>
+</div>
+
+<div class="card">
+<h2>📖 Lessons & Classes</h2>
+<div id="lessons"></div>
+</div>
+
+<div class="card">
+<h2>📝 Study Notes</h2>
+<div id="notes"></div>
+</div>
+
+<div class="card">
+<h2>📘 Definitions</h2>
+<div id="definitions"></div>
+</div>
+
+<div class="card">
+<h2>🧠 Knowledge Quiz</h2>
+<p class="muted">Test your understanding of this module.</p>
+<div id="quiz"></div>
+<div id="quiz-result"></div>
+</div>
+
+</div>
+
+<div style="text-align:center;color:#789487;font-size:12px;margin:25px 0">
+PHATHU MED SCHOOL • LEARN • PRACTISE • EXCEL
+</div>
+
+</div>
+
+<script>
+
+const PRE=[
+"Anatomy","Physiology","Biochemistry","Histology","Embryology",
+"Genetics","Immunology","Microbiology","Pathology","Pharmacology",
+"Biostatistics & Epidemiology","Behavioural Science","Medical Ethics"
+];
+
+const CLIN=[
+"Internal Medicine","Surgery","Paediatrics","Obstetrics & Gynaecology",
+"Psychiatry","Family Medicine","Public Health","Emergency Medicine",
+"Anaesthesiology","Orthopaedics","Ophthalmology","ENT","Dermatology",
+"Radiology","Oncology","Neurology","Cardiology","Urology",
+"Infectious Diseases","OSCE Prep"
+];
+
+const DESCS={
+"Anatomy":"Study the structure of the human body and its organs.",
+"Physiology":"Understand how the human body functions.",
+"Biochemistry":"Study chemical processes occurring in living organisms.",
+"Histology":"Study tissues using microscopic examination.",
+"Embryology":"Understand human development from fertilisation.",
+"Genetics":"Study genes, inheritance and genetic variation.",
+"Immunology":"Study the immune system and its responses.",
+"Microbiology":"Study microorganisms and their effects on humans.",
+"Pathology":"Understand the causes and mechanisms of disease.",
+"Pharmacology":"Study medicines, their actions and effects.",
+"Biostatistics & Epidemiology":"Understand medical data and disease patterns.",
+"Behavioural Science":"Study behaviour and psychological factors in health.",
+"Medical Ethics":"Study ethical principles in medical practice.",
+"Internal Medicine":"Diagnosis and management of adult medical conditions.",
+"Surgery":"Principles of surgical care and procedures.",
+"Paediatrics":"Medical care of infants, children and adolescents.",
+"Obstetrics & Gynaecology":"Pregnancy, childbirth and reproductive health.",
+"Psychiatry":"Mental health, diagnosis and treatment.",
+"Family Medicine":"Comprehensive primary healthcare.",
+"Public Health":"Health promotion and population health.",
+"Emergency Medicine":"Assessment and management of emergencies.",
+"Anaesthesiology":"Anaesthesia, pain management and critical care.",
+"Orthopaedics":"Bones, joints and musculoskeletal conditions.",
+"Ophthalmology":"Diseases and disorders of the eye.",
+"ENT":"Ear, nose and throat medicine.",
+"Dermatology":"Diseases of the skin.",
+"Radiology":"Medical imaging and interpretation.",
+"Oncology":"Cancer biology and treatment.",
+"Neurology":"Diseases of the nervous system.",
+"Cardiology":"Heart and cardiovascular medicine.",
+"Urology":"Urinary tract and male reproductive health.",
+"Infectious Diseases":"Diagnosis and management of infections.",
+"OSCE Prep":"Clinical examination and communication skills."
+};
+
+const ANATOMY={
+lessons:[
+{
+title:"Lesson 1: Introduction to Human Anatomy",
+text:"Human anatomy is the scientific study of the structure of the human body. It examines how body parts are organised and how they relate to one another. Anatomy provides the structural foundation for understanding physiology, pathology and clinical medicine."
+},
+{
+title:"Lesson 2: Anatomical Position",
+text:"The anatomical position is the standard reference position used when describing the human body. The person stands upright, faces forward, keeps the arms at the sides, turns the palms forward and points the feet forward. All anatomical directions are described relative to this position."
+},
+{
+title:"Lesson 3: Anatomical Planes",
+text:"The sagittal plane divides the body into right and left portions. The coronal plane divides the body into anterior and posterior portions. The transverse plane divides the body into superior and inferior portions."
+},
+{
+title:"Lesson 4: Directional Terms",
+text:"Superior means toward the head. Inferior means toward the feet. Anterior means toward the front. Posterior means toward the back. Medial means closer to the midline. Lateral means farther from the midline."
+},
+{
+title:"Lesson 5: Levels of Body Organisation",
+text:"The body is organised into cells, tissues, organs, organ systems and the complete organism. Cells are the basic structural and functional units of life. Similar cells form tissues, tissues form organs, and organs work together in organ systems."
+}
+],
+
+notes:[
+"Anatomy describes body structure, while physiology describes body function.",
+"The anatomical position is the universal reference position for describing body structures.",
+"The three main anatomical planes are sagittal, coronal and transverse.",
+"The five levels of organisation are cells, tissues, organs, organ systems and organism.",
+"Directional terminology helps medical professionals describe the location of structures accurately."
+],
+
+definitions:[
+["Anatomy","The scientific study of the structure of the human body."],
+["Physiology","The study of how living organisms and their body parts function."],
+["Anterior","Toward the front of the body."],
+["Posterior","Toward the back of the body."],
+["Superior","Toward the head or upper part of the body."],
+["Inferior","Toward the feet or lower part of the body."],
+["Medial","Closer to the body's midline."],
+["Lateral","Farther away from the body's midline."],
+["Sagittal plane","A vertical plane dividing the body into right and left portions."],
+["Coronal plane","A vertical plane dividing the body into anterior and posterior portions."],
+["Transverse plane","A horizontal plane dividing the body into superior and inferior portions."],
+["Tissue","A group of similar cells working together to perform a function."],
+["Organ","A structure made of different tissues working together."]
+],
+
+quiz:[
+{q:"What does anatomy study?",o:["Body structure","Body function","Disease treatment","Drug dosage"],a:0,e:"Anatomy focuses on the structure of the body."},
+{q:"Which position is used as the standard reference in anatomy?",o:["Sitting position","Anatomical position","Sleeping position","Supine position"],a:1,e:"The anatomical position provides a universal reference."},
+{q:"Which plane divides the body into anterior and posterior portions?",o:["Transverse","Sagittal","Coronal","Oblique"],a:2,e:"The coronal plane separates front and back portions."},
+{q:"The term medial means:",o:["Away from the midline","Closer to the midline","Toward the feet","Toward the back"],a:1,e:"Medial means closer to the body's midline."},
+{q:"What is the basic structural and functional unit of the body?",o:["Organ","Tissue","Cell","System"],a:2,e:"The cell is the basic unit of life."}
+]
+};
+
+function renderModules(){
+renderList("pre-list",PRE);
+renderList("clin-list",CLIN);
+}
+
+function renderList(id,items){
+document.getElementById(id).innerHTML=items.map(m=>`
+<div class="module" onclick="openModule('${m}')">
+<strong>${m}</strong>
+<small>${DESCS[m]}</small>
+</div>`).join("");
+}
+
+function searchModules(){
+const term=document.getElementById("search").value.toLowerCase();
+renderList("pre-list",PRE.filter(m=>
+m.toLowerCase().includes(term)||DESCS[m].toLowerCase().includes(term)));
+renderList("clin-list",CLIN.filter(m=>
+m.toLowerCase().includes(term)||DESCS[m].toLowerCase().includes(term)));
+}
+
+function goHome(){
+document.getElementById("home").classList.remove("hidden");
+document.getElementById("module-page").classList.add("hidden");
+}
+
+function openModule(name){
+document.getElementById("home").classList.add("hidden");
+document.getElementById("module-page").classList.remove("hidden");
+
+document.getElementById("module-title").textContent=name;
+document.getElementById("module-description").textContent=DESCS[name];
+
+const data=name==="Anatomy"?ANATOMY:null;
+
+document.getElementById("lessons").innerHTML=data?
+data.lessons.map((l,i)=>`
+<div class="topic">
+<h3>${l.title}</h3>
+<p>${l.text}</p>
+</div>`).join("")
+:`<p class="muted">Lessons for ${name} will be added in the next content development stage.</p>`;
+
+document.getElementById("notes").innerHTML=data?
+data.notes.map(n=>`<div class="definition">📌 ${n}</div>`).join("")
+:`<p class="muted">Study notes are being prepared for this module.</p>`;
+
+document.getElementById("definitions").innerHTML=data?
+data.definitions.map(d=>`
+<div class="definition"><b style="color:#00e5a0">${d[0]}</b><br>${d[1]}</div>`).join("")
+:`<p class="muted">Definitions are being prepared for this module.</p>`;
+
+document.getElementById("quiz-result").innerHTML="";
+
+if(data){
+renderQuiz(data.quiz);
+}else{
+document.getElementById("quiz").innerHTML=
+"<p class='muted'>Quiz questions will be added as this module is developed.</p>";
+}
+}
+
+function renderQuiz(questions){
+let html="<form id='quiz-form'>";
+
+questions.forEach((q,i)=>{
+html+=`<div class="topic">
+<h3>${i+1}. ${q.q}</h3>`;
+
+q.o.forEach((option,j)=>{
+html+=`<label class="option">
+<input type="radio" name="q${i}" value="${j}">
+${option}
+</label>`;
+});
+
+html+="</div>";
+});
+
+html+="<button type='button' class='full' onclick='markQuiz()'>Submit Answers</button></form>";
+
+document.getElementById("quiz").innerHTML=html;
+window.currentQuestions=questions;
+}
+
+function markQuiz(){
+const questions=window.currentQuestions;
+let score=0;
+let feedback="";
+
+for(let i=0;i<questions.length;i++){
+const answer=document.querySelector(`input[name="q${i}"]:checked`);
+
+if(!answer){
+alert("Please answer all questions first.");
+return;
+}
+
+const correct=Number(answer.value)===questions[i].a;
+
+if(correct)score++;
+
+feedback+=`<div class="definition">
+<b>${i+1}. ${correct?"✅ Correct":"❌ Incorrect"}</b><br>
+${questions[i].e}
+</div>`;
+}
+
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quiz-result").innerHTML=`
+<div class="result">
+<p>Your quiz result</p>
+<div class="score">${score}/${questions.length}</div>
+<h3>${percentage}%</h3>
+<p>${percentage>=80?"Excellent work!":percentage>=50?"Good effort. Keep revising.":"Keep studying and try again."}</p>
+${feedback}
+<button class="full" onclick="openModule('Anatomy')">Try Again</button>
+</div>`;
+
+}
+
+renderModules();
+
+</script>
+</body>
+</html>
