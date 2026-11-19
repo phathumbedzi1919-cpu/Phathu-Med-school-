@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phathu Academy - Medical Students Only</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+  body{background:#07110e;color:white;min-height:100vh}
+  .container{max-width:520px;margin:0 auto;padding:20px}
+  .logo{font-size:30px;font-weight:900;text-align:center;margin:26px 0 5px;line-height:1.1}
+  .logo span{color:#00e5a0}
+  .tagline{text-align:center;color:#9db8ad;margin-bottom:22px;line-height:1.5}
+  .card{background:#12211b;border-radius:16px;padding:20px;margin-bottom:12px;border:1px solid #234034}
+  h2{margin-bottom:12px}
+  input[type="text"],input[type="email"],input[type="password"],select{width:100%;padding:14px;margin-bottom:12px;background:#0f1f18;border:1px solid #2a4a3c;border-radius:10px;color:white;font-size:16px}
+  button{width:100%;padding:14px;background:#00e5a0;color:#00281c;font-weight:800;border:none;border-radius:10px;font-size:16px;cursor:pointer;margin-bottom:10px}
+  button.secondary{background:#1c332a;color:white;border:1px solid #33544a}
+  button.danger{background:#ff4444;color:white}
+  button.small{width:auto;padding:8px 14px;font-size:13px;margin:0 6px 10px 0}
+  .link{text-align:center;color:#00e5a0;cursor:pointer;margin-top:12px}
+  .hidden{display:none}
+  .badge{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;display:inline-block;margin-top:6px}
+  .pending{background:#ffaa00;color:#000}.approved{background:#00e5a0;color:#000}.rejected{background:#ff4444;color:white}
+  .user-row{background:#0f1f18;padding:14px;border-radius:12px;margin-bottom:10px;border:1px solid #234034}
+  .section-title{font-size:13px;letter-spacing:1px;color:#00e5a0;margin:18px 0 8px;text-transform:uppercase;font-weight:800}
+  .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+  .check-item{background:#0f1f18;border:1px solid #2a4a3c;border-radius:10px;padding:11px 10px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px}
+  .check-item:has(input:checked){background:#00e5a0;color:#00281c;border-color:#00e5a0;font-weight:700}
+  .check-item input{width:18px;height:18px;accent-color:#00e5a0;margin:0;flex-shrink:0}
+  .lesson{background:#0f1f18;padding:14px;border-radius:12px;margin-bottom:8px;border:1px solid #234034;display:flex;justify-content:space-between;align-items:center}
+  .lesson small{color:#9db8ad}
+  .count-box{background:#00e5a0;color:#00281c;padding:10px;border-radius:10px;text-align:center;font-weight:800;margin-bottom:12px}
+  .role-box{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+  .role-option{background:#0f1f18;border:2px solid #2a4a3c;border-radius:12px;padding:14px;text-align:center;cursor:pointer}
+  .role-option.active{border-color:#00e5a0;background:#00e5a0;color:#00281c;font-weight:800}
+  .role-option small{display:block;font-weight:400;opacity:0.8}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div id="page-landing">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <p class="tagline">Medical Students Only.<br>Choose ALL modules you want to study.<br>Admin approves. Student learns.</p>
+    <div class="card">
+      <h2>🩺 How To Use</h2>
+      <p style="color:#b8d0c6;line-height:1.7"><b style="color:white">Student:</b> Sign Up → Choose modules → Wait → Login as Student<br><br><b style="color:white">Admin / Owner:</b> Login → Select Admin → Approve / Reject</p>
+      <button onclick="show('signup')">Apply - Student Sign Up</button>
+      <button class="secondary" onclick="show('login')">Sign In - Choose Student or Admin</button>
+    </div>
+  </div>
+
+  <div id="page-signup" class="hidden">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <div class="card">
+      <h2>Student Application</h2>
+      <input id="su-name" type="text" placeholder="Name">
+      <input id="su-surname" type="text" placeholder="Surname">
+      <input id="su-email" type="email" placeholder="Email">
+      <input id="su-password" type="password" placeholder="Password">
+      <select id="su-year"><option>1st Year MBChB</option><option>2nd Year MBChB</option><option>3rd Year MBChB</option><option>4th Year MBChB</option><option>5th Year MBChB</option><option>6th Year MBChB</option><option>Nursing Student</option><option>Other Health Sciences</option></select>
+      <input id="su-university" type="text" placeholder="University e.g. UP, SMU, UCT">
+      <h2>📚 Choose Modules</h2>
+      <p style="color:#b8d0c6;font-size:13px;margin-bottom:12px">Tick as many as you want.</p>
+      <button class="small secondary" onclick="selectAll(true)">✅ Select All</button>
+      <button class="small secondary" onclick="selectAll(false)">Clear</button>
+      <div class="count-box" id="selected-count">0 modules selected</div>
+      <div class="section-title">Pre-Clinical</div><div class="check-grid" id="pre-grid"></div>
+      <div class="section-title">Clinical</div><div class="check-grid" id="clin-grid"></div>
+      <button onclick="signup()">Submit Application</button>
+      <p class="link" onclick="show('login')">Already approved? Login</p>
+      <p class="link" onclick="show('landing')">← Back Home</p>
+    </div>
+  </div>
+
+  <div id="page-login" class="hidden">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <div class="card">
+      <h2>Sign In - Who Are You?</h2>
+      <div class="role-box">
+        <div id="role-student" class="role-option active" onclick="setRole('student')">🎓 STUDENT<small>Learn modules</small></div>
+        <div id="role-admin" class="role-option" onclick="setRole('admin')">👑 ADMIN<small>Approve students</small></div>
+      </div>
+      <input id="li-email" type="email" placeholder="Email">
+      <input id="li-password" type="password" placeholder="Password">
+      <div id="admin-code-box" class="hidden">
+        <input id="li-admincode" type="password" placeholder="Admin Code">
+        <p style="color:#ffaa00;font-size:13px;margin-bottom:12px">Only the owner knows this code.</p>
+      </div>
+      <button onclick="login()">Sign In As <span id="login-role-label">Student</span></button>
+      <p id="login-msg" style="color:#ff7777;text-align:center;margin-top:10px"></p>
+      <p class="link" onclick="show('signup')">Not approved yet? Apply Here</p>
+      <p class="link" onclick="show('landing')">← Back Home</p>
+    </div>
+    <div class="card" style="font-size:13px;color:#9db8ad;text-align:center">
+      Medical Students Only • Phathu Academy<br>Having trouble? Contact Admin.
+    </div>
+  </div>
+
+  <div id="page-pending" class="hidden">
+    <div class="card" style="text-align:center;padding:28px 10px"><h1 style="font-size:48px">🩺⏳</h1><h2>Application Received</h2><p id="pending-modules" style="color:#b8d0c6;line-height:1.6;margin:12px 0"></p><p style="color:#ffaa00;font-size:13px">Now Admin must approve you.</p><button onclick="logout()">Back To Home</button></div>
+  </div>
+
+  <div id="page-dashboard" class="hidden">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <div class="card"><h2 id="dash-welcome">Welcome</h2><p id="dash-course" style="color:#00e5a0"></p><p id="dash-university" style="color:#b8d0c6;margin-top:4px"></p><p style="margin-top:10px">Status: <span class="badge approved">APPROVED</span> • Role: Student</p></div>
+    <div class="card"><h2>My Modules <span id="my-count" style="color:#00e5a0;font-size:16px"></span></h2><div id="modules-list"></div></div>
+    <button class="secondary" onclick="logout()">Log Out</button>
+  </div>
+
+  <div id="page-admin" class="hidden">
+    <div class="logo">PHATHU<span><br>ACADEMY</span></div>
+    <div class="card"><h2>👑 Admin Dashboard - Owner</h2><p style="color:#b8d0c6">You are logged in as Admin. You approve students here.</p><p style="color:#00e5a0;font-size:13px;margin-top:8px" id="admin-stats"></p></div>
+    <div id="admin-list"></div>
+    <button class="secondary" onclick="logout()">Log Out</button>
+  </div>
+
+</div>
+
+<script>
+// ===== HIDDEN ADMIN CREDENTIALS - NOT SHOWN ON SCREEN =====
+// Only owner knows these. They are in code, not displayed.
+const ADMIN_EMAIL = "admin@phathu.academy";
+const ADMIN_PASSWORD = "admin123";
+const ADMIN_CODE = "PHATHU2026";
+// ===============================================
+
+const PRE = ["Anatomy","Physiology","Biochemistry","Histology","Embryology","Genetics","Immunology","Microbiology","Pathology","Pharmacology","Biostatistics & Epidemiology","Behavioural Science","Medical Ethics"];
+const CLIN = ["Internal Medicine","Surgery","Paediatrics","Obstetrics & Gynaecology","Psychiatry","Family Medicine","Public Health","Emergency Medicine","Anaesthesiology","Orthopaedics","Ophthalmology","ENT","Dermatology","Radiology","Oncology","Neurology","Cardiology","Urology","Infectious Diseases","OSCE Prep"];
+const DESCS = {"Anatomy":"Gross, neuro, diagrams","Physiology":"Systems, homeostasis","Biochemistry":"Metabolism","Histology":"Tissues","Embryology":"Development","Genetics":"Inheritance","Immunology":"Innate, adaptive","Microbiology":"Bacteria, viruses","Pathology":"General + systemic","Pharmacology":"Drugs","Biostatistics & Epidemiology":"Stats","Behavioural Science":"Psychology","Medical Ethics":"Consent, HPCSA","Internal Medicine":"Cardio, resp, renal","Surgery":"General, trauma","Paediatrics":"Neonates","Obstetrics & Gynaecology":"Pregnancy","Psychiatry":"Mood, psychosis","Family Medicine":"PHC","Public Health":"Systems","Emergency Medicine":"Resus","Anaesthesiology":"Airway, ICU","Orthopaedics":"Fractures","Ophthalmology":"Eye","ENT":"Ear, nose, throat","Dermatology":"Skin","Radiology":"X-ray, CT, MRI","Oncology":"Cancer","Neurology":"Stroke","Cardiology":"ECG","Urology":"Renal tract","Infectious Diseases":"HIV, TB","OSCE Prep":"History, exam"};
+
+let selectedRole = 'student';
+function setRole(r){
+  selectedRole = r;
+  document.getElementById('role-student').classList.toggle('active', r==='student');
+  document.getElementById('role-admin').classList.toggle('active', r==='admin');
+  document.getElementById('admin-code-box').classList.toggle('hidden', r!=='admin');
+  document.getElementById('login-role-label').textContent = r==='admin' ? 'Admin' : 'Student';
+}
+function buildCheckboxes(){
+  document.getElementById('pre-grid').innerHTML = PRE.map(m=>`<label class="check-item"><input type="checkbox" value="${m}" class="mod-check" onchange="updateCount()"> ${m}</label>`).join('');
+  document.getElementById('clin-grid').innerHTML = CLIN.map(m=>`<label class="check-item"><input type="checkbox" value="${m}" class="mod-check" onchange="updateCount()"> ${m}</label>`).join('');
+}
+function updateCount(){ const n=document.querySelectorAll('.mod-check:checked').length; document.getElementById('selected-count').textContent=n+' modules selected'; }
+function selectAll(v){ document.querySelectorAll('.mod-check').forEach(c=>c.checked=v); updateCount(); }
+function getUsers(){
+  let u=JSON.parse(localStorage.getItem('phathu_med_users')||'[]');
+  if(!u.find(x=>x.email===ADMIN_EMAIL)){
+    u.push({name:'Phathu',surname:'Admin',email:ADMIN_EMAIL,password:ADMIN_PASSWORD,adminCode:ADMIN_CODE,modules:[],year:'Admin',university:'Phathu Academy',status:'approved',role:'admin'});
+    localStorage.setItem('phathu_med_users',JSON.stringify(u));
+  }
+  return u;
+}
+function saveUsers(u){ localStorage.setItem('phathu_med_users',JSON.stringify(u)); }
+function show(p){ ['landing','signup','login','pending','dashboard','admin'].forEach(x=>document.getElementById('page-'+x).classList.add('hidden')); document.getElementById('page-'+p).classList.remove('hidden'); }
+function signup(){
+  const name=document.getElementById('su-name').value.trim(); const surname=document.getElementById('su-surname').value.trim(); const email=document.getElementById('su-email').value.trim().toLowerCase(); const password=document.getElementById('su-password').value; const year=document.getElementById('su-year').value; const university=document.getElementById('su-university').value.trim();
+  const modules=[...document.querySelectorAll('.mod-check:checked')].map(c=>c.value);
+  if(!name||!surname||!email||!password||!university){alert('Fill all fields');return;}
+  if(modules.length===0){alert('Choose at least 1 module');return;}
+  let users=getUsers(); if(users.find(u=>u.email===email)){alert('Email already exists');return;}
+  users.push({name,surname,email,password,modules,year,university,status:'pending',role:'student'}); saveUsers(users);
+  document.getElementById('pending-modules').innerHTML='You chose <b style="color:#00e5a0">'+modules.length+' modules</b><br>'+modules.join(' • ');
+  show('pending');
+}
+function login(){
+  const email=document.getElementById('li-email').value.trim().toLowerCase(); const password=document.getElementById('li-password').value; const adminCode=document.getElementById('li-admincode')?.value; const msg=document.getElementById('login-msg');
+  let users=getUsers(); const user=users.find(u=>u.email===email && u.password===password);
+  if(!user){msg.textContent='Wrong email or password';return;}
+  if(selectedRole==='admin'){
+    if(user.role!=='admin'){msg.textContent='This account is NOT an Admin. Select Student.';return;}
+    if(adminCode!==ADMIN_CODE){msg.textContent='Wrong Admin Code.';return;}
+    localStorage.setItem('phathu_med_current',JSON.stringify(user)); renderAdmin(); show('admin'); return;
+  } else {
+    if(user.role==='admin'){msg.textContent='Admins must login as Admin, not Student.';return;}
+    if(user.status==='pending'){show('pending');return;}
+    if(user.status==='rejected'){msg.textContent='Application not approved.';return;}
+    localStorage.setItem('phathu_med_current',JSON.stringify(user));
+    document.getElementById('dash-welcome').textContent='Welcome, Dr. '+user.name+' '+user.surname;
+    document.getElementById('dash-course').textContent=user.year+' • '+user.modules.length+' modules';
+    document.getElementById('dash-university').textContent=user.university;
+    document.getElementById('my-count').textContent='('+user.modules.length+')';
+    document.getElementById('modules-list').innerHTML = user.modules.map(m=>`<div class="lesson"><div><b>${m}</b><br><small>${DESCS[m]||''}</small></div><span>›</span></div>`).join('');
+    show('dashboard'); return;
+  }
+}
+function renderAdmin(){
+  let users=getUsers(); let pending=users.filter(u=>u.role!=='admin' && u.status==='pending').length; let approved=users.filter(u=>u.role!=='admin' && u.status==='approved').length;
+  document.getElementById('admin-stats').textContent = `Pending: ${pending} • Approved: ${approved} • Total Students: ${pending+approved}`;
+  let html='';
+  users.filter(u=>u.role!=='admin').forEach(u=>{ html+=`<div class="card user-row"><div><b>Dr. ${u.name} ${u.surname}</b><br><span style="color:#b8d0c6;font-size:13px">${u.email}<br>${u.year} • ${u.university}</span><br><span style="color:#00e5a0;font-size:13px"><b>${(u.modules||[]).length} modules:</b> ${(u.modules||[]).join(', ')}</span><br><span class="badge ${u.status}">${u.status.toUpperCase()}</span></div><div style="display:flex;gap:6px;margin-top:10px"><button style="width:auto;padding:8px 14px" onclick="setStatus('${u.email}','approved')">Approve</button><button class="danger" style="width:auto;padding:8px 14px" onclick="setStatus('${u.email}','rejected')">Reject</button></div></div>`; });
+  document.getElementById('admin-list').innerHTML = html || '<div class="card">No applications yet.</div>';
+}
+function setStatus(email,status){ let users=getUsers(); let u=users.find(x=>x.email===email); if(u) u.status=status; saveUsers(users); renderAdmin(); alert(u.name+' is now '+status); }
+function logout(){ localStorage.removeItem('phathu_med_current'); show('landing'); }
+buildCheckboxes(); getUsers(); updateCount();
+</script>
+</body>
+</html>
