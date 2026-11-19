@@ -4,339 +4,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phathu Med School | Learning Hub</title>
+<title>Phathu Med School | Learning Centre</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#07110e;color:white;min-height:100vh}
-.container{max-width:650px;margin:auto;padding:18px}
-.logo{text-align:center;font-size:27px;font-weight:900;margin:25px 0 5px}
-.logo span{color:#00e5a0}
-.tagline{text-align:center;color:#9db8ad;margin-bottom:22px}
-.card{background:#12211b;border:1px solid #234034;border-radius:15px;padding:17px;margin-bottom:13px}
-h2{margin-bottom:12px}
-h3{margin:14px 0 8px;color:#00e5a0}
-p{line-height:1.7}
-.muted{color:#b8d0c6}
-input[type=text]{width:100%;padding:14px;background:#0f1f18;border:1px solid #2a4a3c;border-radius:10px;color:white;font-size:16px;margin-bottom:15px}
-button{padding:12px 15px;border:0;border-radius:9px;background:#00e5a0;color:#00281c;font-weight:800;cursor:pointer}
-button.secondary{background:#1c332a;color:white;border:1px solid #33544a}
-button.full{width:100%;margin-top:10px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ background:#07110e;color:#e9f5ef;
+ font-family:Arial,Helvetica,sans-serif;
+ min-height:100vh;
+}
+header{
+ background:#10251c;padding:20px;
+ border-bottom:1px solid #24533d;
+ position:sticky;top:0;z-index:5;
+}
+header h1{color:#00e5a0;font-size:23px}
+header p{color:#a6c5b4;font-size:13px;margin-top:6px}
+.container{max-width:1100px;margin:auto;padding:18px}
+.panel{
+ background:#102019;border:1px solid #244333;
+ border-radius:13px;padding:17px;margin-bottom:16px;
+}
+h2{color:#00e5a0;margin-bottom:12px;font-size:20px}
+h3{color:#8af0c4;margin:15px 0 8px}
+p{line-height:1.65;color:#d1e2d8}
+small,.muted{color:#9bb6a7}
+button{
+ background:#00c98b;color:#04150e;border:0;
+ padding:11px 15px;border-radius:8px;
+ font-weight:bold;cursor:pointer;margin:5px 4px 5px 0;
+}
+button.secondary{background:#203c2e;color:#d9f5e7;border:1px solid #39634d}
+button:active{transform:scale(.98)}
+input,textarea,select{
+ width:100%;padding:12px;margin:7px 0 12px;
+ background:#07150f;border:1px solid #315440;
+ border-radius:8px;color:white;font-size:15px;
+}
+textarea{min-height:140px;resize:vertical}
+.grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:12px;
+}
+.module{
+ background:#142a20;border:1px solid #31533f;
+ padding:15px;border-radius:11px;cursor:pointer;
+}
+.module:hover{border-color:#00e5a0}
+.module strong{color:#00e5a0;display:block;margin-bottom:7px}
+.module small{line-height:1.5;display:block}
+.tabs{display:flex;flex-wrap:wrap;gap:5px;margin:12px 0}
+.tab{background:#203c2e;color:white}
+.tab.active{background:#00c98b;color:#04150e}
+.lesson{
+ background:#142a20;border-left:3px solid #00c98b;
+ padding:14px;margin:10px 0;border-radius:7px;
+}
+.definition{
+ padding:12px;border-bottom:1px solid #31503e;
+}
+.definition strong{color:#00e5a0}
+.question{
+ background:#142a20;padding:15px;border-radius:9px;margin:12px 0;
+}
+.option{
+ display:block;background:#203c2e;padding:11px;
+ margin:7px 0;border-radius:7px;cursor:pointer;
+}
+.option input{width:auto;margin:0 8px 0 0}
+.correct{border:1px solid #00e5a0}
+.wrong{border:1px solid #ff7676}
 .hidden{display:none!important}
-.section-title{color:#00e5a0;font-size:13px;font-weight:900;letter-spacing:1px;margin:20px 0 10px}
-.module{background:#0f1f18;border:1px solid #234034;border-radius:11px;padding:15px;margin-bottom:9px;cursor:pointer}
-.module:active{border-color:#00e5a0}
-.module strong{display:block;margin-bottom:5px}
-.module small{color:#9db8ad}
-.topic{background:#0f1f18;border-radius:10px;padding:15px;margin-bottom:10px;border:1px solid #234034}
-.topic p{color:#c4d9d0;font-size:14px}
-.definition{padding:12px;border-bottom:1px solid #234034;line-height:1.6}
-.definition:last-child{border:0}
-.option{display:block;background:#0f1f18;padding:12px;border-radius:9px;margin:8px 0;border:1px solid #234034;cursor:pointer}
-.option input{margin-right:8px}
-.result{padding:15px;background:#0f1f18;border:1px solid #00e5a0;border-radius:10px;margin-top:15px}
-.score{font-size:30px;color:#00e5a0;font-weight:900}
-.back{margin-bottom:14px}
+.badge{
+ display:inline-block;padding:5px 9px;
+ background:#203c2e;color:#8af0c4;
+ border-radius:20px;font-size:12px;margin:3px;
+}
+footer{text-align:center;padding:25px;color:#799888;font-size:12px}
+a{color:#00e5a0}
 </style>
 </head>
 
 <body>
+
+<header>
+ <h1>PHATHU MED SCHOOL</h1>
+ <p>Medical Learning Centre • Lessons • Classes • Quizzes • Notes</p>
+</header>
+
 <div class="container">
 
-<div class="logo">PHATHU<span><br>MED SCHOOL</span></div>
-<p class="tagline">Your Medical Learning Library</p>
+ <section id="home">
+  <div class="panel">
+   <h2>Welcome to your Learning Centre</h2>
+   <p>Study your medical modules, attend structured learning classes, revise definitions, complete quizzes and monitor your learning progress.</p>
+   <br>
+   <div class="grid">
+    <div><span class="badge">33 Modules</span></div>
+    <div><span class="badge">Lessons and Classes</span></div>
+    <div><span class="badge">Quizzes and Scores</span></div>
+    <div><span class="badge">Personal Notes</span></div>
+   </div>
+   <br>
+   <input id="search" placeholder="Search for a medical module..." oninput="renderModules()">
+  </div>
 
-<!-- HOME -->
-<div id="home">
+  <div class="panel">
+   <h2>My Learning Progress</h2>
+   <div class="grid">
+    <div><h3 id="completedCount">0</h3><small>Quizzes completed</small></div>
+    <div><h3 id="averageScore">0%</h3><small>Average score</small></div>
+    <div><h3 id="bestScore">0%</h3><small>Best score</small></div>
+   </div>
+   <br>
+   <button class="secondary" onclick="showScores()">View my score history</button>
+  </div>
 
-<div class="card">
-<h2>📚 Learning Hub</h2>
-<p class="muted">Explore your medical modules. Select a subject to access its lessons, notes, definitions and quizzes.</p>
+  <div class="panel">
+   <h2>Pre-clinical Sciences</h2>
+   <div class="grid" id="preclinical"></div>
+  </div>
+
+  <div class="panel">
+   <h2>Clinical Sciences</h2>
+   <div class="grid" id="clinical"></div>
+  </div>
+
+  <div class="panel">
+   <h2>My Score History</h2>
+   <div id="scoreHistory"><p class="muted">Your quiz results will appear here.</p></div>
+  </div>
+ </section>
+
+ <section id="study" class="hidden">
+  <button class="secondary" onclick="goHome()">← All modules</button>
+  <div class="panel">
+   <h2 id="moduleTitle">Module</h2>
+   <p id="moduleDescription"></p>
+   <br>
+   <div class="tabs">
+    <button class="tab active" onclick="showTab('lessons',this)">Lessons & Classes</button>
+    <button class="tab" onclick="showTab('definitions',this)">Definitions</button>
+    <button class="tab" onclick="showTab('quiz',this)">Quiz</button>
+    <button class="tab" onclick="showTab('notes',this)">My Notes</button>
+    <button class="tab" onclick="showTab('books',this)">Books</button>
+   </div>
+  </div>
+
+  <div id="lessons" class="panel studyTab"></div>
+  <div id="definitions" class="panel studyTab hidden"></div>
+  <div id="quiz" class="panel studyTab hidden"></div>
+  <div id="notes" class="panel studyTab hidden"></div>
+  <div id="books" class="panel studyTab hidden"></div>
+ </section>
+
 </div>
 
-<input type="text" id="search" placeholder="🔍 Search modules..." oninput="searchModules()">
-
-<div class="section-title">PRE-CLINICAL MODULES</div>
-<div id="pre-list"></div>
-
-<div class="section-title">CLINICAL MODULES</div>
-<div id="clin-list"></div>
-
-</div>
-
-<!-- MODULE PAGE -->
-<div id="module-page" class="hidden">
-
-<button class="secondary back" onclick="goHome()">← All Modules</button>
-
-<div class="card">
-<h2 id="module-title"></h2>
-<p id="module-description" class="muted"></p>
-</div>
-
-<div class="card">
-<h2>📖 Lessons & Classes</h2>
-<div id="lessons"></div>
-</div>
-
-<div class="card">
-<h2>📝 Study Notes</h2>
-<div id="notes"></div>
-</div>
-
-<div class="card">
-<h2>📘 Definitions</h2>
-<div id="definitions"></div>
-</div>
-
-<div class="card">
-<h2>🧠 Knowledge Quiz</h2>
-<p class="muted">Test your understanding of this module.</p>
-<div id="quiz"></div>
-<div id="quiz-result"></div>
-</div>
-
-</div>
-
-<div style="text-align:center;color:#789487;font-size:12px;margin:25px 0">
-PHATHU MED SCHOOL • LEARN • PRACTISE • EXCEL
-</div>
-
-</div>
+<footer>
+ PHATHU MED SCHOOL • Independent Medical Learning
+</footer>
 
 <script>
-
-const PRE=[
-"Anatomy","Physiology","Biochemistry","Histology","Embryology",
-"Genetics","Immunology","Microbiology","Pathology","Pharmacology",
-"Biostatistics & Epidemiology","Behavioural Science","Medical Ethics"
-];
-
-const CLIN=[
-"Internal Medicine","Surgery","Paediatrics","Obstetrics & Gynaecology",
-"Psychiatry","Family Medicine","Public Health","Emergency Medicine",
-"Anaesthesiology","Orthopaedics","Ophthalmology","ENT","Dermatology",
-"Radiology","Oncology","Neurology","Cardiology","Urology",
-"Infectious Diseases","OSCE Prep"
-];
-
-const DESCS={
-"Anatomy":"Study the structure of the human body and its organs.",
-"Physiology":"Understand how the human body functions.",
-"Biochemistry":"Study chemical processes occurring in living organisms.",
-"Histology":"Study tissues using microscopic examination.",
-"Embryology":"Understand human development from fertilisation.",
-"Genetics":"Study genes, inheritance and genetic variation.",
-"Immunology":"Study the immune system and its responses.",
-"Microbiology":"Study microorganisms and their effects on humans.",
-"Pathology":"Understand the causes and mechanisms of disease.",
-"Pharmacology":"Study medicines, their actions and effects.",
-"Biostatistics & Epidemiology":"Understand medical data and disease patterns.",
-"Behavioural Science":"Study behaviour and psychological factors in health.",
-"Medical Ethics":"Study ethical principles in medical practice.",
-"Internal Medicine":"Diagnosis and management of adult medical conditions.",
-"Surgery":"Principles of surgical care and procedures.",
-"Paediatrics":"Medical care of infants, children and adolescents.",
-"Obstetrics & Gynaecology":"Pregnancy, childbirth and reproductive health.",
-"Psychiatry":"Mental health, diagnosis and treatment.",
-"Family Medicine":"Comprehensive primary healthcare.",
-"Public Health":"Health promotion and population health.",
-"Emergency Medicine":"Assessment and management of emergencies.",
-"Anaesthesiology":"Anaesthesia, pain management and critical care.",
-"Orthopaedics":"Bones, joints and musculoskeletal conditions.",
-"Ophthalmology":"Diseases and disorders of the eye.",
-"ENT":"Ear, nose and throat medicine.",
-"Dermatology":"Diseases of the skin.",
-"Radiology":"Medical imaging and interpretation.",
-"Oncology":"Cancer biology and treatment.",
-"Neurology":"Diseases of the nervous system.",
-"Cardiology":"Heart and cardiovascular medicine.",
-"Urology":"Urinary tract and male reproductive health.",
-"Infectious Diseases":"Diagnosis and management of infections.",
-"OSCE Prep":"Clinical examination and communication skills."
-};
-
-const ANATOMY={
-lessons:[
+const modules = [
 {
-title:"Lesson 1: Introduction to Human Anatomy",
-text:"Human anatomy is the scientific study of the structure of the human body. It examines how body parts are organised and how they relate to one another. Anatomy provides the structural foundation for understanding physiology, pathology and clinical medicine."
-},
-{
-title:"Lesson 2: Anatomical Position",
-text:"The anatomical position is the standard reference position used when describing the human body. The person stands upright, faces forward, keeps the arms at the sides, turns the palms forward and points the feet forward. All anatomical directions are described relative to this position."
-},
-{
-title:"Lesson 3: Anatomical Planes",
-text:"The sagittal plane divides the body into right and left portions. The coronal plane divides the body into anterior and posterior portions. The transverse plane divides the body into superior and inferior portions."
-},
-{
-title:"Lesson 4: Directional Terms",
-text:"Superior means toward the head. Inferior means toward the feet. Anterior means toward the front. Posterior means toward the back. Medial means closer to the midline. Lateral means farther from the midline."
-},
-{
-title:"Lesson 5: Levels of Body Organisation",
-text:"The body is organised into cells, tissues, organs, organ systems and the complete organism. Cells are the basic structural and functional units of life. Similar cells form tissues, tissues form organs, and organs work together in organ systems."
-}
+name:"Anatomy",type:"Pre-clinical",
+desc:"Study the structure of the human body, its organs, tissues and anatomical relationships.",
+topics:[
+["Introduction to Anatomy","Anatomy is the scientific study of the structures of the human body. It examines the shape, position, relationships and organisation of body parts. Gross anatomy studies structures visible to the naked eye, while microscopic anatomy examines cells and tissues."],
+["Anatomical Position and Planes","The standard anatomical position is standing upright, facing forward, arms at the sides, palms facing forward and feet directed forward. The sagittal plane divides the body into right and left portions; the frontal plane divides front and back; and the transverse plane divides upper and lower portions."],
+["Body Organisation","The human body is organised into cells, tissues, organs, organ systems and the whole organism. The major tissue types are epithelial, connective, muscle and nervous tissue."]
 ],
-
-notes:[
-"Anatomy describes body structure, while physiology describes body function.",
-"The anatomical position is the universal reference position for describing body structures.",
-"The three main anatomical planes are sagittal, coronal and transverse.",
-"The five levels of organisation are cells, tissues, organs, organ systems and organism.",
-"Directional terminology helps medical professionals describe the location of structures accurately."
-],
-
-definitions:[
-["Anatomy","The scientific study of the structure of the human body."],
-["Physiology","The study of how living organisms and their body parts function."],
-["Anterior","Toward the front of the body."],
-["Posterior","Toward the back of the body."],
-["Superior","Toward the head or upper part of the body."],
-["Inferior","Toward the feet or lower part of the body."],
-["Medial","Closer to the body's midline."],
-["Lateral","Farther away from the body's midline."],
-["Sagittal plane","A vertical plane dividing the body into right and left portions."],
-["Coronal plane","A vertical plane dividing the body into anterior and posterior portions."],
-["Transverse plane","A horizontal plane dividing the body into superior and inferior portions."],
-["Tissue","A group of similar cells working together to perform a function."],
-["Organ","A structure made of different tissues working together."]
-],
-
+defs:[["Anatomy","The study of body structures."],["Physiology","The study of how the body functions."],["Medial","Closer to the body's midline."],["Lateral","Further from the body's midline."],["Proximal","Closer to the point of attachment."],["Distal","Further from the point of attachment."]],
 quiz:[
-{q:"What does anatomy study?",o:["Body structure","Body function","Disease treatment","Drug dosage"],a:0,e:"Anatomy focuses on the structure of the body."},
-{q:"Which position is used as the standard reference in anatomy?",o:["Sitting position","Anatomical position","Sleeping position","Supine position"],a:1,e:"The anatomical position provides a universal reference."},
-{q:"Which plane divides the body into anterior and posterior portions?",o:["Transverse","Sagittal","Coronal","Oblique"],a:2,e:"The coronal plane separates front and back portions."},
-{q:"The term medial means:",o:["Away from the midline","Closer to the midline","Toward the feet","Toward the back"],a:1,e:"Medial means closer to the body's midline."},
-{q:"What is the basic structural and functional unit of the body?",o:["Organ","Tissue","Cell","System"],a:2,e:"The cell is the basic unit of life."}
+["Which anatomical plane divides the body into right and left portions?","Sagittal plane",["Transverse plane","Frontal plane","Coronal plane"]],
+["Which tissue type is specialised for transmitting electrical signals?","Nervous tissue",["Connective tissue","Epithelial tissue","Muscle tissue"]]
 ]
-};
-
-function renderModules(){
-renderList("pre-list",PRE);
-renderList("clin-list",CLIN);
-}
-
-function renderList(id,items){
-document.getElementById(id).innerHTML=items.map(m=>`
-<div class="module" onclick="openModule('${m}')">
-<strong>${m}</strong>
-<small>${DESCS[m]}</small>
-</div>`).join("");
-}
-
-function searchModules(){
-const term=document.getElementById("search").value.toLowerCase();
-renderList("pre-list",PRE.filter(m=>
-m.toLowerCase().includes(term)||DESCS[m].toLowerCase().includes(term)));
-renderList("clin-list",CLIN.filter(m=>
-m.toLowerCase().includes(term)||DESCS[m].toLowerCase().includes(term)));
-}
-
-function goHome(){
-document.getElementById("home").classList.remove("hidden");
-document.getElementById("module-page").classList.add("hidden");
-}
-
-function openModule(name){
-document.getElementById("home").classList.add("hidden");
-document.getElementById("module-page").classList.remove("hidden");
-
-document.getElementById("module-title").textContent=name;
-document.getElementById("module-description").textContent=DESCS[name];
-
-const data=name==="Anatomy"?ANATOMY:null;
-
-document.getElementById("lessons").innerHTML=data?
-data.lessons.map((l,i)=>`
-<div class="topic">
-<h3>${l.title}</h3>
-<p>${l.text}</p>
-</div>`).join("")
-:`<p class="muted">Lessons for ${name} will be added in the next content development stage.</p>`;
-
-document.getElementById("notes").innerHTML=data?
-data.notes.map(n=>`<div class="definition">📌 ${n}</div>`).join("")
-:`<p class="muted">Study notes are being prepared for this module.</p>`;
-
-document.getElementById("definitions").innerHTML=data?
-data.definitions.map(d=>`
-<div class="definition"><b style="color:#00e5a0">${d[0]}</b><br>${d[1]}</div>`).join("")
-:`<p class="muted">Definitions are being prepared for this module.</p>`;
-
-document.getElementById("quiz-result").innerHTML="";
-
-if(data){
-renderQuiz(data.quiz);
-}else{
-document.getElementById("quiz").innerHTML=
-"<p class='muted'>Quiz questions will be added as this module is developed.</p>";
-}
-}
-
-function renderQuiz(questions){
-let html="<form id='quiz-form'>";
-
-questions.forEach((q,i)=>{
-html+=`<div class="topic">
-<h3>${i+1}. ${q.q}</h3>`;
-
-q.o.forEach((option,j)=>{
-html+=`<label class="option">
-<input type="radio" name="q${i}" value="${j}">
-${option}
-</label>`;
-});
-
-html+="</div>";
-});
-
-html+="<button type='button' class='full' onclick='markQuiz()'>Submit Answers</button></form>";
-
-document.getElementById("quiz").innerHTML=html;
-window.currentQuestions=questions;
-}
-
-function markQuiz(){
-const questions=window.currentQuestions;
-let score=0;
-let feedback="";
-
-for(let i=0;i<questions.length;i++){
-const answer=document.querySelector(`input[name="q${i}"]:checked`);
-
-if(!answer){
-alert("Please answer all questions first.");
-return;
-}
-
-const correct=Number(answer.value)===questions[i].a;
-
-if(correct)score++;
-
-feedback+=`<div class="definition">
-<b>${i+1}. ${correct?"✅ Correct":"❌ Incorrect"}</b><br>
-${questions[i].e}
-</div>`;
-}
-
-const percentage=Math.round(score/questions.length*100);
-
-document.getElementById("quiz-result").innerHTML=`
-<div class="result">
-<p>Your quiz result</p>
-<div class="score">${score}/${questions.length}</div>
-<h3>${percentage}%</h3>
-<p>${percentage>=80?"Excellent work!":percentage>=50?"Good effort. Keep revising.":"Keep studying and try again."}</p>
-${feedback}
-<button class="full" onclick="openModule('Anatomy')">Try Again</button>
-</div>`;
-
-}
-
-renderModules();
-
-</script>
-</body>
-</html>
+},
+{
+name:"Physiology",type:"Pre-clinical",
+desc:"Understand how the human body and its organ systems function.",
+topics:[
+["Homeostasis","Homeostasis is the maintenance of a relatively stable internal environment despite changes inside or outside the body. Negative feedback reverses a change, helping variables such as temperature and blood glucose return towards normal."],
+["Cell Membrane Transport","The cell membrane controls movement of substances. Diffusion moves particles down a concentration gradient. Osmosis is water movement across a selectively permeable membrane. Active transport uses energy to move substances against a gradient."],
+["Nervous and Endocrine Control","The nervous system uses electrical impulses and neurotransmitters for rapid communication. The endocrine system releases hormones into the blood, generally producing slower and longer-lasting effects."]
+],
+defs:[["Homeostasis","Maintenance of a stable internal environment."],["Diffusion","Net movement of particles from higher to lower concentration."],["Osmosis","Movement of water across a selectively permeable membrane."],["Hormone","A chemical messenger released by endocrine cells."],["Negative feedback","A response that opposes an initial change."]],
+quiz:[
+["What is the main purpose of homeostasis?","Maintaining a stable internal environment",["Stopping all body changes","Preventing all hormone release","Producing energy only"]],
+["Which process requires energy to move substances against a concentration gradient?","Active transport",["Simple diffusion","Osmosis","Filtration"]]
+]
+},
+{
+name:"Biochemistry",type:"Pre-clinical",
+desc:"Explore the chemical processes and molecules essential for life.",
+topics:[
+["Biological Molecules","Carbohydrates provide energy and structural support. Lipids store energy and form cell membranes. Proteins perform structural, transport and catalytic functions. Nucleic acids store and transmit genetic information."],
+["Enzymes","Enzymes are biological catalysts that increase reaction rates by lowering activation energy. Their activity is influenced by temperature, pH, substrate concentration and inhibitors."],
+["Metabolism and ATP","Metabolism includes all chemical reactions in the body. Catabolism breaks molecules down and may release energy. Anabolism builds molecules and requires energy. ATP is a major immediate energy carrier in cells."]
+],
+defs:[["Metabolism","All chemical reactions occurring in an organism."],["Enzyme","A biological catalyst."],["ATP","A molecule that transfers usable energy in cells."],["Catabolism","Breakdown of complex molecules."],["Anabolism","Synthesis of complex molecules."]],
+quiz:[
+["What is the main role of an enzyme?","To speed up chemical reactions",["To permanently increase body temperature","To store genetic information","To destroy all substrates"]],
+["Which molecule is a major immediate energy carrier in cells?","ATP",["DNA","Collagen","Haemoglobin"]]
+]
+},
+{
+name:"Histology",type:"Pre-clinical",
+desc:"Study the microscopic structure of cells, tissues and organs.",
+topics:[
+["Epithelial Tissue","Epithelial tissue covers body surfaces, lines cavities and forms glands. Cells are closely packed and rest on a basement membrane. Classification considers cell shape and the number of layers."],
+["Connective Tissue","Connective tissue supports, binds and protects structures. It contains cells within an extracellular matrix. Examples include bone, cartilage, blood, adipose tissue and tendons."],
+["Muscle and Nervous Tissue","Skeletal muscle is generally voluntary and striated. Cardiac muscle forms the heart and is involuntary. Smooth muscle is found in many hollow organs. Nervous tissue contains neurons and supporting glial cells."]
+],
+defs:[["Histology","The microscopic study of tissues."],["Epithelium","Tissue that covers surfaces and lines cavities."],["Basement membrane","A supporting layer beneath epithelium."],["Neuron","A specialised nerve cell."]],
+quiz:[
+["Which tissue commonly lines body cavities?","Epithelial tissue",["Bone tissue","Adipose tissue","Cartilage"]],
+["Which muscle tissue is found in the heart?","Cardiac muscle",["Skeletal muscle","Smooth muscle","Voluntary muscle only"]]
+]
+},
+{
+name:"Embryology",type:"Pre-clinical",
+desc:"Study human development from fertilisation through the embryonic and fetal periods.",
+topics:[
+["Fertilisation and Early Development","Fertilisation usually occurs in the uterine tube when a sperm cell fuses with an oocyte. The resulting zygote divides by cleavage, forming a morula and then a blastocyst."],
+["Implantation and Gastrulation","The blastocyst implants into the uterine lining. During gastrulation, the three primary germ layers form: ectoderm, mesoderm and endoderm. These layers contribute to different tissues and organs."],
+["Organ Formation","Organogenesis involves the development of organs from embryonic tissues. Development is a coordinated process and some stages are particularly sensitive to harmful exposures."]
+],
+defs:[["Zygote","The cell formed after fertilisation."],["Blastocyst","An early embryo containing an inner cell mass and outer cell layer."],["Gastrulation","The process forming the three primary germ layers."],["Organogenesis","The formation and development of organs."]],
+quiz:[
+["Which three germ layers form during gastrulation?","Ectoderm, mesoderm and endoderm",["Epidermis, dermis and muscle","Neurons, blood and bone","Amnion, placenta and yolk sac"]],
+["What is the cell formed immediately after fertilisation called?","Zygote",["Blastocyst","Morula","Gastrula"]]
+]
+},
+{
+name:"Genetics",type:"Pre-clinical",
+desc:"Understand genes, chromosomes, inheritance and genetic variation.",
+topics:[
+["DNA and Genes","DNA is a molecule that carries hereditary information. A gene is a region of DNA associated with a functional product. DNA is organised into chromosomes within the nucleus of most human cells."],
+["Inheritance","Alleles are different versions of a gene. Genotypes describe genetic combinations, while phenotypes describe observable characteristics resulting from genetic and environmental influences."],
+["Mutations and Genetic Disorders","A mutation is a change in genetic material. Some mutations have little effect, while others can alter protein function or gene regulation and contribute to disease."]
+],
+defs:[["Gene","A DNA sequence associated with a functional product."],["Allele","An alternative form of a gene."],["Genotype","The genetic constitution of an organism."],["Phenotype","Observable characteristics of an organism."],["Mutation","A change in genetic material."]],
+quiz:[
+["What is an alternative form of a gene called?","Allele",["Chromosome","Ribosome","Phenotype"]],
+["What does genotype describe?","An individual's genetic constitution",["Only physical appearance","The environment","The number of organs"]]
+]
+},
+{
+name:"Immunology",type:"Pre-clinical",
+desc:"Study the immune system and how the body recognises and responds to threats.",
+topics:[
+["Innate Immunity","Innate immunity provides rapid, non-specific defence. It includes physical barriers, phagocytic cells, natural killer cells, complement proteins and inflammatory responses."],
+["Adaptive Immunity","Adaptive immunity is antigen-specific and involves B and T lymphocytes. B cells can produce antibodies, while T cells coordinate immune responses or destroy infected cells."],
+["Immune Memory and Vaccination","After exposure to an antigen, memory B and T cells may remain. Vaccination safely trains immune responses to recognise selected pathogens or their components."]
+],
+defs:[["Antigen","A substance recognised by the immune system."],["Antibody","A protein produced by B cells that binds a specific antigen."],["Phagocytosis","Engulfment of particles or microbes by cells."],["Immunity","The body's ability to resist or respond to infection and other threats."]],
+quiz:[
+["Which cells can produce antibodies?","B lymphocytes",["Red blood cells","Platelets","Neurons"]],
+["Which type of immunity is generally rapid and non-specific?","Innate immunity",["Adaptive immunity","Immune memory only","Artificial passive immunity"]]
+]
+},
+{
+name:"Microbiology",type:"Pre-clinical",
+desc:"Study microorganisms, infectious agents and their effects on humans.",
+topics:[
+["Bacteria","Bacteria are single-celled prokaryotic organisms. They lack a membrane-bound nucleus. Some bacteria are harmless or beneficial, while others cause infections."],
+["Viruses and Fungi","Viruses require host cells to reproduce. Fungi are eukaryotic organisms that include yeasts and moulds. Their structures and methods of reproduction differ from those of bacteria."],
+["Infection and Transmission","Infectious diseases may spread through contact, droplets, airborne particles, contaminated food or water, blood and vectors. Prevention includes hygiene, vaccination and appropriate infection-control measures."]
+],
+defs:[["Pathogen","An organism or agent capable of causing disease."],["Bacterium","A single-celled prokaryotic organism."],["Virus","An infectious agent that replicates inside host cells."],["Fungus","A eukaryotic organism including yeasts and moulds."],["Vector","An organism that transmits an infectious agent."]],
+quiz:[
+["What type of cell structure do bacteria have?","Prokaryotic",["Eukaryotic with a nucleus","No genetic material","Only animal cells"]],
+["Why do viruses need host cells?","They depend on host-cell machinery to replicate",["They have no genetic material","They are larger than human cells","They reproduce by binary fission"]]
+]
+},
+{
+name:"Pathology",type:"Pre-clinical",
+desc:"Study disease processes, causes, mechanisms and structural changes.",
+topics:[
+["Introduction to Disease","Pathology is the study of disease. It examines causes, mechanisms, structural changes and clinical consequences. Aetiology refers to the cause of a disease, while pathogenesis describes how it develops."],
+["Cell Injury and Adaptation","Cells respond to stress through adaptation. Severe or persistent injury can cause cell death through necrosis or apoptosis. The outcome depends on the type, duration and severity of injury."],
+["Inflammation","Inflammation is a protective response to tissue injury or infection. It involves changes in blood vessels and the movement of immune cells into affected tissues."]
+],
+defs:[["Aetiology","The cause or origin of a disease."],["Pathogenesis","The mechanism by which a disease develops."],["Necrosis","Uncontrolled cell death associated with cell injury."],["Apoptosis","A regulated form of cell death."],["Inflammation","A protective response to tissue injury or infection."]],
+quiz:[
+["What does aetiology mean?","The cause of a disease",["The treatment of a disease","The appearance of a cell","The measurement of blood pressure"]],
+["Which is a regulated form of cell death?","Apoptosis",["Necrosis","Metaplasia","Hypertrophy"]]
+]
+},
+{
+name:"Pharmacology",type:"Pre-clinical",
+desc:"Understand medicines, their actions, uses, adverse effects and interactions.",
+topics:[
+["Pharmacokinetics","Pharmacokinetics describes what the body does to a medicine. It includes absorption, distribution, metabolism and excretion, often summarised as ADME."],
+["Pharmacodynamics","Pharmacodynamics describes what a medicine does to the body. It includes drug-receptor interactions, dose-response relationships and the effects produced."],
+["Adverse Effects and Safe Prescribing","Medicines can cause intended therapeutic effects and unintended adverse effects. Safe prescribing considers allergies, interactions, contraindications, dose, patient factors and monitoring."]
+],
+defs:[["Pharmacokinetics","What the body does to a drug."],["Pharmacodynamics","What a drug does to the body."],["Absorption","Movement of a drug into the bloodstream."],["Contraindication","A reason a treatment should not be used."],["Adverse effect","An unwanted harmful effect of a medicine."]],
+quiz:[
+["What does ADME stand for?","Absorption, distribution, metabolism and excretion",["Action, dosage, medicine and evaluation","Anatomy, diagnosis, metabolism and energy","Absorption, digestion, movement and elimination"]],
+["Pharmacodynamics studies:","What a drug does to the body",["Only drug absorption","Only kidney function","How diseases are inherited"]]
+]
+},
+{
+name:"Biostatistics & Epidemiology",type:"Pre-clinical",
+desc:"Learn how health data is analysed and how diseases are distributed in populations.",
+topics:[
+["Descriptive Statistics","Descriptive statistics summarise data. The mean is the arithmetic average, the median is the middle value, and the mode is the most frequently occurring value."],
+["Disease Frequency","Incidence measures new cases occurring in a population over a specified period. Prevalence measures all existing cases at a particular time or over a defined period."],
+["Study Designs","Observational studies include cohort, case-control and cross-sectional studies. Experimental studies, such as randomised controlled trials, assign an intervention to evaluate its effects."]
+],
+defs:[["Incidence","The occurrence of new cases in a population over time."],["Prevalence","The proportion of a population with a condition."],["Mean","The arithmetic average."],["Median","The middle value in an ordered dataset
