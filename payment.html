@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phathu Med School - Membership Payment</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#07110e;
+  color:white;
+  min-height:100vh;
+}
+
+.container{
+  max-width:520px;
+  margin:auto;
+  padding:20px;
+}
+
+.logo{
+  text-align:center;
+  font-size:29px;
+  font-weight:900;
+  margin:30px 0 8px;
+}
+
+.logo span{
+  color:#00e5a0;
+}
+
+.tagline{
+  text-align:center;
+  color:#9db8ad;
+  margin-bottom:25px;
+  line-height:1.5;
+}
+
+.card{
+  background:#12211b;
+  border:1px solid #234034;
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:15px;
+}
+
+.price{
+  text-align:center;
+  padding:20px;
+  background:#0f1f18;
+  border-radius:12px;
+  margin:15px 0;
+}
+
+.price h1{
+  color:#00e5a0;
+  font-size:42px;
+}
+
+.price p{
+  color:#9db8ad;
+  margin-top:5px;
+}
+
+.details{
+  margin-top:15px;
+}
+
+.detail{
+  padding:14px 0;
+  border-bottom:1px solid #234034;
+}
+
+.detail:last-child{
+  border-bottom:none;
+}
+
+.detail small{
+  color:#9db8ad;
+  display:block;
+  margin-bottom:6px;
+}
+
+.detail strong{
+  font-size:17px;
+  word-break:break-word;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  background:#00e5a0;
+  color:#00281c;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:800;
+  margin-top:12px;
+  cursor:pointer;
+}
+
+.secondary{
+  background:#1c332a;
+  color:white;
+  border:1px solid #33544a;
+}
+
+.note{
+  color:#b8d0c6;
+  font-size:13px;
+  line-height:1.7;
+  margin-top:12px;
+}
+
+.steps{
+  color:#b8d0c6;
+  line-height:2;
+  padding-left:20px;
+}
+
+.footer{
+  text-align:center;
+  color:#789487;
+  font-size:12px;
+  margin:25px 0;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="logo">
+    PHATHU<span><br>MED SCHOOL</span>
+  </div>
+
+  <p class="tagline">
+    Membership Payment Portal<br>
+    Secure your five-month study access.
+  </p>
+
+  <div class="card">
+
+    <h2>🎓 Membership</h2>
+
+    <div class="price">
+      <h1>R199</h1>
+      <p>5 Months Membership Access</p>
+    </div>
+
+    <h3>🏦 Banking Details</h3>
+
+    <div class="details">
+
+      <div class="detail">
+        <small>Bank</small>
+        <strong>Capitec Bank</strong>
+      </div>
+
+      <div class="detail">
+        <small>Account Holder</small>
+        <strong>Phathutshedzo Mbedzi</strong>
+      </div>
+
+      <div class="detail">
+        <small>Account Number</small>
+        <strong>1677195051</strong>
+      </div>
+
+      <div class="detail">
+        <small>Payment Amount</small>
+        <strong>R199.00</strong>
+      </div>
+
+      <div class="detail">
+        <small>Payment Reference</small>
+        <strong>Your Full Name</strong>
+      </div>
+
+    </div>
+
+    <button onclick="copyDetails()">
+      Copy Banking Details
+    </button>
+
+    <p class="note">
+      Please use your full name as the payment reference
+      so that your payment can be identified.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>📋 What Happens Next?</h2>
+
+    <ol class="steps">
+      <li>Transfer R199 into the account above.</li>
+      <li>Take a screenshot of your proof of payment.</li>
+      <li>Send your proof to Phathu Med School Admin.</li>
+      <li>Wait for payment verification.</li>
+      <li>Admin activates your five-month membership.</li>
+    </ol>
+
+    <button onclick="sendWhatsApp()">
+      Send Proof of Payment on WhatsApp
+    </button>
+
+    <p class="note">
+      Membership is not activated immediately after payment.
+      Admin must first verify your proof of payment.
+    </p>
+
+  </div>
+
+  <button class="secondary" onclick="history.back()">
+    ← Go Back
+  </button>
+
+  <div class="footer">
+    PHATHU MED SCHOOL • MEMBERSHIP PORTAL
+  </div>
+
+</div>
+
+<script>
+function copyDetails(){
+
+  const details =
+`PHATHU MED SCHOOL MEMBERSHIP
+
+Bank: Capitec Bank
+Account Holder: Phathutshedzo Mbedzi
+Account Number: 1677195051
+Amount: R199
+Duration: 5 Months
+Reference: Your Full Name`;
+
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(details)
+      .then(()=>alert("Banking details copied!"))
+      .catch(()=>alert("Please copy the banking details manually."));
+  }else{
+    alert(details);
+  }
+}
+
+function sendWhatsApp(){
+
+  const message =
+"Hello Phathu Med School Admin. I have paid R199 for my 5-month membership. I would like to submit my proof of payment for verification.";
+
+  const url =
+"https://wa.me/27829628700?text="+encodeURIComponent(message);
+
+  window.open(url,"_blank");
+}
+</script>
+
+</body>
+ </html>
+ 
